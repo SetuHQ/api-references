@@ -15,9 +15,6 @@
   "paths": {
     "/api/verify/pan": {
       "post": {
-        "tags": [
-          "PAN Verification"
-        ],
         "summary": "Verify PAN",
         "operationId": "VerifyPAN",
         "parameters": [
@@ -2848,9 +2845,4 @@
       "bearer": []
     }
   ],
-  "tags": [
-    {
-      "name": "PAN Verification"
-    }
-  ]
 }
