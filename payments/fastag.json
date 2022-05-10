@@ -6,7 +6,7 @@
       "altText": "Axis setu logo"
     },
     "version": "1.0.0",
-    "description": "FASTag docs\n\nProcess flow:\n\n![](https://i.imgur.com/ztxvtVm.png)\n"
+    "description": "Fastag docs\n\nProcess flow:\n\n![](https://i.imgur.com/ztxvtVm.png)\n"
   },
   "paths": {
     "/generate-otp": {
