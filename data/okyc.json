@@ -15,9 +15,6 @@
     "paths": {
       "/api/okyc": {
         "post": {
-          "tags": [
-            "OKYC"
-          ],
           "summary": "Create an OKYC Request",
           "operationId": "CreateanOKYCRequest",
           "parameters": [
@@ -119,9 +116,6 @@
       },
       "/api/okyc/{requestId}/initiate": {
         "get": {
-          "tags": [
-            "OKYC"
-          ],
           "summary": "[API only] Initiate OKYC Request",
           "operationId": "[APIonly]InitiateOKYCRequest",
           "parameters": [
@@ -237,9 +231,6 @@
       },
       "/api/okyc/{requestId}/verify": {
         "post": {
-          "tags": [
-            "OKYC"
-          ],
           "summary": "[API only] Verify OKYC Request",
           "operationId": "[APIonly]VerifyOKYCRequest",
           "parameters": [
@@ -376,9 +367,6 @@
       },
       "/api/okyc/{requestId}/complete": {
         "post": {
-          "tags": [
-            "OKYC"
-          ],
           "summary": "[API only] Complete OKYC Request",
           "operationId": "[APIonly]CompleteOKYCRequest",
           "parameters": [
@@ -522,9 +510,6 @@
       },
       "/api/okyc/{requestId}/{shareCode}": {
         "get": {
-          "tags": [
-            "OKYC"
-          ],
           "summary": "Get details of an OKYC Request",
           "operationId": "GetdetailsofanOKYCRequest",
           "parameters": [
