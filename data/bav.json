@@ -15,7 +15,7 @@
   "paths": {
     "/api/verify/ban": {
       "post": {
-        "tags": ["Bank Account Verification"],
+        
         "summary": "Verify BAN",
         "operationId": "VerifyBAN",
         "parameters": [
@@ -224,7 +224,7 @@
     },
     "/api/verify/ban/async": {
       "post": {
-        "tags": ["Bank Account Verification"],
+        
         "summary": "Verify BAN Async",
         "operationId": "VerifyBANAsync",
         "parameters": [
@@ -289,7 +289,7 @@
     },
     "/api/verify/ban/async/{RequestId}": {
       "get": {
-        "tags": ["Bank Account Verification"],
+        
         "summary": "Get BAV request details",
         "operationId": "GetBAVrequestdetails",
         "parameters": [
