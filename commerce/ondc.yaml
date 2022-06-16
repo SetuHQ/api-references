@@ -1,12 +1,16 @@
 openapi: 3.0.0
 info:
-  title: ONDC Protocol Core API
-  description: ONDC Protocol Core API specification. This is an adaptation of Beckn Core version 0.9.3
-  version: 1.0.0-draft
+  title: ONDC Protocol API for retail (grocery, f&b)
+  description: ONDC Protocol API specification, which includes statutory requirements for packaged commodities and pre-packaged food
+              This is an adaptation of Beckn Core version 0.9.3
+  version: 1.0.13
 security:
   - SubscriberAuth: []
   - GatewaySubscriberAuth: []
   - GatewaySubscriberAuthNew: []
+externalDocs:
+  description: Contract between retail buyer and seller apps (change tracking here, details in spec)
+  url: https://docs.google.com/document/d/12oMC4A05jT5rjCbY-M7j4T2oekr9bqcvSOpTI0jFEgE/edit
 paths:
   /search:
     post:
@@ -615,6 +619,11 @@ paths:
                           $ref: '#/components/schemas/Quotation'
                         payment:
                           $ref: '#/components/schemas/Payment'
+                      required:
+                        - provider.id
+                        - provider_location.id
+                        - items.id
+                        - items.quantity
                   required:
                     - order
                 error:
@@ -987,7 +996,7 @@ paths:
         - Buyer App Meta APIs
       description: Get cancellation reasons from the Seller App
       requestBody:
-        description: List of cancellation reasons
+        description: List of cancellation reasons.
         content:
           application/json:
             schema:
@@ -1430,6 +1439,7 @@ components:
         time:
           $ref: '#/components/schemas/Time'
         tax_number:
+          description: GST number
           type: string
         created_at:
           type: string
@@ -1440,8 +1450,18 @@ components:
       required:
         - name
         - phone
+        - tax_number
     Cancellation:
-      description: Describes the ACK response
+      description: Describes a cancellation event. Use the following reason codes (reasons.id, reasons.descriptor.code)
+                   ("001", "Order delivery delayed or not possible")
+                   ("002", "Price of one or more items have changed due to which buyer was asked to make additional payment")
+                   ("003", "One or more items in the Order not available")
+                   ("004", "Delivery pin code not serviceable")
+                   ("005", "Buyer refused to accept delivery")
+                   ("006", "Buyer not found")
+                   ("007", "Address not found")
+                   ("008", "Buyer does not want product any more")
+                   ("009", "Product available at lower price the order price")
       type: object
       properties:
         type:
@@ -1475,6 +1495,12 @@ components:
       properties:
         bpp/descriptor:
           $ref: '#/components/schemas/Descriptor'
+          required:
+            - name
+            - symbol
+            - short_desc
+            - long_desc
+            - images
         bpp/categories:
           type: array
           items:
@@ -1495,10 +1521,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Provider'
+          required:
+            - Provider.fulfillments.id
+            - Provider.fulfillments.type
+            - Provider.locations.id
+            - Provider.locations.gps
+            - Provider.locations.address.street
+            - Provider.locations.address.city
+            - Provider.locations.address.area_code
+            - Provider.locations.address.state
         exp:
           type: string
           description: Time after which catalog has to be refreshed
           format: date-time
+      required:
+        - bpp/descriptor
+        - bpp/providers
     Category:
       description: Describes a category
       type: object
@@ -1506,8 +1544,20 @@ components:
         id:
           type: string
           description: Unique id of the category
+          enum:
+            - Grocery
+            - Packaged Commodities
+            - Packaged Foods
+            - Fruits and Vegetables
+            - F&B
+            - Fashion
         parent_category_id:
-          $ref: '#/components/schemas/Category/properties/id'
+          type: string
+          description: Unique id of the parent category
+          enum:
+            - Grocery
+            - F&B
+            - Fashion
         descriptor:
           $ref: '#/components/schemas/Descriptor'
         time:
@@ -1535,6 +1585,18 @@ components:
         code:
           type: string
           description: Codification of city code will be using the std code of the city e.g. for Bengaluru, city code is 'std:080'
+          enum:
+            - std:080 (Bengaluru)
+            - std:011 (New Delhi)
+            - std:0422 (Coimbatore)
+            - std:0364 (Shillong)
+            - std:0522 (Lucknow)
+            - std:0755 (Bhopal)
+            - std:044 (Chennai)
+            - std:022 (Mumbai)
+            - std:020 (Pune)
+            - std:040 (Hyderabad)
+            - std:0145 (Ajmer)
     Contact:
       type: object
       properties:
@@ -1583,20 +1645,20 @@ components:
           description: Version of ONDC core API specification being used
         bap_id:
           type: string
-          format: uri
           description: Unique id of the Buyer App. By default it is the fully qualified domain name of the Buyer App
         bap_uri:
           type: string
           format: uri
-          description: URI of the Seller App for accepting callbacks. Must have the same domain name as the bap_id
+          description: URI of the Buyer App for accepting callbacks. Must have the same domain name as the bap_id
         bpp_id:
           type: string
-          format: uri
-          description: Unique id of the Seller App. By default it is the fully qualified domain name of the Seller App
+          description: Unique id of the Seller App. By default it is the fully qualified domain name of the Seller App,
+                       mandatory for all peer-to-peer API requests, i.e. except search and on_search
         bpp_uri:
           type: string
           format: uri
-          description: URI of the Seller App. Must have the same domain name as the bap_id
+          description: URI of the Seller App. Must have the same domain name as the bap_id,
+                       mandatory for all peer-to-peer API requests, i.e. except search and on_search
         transaction_id:
           type: string
           description: This is a unique value which persists across all API calls from search through confirm
@@ -1612,17 +1674,19 @@ components:
           description: The encryption public key of the sender
         ttl:
           type: string
-          description: The duration in ISO8601 format after timestamp for which this message holds valid.
+          description: Timestamp for which this message holds valid in ISO8601 durations format -
+                       Outer limit for ttl for search, select, init, confirm, status, track, cancel, update, rating, support is 'PT30S' which is 30 seconds,
+                       different buyer apps can change this to meet their UX requirements, but it shouldn't exceed this outer limit
       required:
         - domain
         - action
-        - country
-        - city
         - core_version
-        - transaction_id
-        - message_id
         - bap_id
         - bap_uri
+        - transaction_id
+        - message_id
+        - city
+        - country
         - timestamp
     Country:
       description: Describes a country.
@@ -1682,8 +1746,10 @@ components:
         label:
           type: string
     Domain:
-      description: Codification of domains supported by ONDC
+      description: Codification of domain for ONDC
       type: string
+      enum:
+        - nic2004:52110
     Duration:
       description: Describes duration as per ISO8601 format
       type: string
@@ -1701,7 +1767,7 @@ components:
             - JSON-SCHEMA-ERROR
         code:
           type: string
-          description: 'ONDC specific error code. For full list of error codes, refer to docs/drafts/Error Codes.md of this repo'
+          description: ONDC specific error code. For full list of error codes, refer to docs/drafts/Error Codes.md of this repo
         path:
           type: string
           description: Path to json schema generating the error. Used only during json schema validation errors
@@ -1769,7 +1835,12 @@ components:
           required:
             - feedback_id
     Fulfillment:
-      description: Describes how a single product/service will be rendered/fulfilled to the end customer
+      description: Describes how a single product/service will be rendered/fulfilled to the end customer -
+                   (id, type) have the following values -
+                   ("1", "Delivery")
+                   ("2", "Pickup")
+                   ("3", "Delivery and Pickup")
+                   State can have following values - "Searching-for-Agent", "Assigned-Agent", "En-route-to-drop", "At-pickup-location", "At-drop-location", "Delivered-package", "Cancelled-package", "Returned-package"
       type: object
       properties:
         id:
@@ -1777,9 +1848,21 @@ components:
           description: Unique reference ID to the fulfillment of an order
         type:
           type: string
-          description: This describes the type of fulfillment
+          description: This describes the type of fulfillment ("Pickup" - Buyer picks up from store by themselves or through their logistics provider; "Delivery" - seller delivers to buyer)
+          enum:
+            - Delivery
+            - Pickup
+            - Delivery and Pickup
+        "@ondc/org/category":
+          type: string
+          description: Fulfillment Category
+        "@ondc/org/TAT":
+          description: fulfillment turnaround time in ISO8601 durations format e.g. 'PT24H' indicates 24 hour TAT
+          type: string
         provider_id:
           $ref: '#/components/schemas/Provider/properties/id'
+        "@ondc/org/provider_name":
+          type: string
         rating:
           $ref: '#/components/schemas/Rating/properties/value'
         state:
@@ -1839,6 +1922,9 @@ components:
           $ref: '#/components/schemas/Rateable'
         tags:
           $ref: '#/components/schemas/Tags'
+      required:
+        - id
+        - type
     Gps:
       description: Describes a gps coordinate
       type: string
@@ -1847,7 +1933,7 @@ components:
       description: 'Image of an object. <br/><br/> A url based image will look like <br/><br/>```uri:http://path/to/image``` <br/><br/> An image can also be sent as a data string. For example : <br/><br/> ```data:js87y34ilhriuho84r3i4```'
       type: string
     Intent:
-      description: Intent of a user. Used for searching for services
+      description: Intent of a user. Used for searching for services. Buyer App can set finder fee type in payment."@ondc/org/buyer_app_finder_fee_type" and amount in "@ondc/org/buyer_app_finder_fee_amount"
       type: object
       properties:
         descriptor:
@@ -1911,19 +1997,40 @@ components:
             measure:
               $ref: '#/components/schemas/Scalar'
     Item:
-      description: Describes a product or a service offered to the end consumer by the provider.
+      description: Describes a product or a service offered to the end consumer by the provider -
+                   Statutory requirements for category_id "Packaged Commodities" -
+                   descriptor.name (for item name),
+                   price.value (for declared price),
+                   price.maximum_value (for MRP);
+                   Statutory requirements for category_id "Packaged Foods" -
+                   descriptor.name (for item name),
+                   descriptor.symbol (for veg or non-veg),
+                   descriptor.short_desc (for food allergen),
+                   descriptor.long_desc (for instructions for use),
+                   price.value (for declared price);
+                   All other statutory attributes must be provided, as applicable, for the above;
+                   No statutory requirement for category_id "F&B" or "Fruits and Vegetables"
       type: object
       properties:
         id:
           description: This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.
           type: string
-          format: '#/components/schemas/Item/properties/id'
         parent_item_id:
           $ref: '#/components/schemas/Item/properties/id'
         descriptor:
           $ref: '#/components/schemas/Descriptor'
+          required:
+            - name
+            - symbol
+            - short_desc
+            - long_desc
+            - images
         price:
           $ref: '#/components/schemas/Price'
+          required:
+            - value
+            - maximum_value
+            - currency
         category_id:
           $ref: '#/components/schemas/Category/properties/id'
         fulfillment_id:
@@ -1942,8 +2049,158 @@ components:
           type: boolean
         recommended:
           type: boolean
+        "@ondc/org/returnable":
+          description: whether the item is returnable
+          type: boolean
+        "@ondc/org/seller_pickup_return":
+          description: in case of return, whether the item should be picked up by seller
+          type: boolean
+        "@ondc/org/return_window":
+          description: return window for the item in ISO8601 durations format e.g. 'PT24H' indicates 24 hour return window. Mandatory if "@ondc/org/returnable" is "true"
+          type: string
+        "@ondc/org/cancellable":
+          description: whether the item is cancellable
+          type: boolean
+        "@ondc/org/time_to_ship":
+          description: time from order confirmation by which item ready to ship in ISO8601 durations format (e.g. 'PT30M' indicates item ready to ship in 30 mins). Mandatory for category_id "F&B"
+          type: string
+        "@ondc/org/available_on_cod":
+          description: whether the catalog item is available on COD
+          type: boolean
+        "@ondc/org/contact_details_consumer_care":
+          description: contact details for consumer care
+          type: string
+        "@ondc/org/statutory_reqs_packaged_commodities":
+          type: object
+          description:
+            mandatory for category_id "Packaged Commodities" -
+            required attributes for all include the following -
+              manufacturer_or_packer_name,
+              manufacturer_or_packer_address,
+              common_or_generic_name_of_commodity,
+              net_quantity_or_measure_of_commodity_in_pkg,
+              month_year_of_manufacture_packing_import;
+            other attributes are required on case-by-case basis
+          properties:
+            manufacturer_or_packer_name:
+              description: name of manufacturer or packer (in case manufacturer is not the packer) or name of importer for imported goods
+              type: string
+            manufacturer_or_packer_address:
+              description: address of manufacturer or packer (in case manufacturer is not the packer) or address of importer for imported goods
+              type: string
+            common_or_generic_name_of_commodity:
+              description: common or generic name of commodity
+              type: string
+            multiple_products_name_number_or_qty:
+              description: for packages with multiple products, the name and number of quantity of each (can be shown as "name1-number_or_quantity; name2-number_or_quantity..")
+              type: string
+            net_quantity_or_measure_of_commodity_in_pkg:
+              description: net quantity of commodity in terms of standard unit of weight or measure of commodity contained in package
+              type: string
+            month_year_of_manufacture_packing_import:
+              description: month and year of manufacture or packing or import
+              type: string
+            imported_product_country_of_origin:
+              description: country of origin for imported products (ISO 3166 Alpha-3 code format)
+              type: string
+        "@ondc/org/statutory_reqs_prepackaged_food":
+          type: object
+          description:
+            mandatory for category_id "Packaged food" -
+            required attributes include the following -
+              nutritional_info,
+              additives_info,
+              net_quantity;
+            other attributes are required on case-by-case basis
+          properties:
+            ingredients_info:
+              description: list of ingredients (except single ingredient foods), can be shown as ingredient (with percentage); ingredient (with percentage);..)
+                           e.g. "Puffed Rice (40%); Split Green Gram (20%); Ground Nuts (20%);.."
+              type: string
+            nutritional_info:
+              description: nutritional info (can be shown as nutritional info (with unit, per standard unit, per serving);..)
+                           e.g. "Energy(KCal) - (per 100kg) 420, (per serving 50g) 250; Protein(g) - (per 100kg) 12, (per serving 50g)6;.."
+              type: string
+            additives_info:
+              description: food additives together with specific name or recognized International Numbering System (can be shown as additive1-name or number;additive2-name or number;..)
+              type: string
+            manufacturer_or_packer_name:
+              description: name of manufacturer or packer (for non-retail containers)
+              type: string
+            manufacturer_or_packer_address:
+              description: address of manufacturer or packer (for non-retail containers)
+              type: string
+            brand_owner_name:
+              description: name of brand owner
+              type: string
+            brand_owner_address:
+              description: address of brand owner
+              type: string
+            brand_owner_FSSAI_logo:
+              description: FSSAI logo of brand owner (url based image e.g. uri:http://path/to/image)
+              type: string
+            brand_owner_FSSAI_license_no:
+              description: FSSAI license no of brand owner
+              type: string
+            other_FSSAI_license_no:
+              description: FSSAI license no of manufacturer or marketer or packer or bottler if different from brand owner
+              type: string
+            net_quantity:
+              description: net quantity
+              type: string
+            importer_name:
+              description: name of importer
+              type: string
+            importer_address:
+              description: address of importer
+              type: string
+            importer_FSSAI_logo:
+              description: FSSAI logo of importer (url based image e.g. uri:http://path/to/image)
+              type: string
+            importer_FSSAI_license_no:
+              description: FSSAI license no of importer
+              type: string
+            imported_product_country_of_origin:
+              description: country of origin for imported products (ISO 3166 Alpha-3 code format)
+              type: string
+            other_importer_name:
+              description: name of importer for product manufactured outside but packaged or bottled in India
+              type: string
+            other_importer_address:
+              description: address of importer for product manufactured outside but packaged or bottled in India
+              type: string
+            other_premises:
+              description: premises where product manufactured outside are packaged or bottled in India
+              type: string
+            other_importer_country_of_origin:
+              description: country of origin for product manufactured outside but packaged or bottled in India (ISO 3166 Alpha-3 code format)
+              type: string
+        "@ondc/org/mandatory_reqs_veggies_fruits":
+          type: object
+          description:
+            mandatory for category_id "Fruits and Vegetables"
+            required attributes include the following -
+              net_quantity
         tags:
           $ref: '#/components/schemas/Tags'
+      required:
+        - id
+        - descriptor
+        - price
+        - category_id
+        - fulfillment_id
+        - location_id
+        - matched
+        - "@ondc/org/returnable"
+        - "@ondc/org/cancellable"
+        - "@ondc/org/return_window"
+        - "@ondc/org/seller_pickup_return"
+        - "@ondc/org/time_to_ship"
+        - "@ondc/org/available_on_cod"
+        - "@ondc/org/contact_details_consumer_care"
+        - "@ondc/org/statutory_reqs_packaged_commodities"
+        - "@ondc/org/statutory_reqs_prepackaged_food"
+        - "@ondc/org/mandatory_reqs_veggies_fruits"
     Language:
       description: indicates language code. ONDC supports language codes as per ISO 639.2 standard
       type: object
@@ -2016,6 +2273,7 @@ components:
                   type: string
                 unit:
                   type: string
+
     Option:
       description: Describes a selectable option
       type: object
@@ -2025,14 +2283,27 @@ components:
         descriptor:
           $ref: '#/components/schemas/Descriptor'
     Order:
-      description: Describes the details of an order
+      description: Describes the details of an order -
+                   For "@ondc/org/cancellation.cancelled_by" use following values -
+                   buyer-app,
+                   seller-app,
+                   logistics-provider;
       type: object
       properties:
         id:
           type: string
-          description: Hash of order object without id
+          description: Unique identifier for Order across the network,
+                       Will be created by buyer app in confirm API
         state:
           type: string
+          enum:
+            - Created
+            - Shipped
+            - Delivered
+            - Updated
+            - Returned
+            - Replaced
+            - Cancelled
         provider:
           type: object
           properties:
@@ -2089,6 +2360,16 @@ components:
           $ref: '#/components/schemas/Quotation'
         payment:
           $ref: '#/components/schemas/Payment'
+        "@ondc/org/cancellation":
+          $ref: '#/components/schemas/Cancellation'
+        "@ondc/org/linked_orders":
+          description: payload for cascaded orders e.g. order for logistics services linked to a retail order
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
         created_at:
           type: string
           format: date-time
@@ -2154,6 +2435,7 @@ components:
           enum:
             - PAID
             - NOT-PAID
+            - PENDING
         time:
           $ref: '#/components/schemas/Time'
         collected_by:
@@ -2161,6 +2443,113 @@ components:
           enum:
             - BAP
             - BPP
+        "@ondc/org/collected_by_status":
+          type: string
+          enum:
+            - Assert
+            - Agree
+            - Disagree
+            - Terminate
+        "@ondc/org/buyer_app_finder_fee_type":
+          type: string
+          enum:
+            - Amount
+            - Percent
+        "@ondc/org/buyer_app_finder_fee_amount":
+          $ref: '#/components/schemas/DecimalValue'
+        "@ondc/org/withholding_amount":
+          $ref: '#/components/schemas/DecimalValue'
+        "@ondc/org/withholding_amount_status":
+          type: string
+          enum:
+            - Assert
+            - Agree
+            - Disagree
+            - Terminate
+        "@ondc/org/return_window":
+          description: return window for the item in ISO8601 durations format e.g. 'PT24H' indicates 24 hour return window
+          type: string
+        "@ondc/org/return_window_status":
+          type: string
+          enum:
+            - Assert
+            - Agree
+            - Disagree
+            - Terminate
+        "@ondc/org/settlement_basis":
+          description: In case of prepaid payment, whether settlement between counterparties should be on the basis of collection, shipment or delivery
+          type: string
+          enum:
+            - Collection
+            - Shipment
+            - Delivery
+        "@ondc/org/settlement_basis_status":
+          type: string
+          enum:
+            - Assert
+            - Agree
+            - Disagree
+            - Terminate
+        "@ondc/org/settlement_window":
+          description: return window for the item in ISO8601 durations format e.g. 'PT24H' indicates 24 hour return window
+          type: string
+        "@ondc/org/settlement_window_status":
+          type: string
+          enum:
+            - Assert
+            - Agree
+            - Disagree
+            - Terminate
+        "@ondc/org/settlement_details":
+          type: array
+          items:
+            type: object
+            properties:
+              settlement_counterparty:
+                type: string
+                enum:
+                  - buyer-app
+                  - seller-app
+                  - logistics-provider
+              settlement_phase:
+                type: string
+                enum:
+                  - sale-amount
+                  - withholding-amount
+              settlement_type:
+                type: string
+                enum:
+                  - neft
+                  - rtgs
+                  - upi
+              settlement_bank_account_no:
+                type: string
+              settlement_ifsc_code:
+                type: string
+              upi_address:
+                description: UPI payment address e.g. VPA
+                type: string
+              bank_name:
+                description: Bank name
+                type: string
+              branch_name:
+                description: Branch name
+                type: string
+              beneficiary_address:
+                description: Beneficiary Address
+                type: string
+              settlement_status:
+                type: string
+                enum:
+                  - PAID
+                  - NOT-PAID
+              settlement_reference:
+                description: Settlement transaction reference number
+                type: string
+              settlement_timestamp:
+                description: Settlement transaction timestamp
+                type: string
+                format: date-time
     Person:
       description: Describes a person.
       type: object
@@ -2212,18 +2601,30 @@ components:
           $ref: '#/components/schemas/DecimalValue'
         maximum_value:
           $ref: '#/components/schemas/DecimalValue'
+      required:
+        - currency
+        - value
     Provider:
-      description: 'Describes a service provider. This can be a restaurant, a hospital, a Store etc'
+      description: Describes a service provider. This can be a restaurant, a hospital, a Store etc
       type: object
       properties:
         id:
           type: string
-          description: 'Id of the provider'
+          description: Id of the provider
         descriptor:
           $ref: '#/components/schemas/Descriptor'
+          required:
+            - name
+            - symbol
+            - short_desc
+            - long_desc
+            - images
         category_id:
           type: string
-          description: 'Category Id of the provider'
+          description: Category Id of the provider
+        "@ondc/org/fssai_license_no":
+          type: string
+          description: FSSAI license no. Mandatory for category_id "F&B"
         rating:
           $ref: '#/components/schemas/Rating/properties/value'
         time:
@@ -2257,6 +2658,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Item'
+        ttl:
+          type: string
+          description: Validity of catalog in ISO8601 durations format after which it has to be refreshed e.g. 'P7D' indicates validity of 7 days; value of 0 indicates catalog is not cacheable
         exp:
           type: string
           description: Time after which catalog has to be refreshed
@@ -2265,6 +2669,11 @@ components:
           $ref: '#/components/schemas/Rateable'
         tags:
           $ref: '#/components/schemas/Tags'
+      required:
+        - id
+        - "@ondc/org/fssai_license_no"
+        - ttl
+        - descriptor
     Quotation:
       description: Describes a quote
       type: object
@@ -2276,12 +2685,29 @@ components:
           items:
             type: object
             properties:
+              "@ondc/org/item_id":
+                $ref: '#/components/schemas/Item/properties/id'
+              "@ondc/org/item_quantity":
+                $ref: '#/components/schemas/ItemQuantity/properties/selected'
+              "@ondc/org/title_type":
+                type: string
+                enum:
+                  - item
+                  - delivery
+                  - packing
+                  - tax
+                  - convenience charge
               title:
                 type: string
               price:
                 $ref: '#/components/schemas/Price'
         ttl:
           $ref: '#/components/schemas/Duration'
+      required:
+        - "@ondc/org/item_id"
+        - "@ondc/org/item_quantity"
+        - "@ondc/org/title_type"
+        - price
     Rateable:
       description: If the entity can be rated or not
       type: boolean
@@ -2296,9 +2722,10 @@ components:
           description: Id of the object being rated
           type: string
         value:
-          description: Rating value given to the object
+          description: Rating value given to the object (1 - Poor; 2 - Needs improvement; 3 - Satisfactory; 4 - Good; 5 - Excellent)
           type: number
-          minimum: 0
+          minimum: 1
+          maximum: 5
         feedback_form:
           $ref: '#/components/schemas/FeedbackForm'
         feedback_id:
