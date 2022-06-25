@@ -43,7 +43,7 @@
                   },
                   "client_secret": {
                     "type": "string",
-                    "example": "891707ee-d6cd-4744-a28d-058829e30f12}"
+                    "example": "891707ee-d6cd-4744-a28d-058829e30f12"
                   }
                 }
               }
@@ -84,7 +84,7 @@
             "style": "simple",
             "schema": {
               "type": "string",
-              "example": "891707ee-d6cd-4744-a28d-058829e30f12}"
+              "example": "891707ee-d6cd-4744-a28d-058829e30f12"
             }
           }
         ],
