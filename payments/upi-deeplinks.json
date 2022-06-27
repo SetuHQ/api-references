@@ -525,13 +525,13 @@
         },
         "/reports": {
             "post": {
-                "description": "Used to retreive a report from the Setu system.",
+                "description": "Used to retrieve a report from the Setu system.",
                 "consumes": ["application/json"],
                 "produces": ["application/json"],
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Retreive reports",
+                "summary": "Retrieve reports",
                 "operationId": "getReport",
                 "parameters": [
                     {
