@@ -1,14 +1,14 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Setu API Server",
+    "title": "COU Direct Connectivity",
     "version": "1.0.0"
   },
   "basePath": "/api/v1",
   "paths": {
     "/auth/token": {
       "post": {
-        "description": "Fetch token to be used to authorize all Setu APIs",
+        "description": "Token Request",
         "consumes": [
           "application/json"
         ],
@@ -55,7 +55,7 @@
             ]
           }
         ],
-        "description": "List autofetch subscriptions",
+        "description": "List",
         "consumes": [
           "application/json"
         ],
@@ -98,7 +98,7 @@
             ]
           }
         ],
-        "description": "Bulk autofetch subscriptions",
+        "description": "Bulk subscriptions",
         "consumes": [
           "application/json"
         ],
@@ -150,7 +150,7 @@
             ]
           }
         ],
-        "description": "Disable autofetch",
+        "description": "Disable",
         "consumes": [
           "application/json"
         ],
@@ -195,7 +195,7 @@
             ]
           }
         ],
-        "description": "Returns the list of billers.",
+        "description": "Billers",
         "consumes": [
           "application/json"
         ],
@@ -220,6 +220,7 @@
               "type": "string"
             },
             "collectionFormat": "multi",
+            "description": "Category of the biller",
             "name": "categoryName",
             "in": "query"
           },
@@ -228,6 +229,8 @@
             "items": {
               "type": "string"
             },
+            "example": "BILLER1,BILLER2",
+            "description": "Billers to search",
             "name": "ids",
             "in": "query"
           },
@@ -238,11 +241,13 @@
           },
           {
             "type": "string",
+            "description": "Billers are sorted via the Biller ID. Providing a biller Id fetches billers right after this biller in a paginated way.",
             "name": "after",
             "in": "query"
           },
           {
             "type": "string",
+            "description": "Searches the provided text over Biller name and Biller Alias",
             "name": "search",
             "in": "query"
           }
@@ -278,7 +283,7 @@
             ]
           }
         ],
-        "description": "Raise dispute request API",
+        "description": "Request",
         "consumes": [
           "application/json"
         ],
@@ -336,7 +341,7 @@
             ]
           }
         ],
-        "description": "Raise dispute response API",
+        "description": "Response",
         "consumes": [
           "application/json"
         ],
@@ -394,7 +399,7 @@
             ]
           }
         ],
-        "description": "Bill fetch request API",
+        "description": "Request",
         "consumes": [
           "application/json"
         ],
@@ -452,7 +457,7 @@
             ]
           }
         ],
-        "description": "Bill fetch response API",
+        "description": "Response",
         "consumes": [
           "application/json"
         ],
@@ -510,7 +515,7 @@
             ]
           }
         ],
-        "description": "Bill payment request API",
+        "description": "Request",
         "consumes": [
           "application/json"
         ],
@@ -568,7 +573,7 @@
             ]
           }
         ],
-        "description": "Bill payment response API",
+        "description": "Response",
         "consumes": [
           "application/json"
         ],
@@ -626,7 +631,7 @@
             ]
           }
         ],
-        "description": "Returns the list of categories.",
+        "description": "Categories",
         "consumes": [
           "application/json"
         ],
@@ -677,7 +682,7 @@
             ]
           }
         ],
-        "description": "Returns the list of disputes.",
+        "description": "Disputes",
         "consumes": [
           "application/json"
         ],
@@ -747,7 +752,7 @@
             ]
           }
         ],
-        "description": "Returns the list of fetched bills.",
+        "description": "Fetched bills.",
         "consumes": [
           "application/json"
         ],
@@ -772,6 +777,7 @@
               "type": "string"
             },
             "collectionFormat": "multi",
+            "description": "Autofetch hash if present",
             "name": "autoFetchHash",
             "in": "query"
           },
@@ -817,7 +823,7 @@
             ]
           }
         ],
-        "description": "Returns the list of billers.",
+        "description": "Transactions",
         "consumes": [
           "application/json"
         ],
@@ -848,13 +854,17 @@
           },
           {
             "type": "string",
-            "format": "date-time",
+            "format": "date",
+            "example": "2022-07-19",
+            "description": "full-date notation as defined by RFC 3339, section 5.6, for example, 2017-07-21",
             "name": "startDate",
             "in": "query"
           },
           {
             "type": "string",
-            "format": "date-time",
+            "format": "date",
+            "example": "2022-07-19",
+            "description": "full-date notation as defined by RFC 3339, section 5.6, for example, 2017-07-21",
             "name": "endDate",
             "in": "query"
           },
@@ -1111,10 +1121,12 @@
       ],
       "properties": {
         "code": {
+          "description": "BBPS Error code",
           "type": "string",
           "example": "ERR004"
         },
         "message": {
+          "description": "BBPS Failure message",
           "type": "string",
           "example": "customer not found"
         }
@@ -1144,6 +1156,7 @@
         },
         "billDate": {
           "type": "string",
+          "format": "date",
           "example": "2021-01-02"
         },
         "billNumber": {
@@ -1152,7 +1165,16 @@
         },
         "billPeriod": {
           "type": "string",
-          "example": "ONETIME|DAILY|WEEKLY|BIMONTHLY|MONTHLY|QUARTERLY|HALFYEARLY|YEARLY|ASPRESENTED"
+          "enum": [
+            "Onetime",
+            "Daily",
+            "Weekly",
+            "BiMontly",
+            "Monthly",
+            "Quarterly",
+            "HalfYearly",
+            "AsPresented"
+          ]
         },
         "customerName": {
           "type": "string",
@@ -1160,6 +1182,7 @@
         },
         "dueDate": {
           "type": "string",
+          "format": "date",
           "example": "2021-09-24"
         }
       },
@@ -1200,12 +1223,17 @@
           "x-omitempty": true
         },
         "refId": {
+          "description": "BBPS Reference ID",
           "type": "string",
           "example": "HENSVVR4QOS7X1UGPY7JGUV444P10102202"
         },
         "status": {
           "type": "string",
-          "example": "PROCESSING/COMPLETE/TIMEOUT"
+          "enum": [
+            "Processing",
+            "Success",
+            "Failure"
+          ]
         }
       }
     },
@@ -1314,11 +1342,20 @@
         },
         "exactness": {
           "type": "string",
-          "example": "ANY/EXACT/EXACT_DOWN/EXACT_UP"
+          "enum": [
+            "Exact",
+            "Exact and above",
+            "Exact and below"
+          ]
         },
         "fetchApiType": {
+          "description": "Denotes whether the biller accepts Fetch, Validate or Direct payment.",
           "type": "string",
-          "example": "FETCH/VALIDATE/None"
+          "enum": [
+            "BILL_FETCH",
+            "BILL_VALIDATE",
+            "BILL_DIRECT"
+          ]
         },
         "id": {
           "type": "string",
@@ -1484,6 +1521,7 @@
           "x-nullable": true
         },
         "autoFetch": {
+          "description": "When `true`, enables autofetch on successful bill.",
           "type": "boolean",
           "example": true
         },
@@ -1505,10 +1543,6 @@
     "couAgentBillFetchResponse": {
       "type": "object",
       "properties": {
-        "autofetch_hash": {
-          "type": "string",
-          "example": "d28ca210e0267a13fa0db18ee96a349dc4578f032e5902192af762763224204a"
-        },
         "data": {
           "$ref": "#/definitions/billFetchResponseData"
         },
@@ -1622,6 +1656,7 @@
           "$ref": "#/definitions/paymentDetails"
         },
         "refId": {
+          "description": "BBPS Reference ID",
           "type": "string",
           "example": "HENSVVR4QOS7X1UGPY7JGUV444P10102202"
         },
@@ -1687,7 +1722,7 @@
       "properties": {
         "description": {
           "type": "string",
-          "example": "Test Transaction Based Complaint"
+          "example": "Amount deducted multiple times."
         },
         "disputeType": {
           "type": "string",
@@ -1822,26 +1857,43 @@
       "type": "object",
       "properties": {
         "assigned": {
+          "description": "BBPOU to which the complaint is assigned",
           "type": "string",
           "example": "ADIT00000NATRA"
         },
         "complaintId": {
+          "description": "Complaint ID",
           "type": "string",
           "example": "Loan Repayment"
         },
         "complaintStatus": {
+          "description": "Status of the complaint",
           "type": "string",
+          "enum": [
+            "INITIALIZED",
+            "ASSIGNED",
+            "RE_ASSIGNED",
+            "ASSIGNED_TO_BOU",
+            "ASSIGNED_TO_COU",
+            "ASSIGNED_TO_OU",
+            "ESCALATED",
+            "RESOLVED",
+            "UNRESOLVED"
+          ],
           "example": "Aditya Birla Housing Finance Limited"
         },
         "refId": {
+          "description": "Reference ID",
           "type": "string",
           "example": "Loan Repayment"
         },
         "remarks": {
+          "description": "BBPS Complaint remarks",
           "type": "string",
           "example": "ADIT00000NATRA"
         },
         "responseCode": {
+          "description": "Carries the response code indicating success or failure of the transaction",
           "type": "string",
           "example": "ADIT00000NATRA"
         },
@@ -2433,14 +2485,21 @@
           "example": "AX30910192192192192"
         },
         "refId": {
+          "description": "BBPS Reference ID",
           "type": "string",
           "example": "HENSVVR4QOS7X1UGPY7JGUV444P10102202"
         },
         "status": {
           "type": "string",
-          "example": "PROCESSING/COMPLETE/TIMEOUT"
+          "enum": [
+            "Processing",
+            "Success",
+            "Failure",
+            "Error"
+          ]
         },
         "transactionId": {
+          "description": "Transaction ID",
           "type": "string",
           "example": "AX30910192192192192"
         }
@@ -2478,9 +2537,9 @@
     "bbps": {
       "type": "oauth2",
       "flow": "application",
-      "tokenUrl": "http://localhost:8080/auth/realms/enzo/protocol/openid-connect/token",
+      "tokenUrl": "https://sandbox-kabini-coudc.setu.co/api/v1/auth/token",
       "scopes": {
-        "bbps:partner": "Allow partner flows"
+        "bbps:partner": "Grant access to agent APIs"
       }
     }
   }
