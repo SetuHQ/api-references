@@ -6,7 +6,8 @@
   },
   "servers": [
     {
-      "url": "https://sandbox-coudc.setu.co/api/v1"
+      "url": "https://sandbox-coudc.setu.co/api/v1",
+      "description": "Sandbox server"
     }
   ],
   "paths": {
@@ -15,7 +16,7 @@
         "tags": [
           "Auth"
         ],
-        "description": "Token Request",
+        "summary": "Token Request",
         "operationId": "fetchToken",
         "requestBody": {
           "description": "The API key pair",
@@ -58,7 +59,7 @@
         "tags": [
           "autofetch"
         ],
-        "description": "List",
+        "summary": "List",
         "operationId": "listAutofetchSubscriptions",
         "parameters": [
           {
@@ -105,7 +106,7 @@
         "tags": [
           "autofetch"
         ],
-        "description": "Bulk subscriptions",
+        "summary": "Bulk subscriptions",
         "operationId": "bulkAutofetchSubscriptions",
         "parameters": [
           {
@@ -165,7 +166,7 @@
         "tags": [
           "autofetch"
         ],
-        "description": "Disable",
+        "summary": "Disable",
         "operationId": "disableAutofetch",
         "parameters": [
           {
@@ -212,7 +213,7 @@
         "tags": [
           "List"
         ],
-        "description": "Billers",
+        "summary": "Billers",
         "operationId": "getBillers",
         "parameters": [
           {
@@ -320,7 +321,7 @@
         "tags": [
           "Dispute"
         ],
-        "description": "Request",
+        "summary": "Request",
         "operationId": "DisputeRequest",
         "parameters": [
           {
@@ -390,7 +391,7 @@
         "tags": [
           "Dispute"
         ],
-        "description": "Response",
+        "summary": "Response",
         "operationId": "DisputeResponse",
         "parameters": [
           {
@@ -460,7 +461,7 @@
         "tags": [
           "Fetch"
         ],
-        "description": "Request",
+        "summary": "Request",
         "operationId": "FetchRequest",
         "parameters": [
           {
@@ -530,7 +531,7 @@
         "tags": [
           "Fetch"
         ],
-        "description": "Response",
+        "summary": "Response",
         "operationId": "FetchResponse",
         "parameters": [
           {
@@ -600,7 +601,7 @@
         "tags": [
           "Pay"
         ],
-        "description": "Request",
+        "summary": "Request",
         "operationId": "PaymentRequest",
         "parameters": [
           {
@@ -670,7 +671,7 @@
         "tags": [
           "Pay"
         ],
-        "description": "Response",
+        "summary": "Response",
         "operationId": "PaymentResponse",
         "parameters": [
           {
@@ -740,7 +741,7 @@
         "tags": [
           "List"
         ],
-        "description": "Categories",
+        "summary": "Categories",
         "operationId": "getCategories",
         "parameters": [
           {
@@ -799,7 +800,7 @@
         "tags": [
           "List"
         ],
-        "description": "Disputes",
+        "summary": "Disputes",
         "operationId": "getDisputes",
         "parameters": [
           {
@@ -884,7 +885,7 @@
         "tags": [
           "List"
         ],
-        "description": "Fetched bills.",
+        "summary": "Fetched bills",
         "operationId": "getFetchedBills",
         "parameters": [
           {
@@ -970,7 +971,7 @@
         "tags": [
           "List"
         ],
-        "description": "Transactions",
+        "summary": "Transactions",
         "operationId": "getTxns",
         "parameters": [
           {
@@ -1068,7 +1069,7 @@
         "tags": [
           "Health"
         ],
-        "description": "Health check",
+        "summary": "Health check",
         "operationId": "getHealth",
         "responses": {
           "200": {
@@ -2162,11 +2163,13 @@
         "properties": {
           "clientID": {
             "type": "string",
-            "description": "clientID from the API key pair"
+            "description": "Client ID",
+            "example": "james-bond"
           },
           "secret": {
             "type": "string",
-            "description": "secret from the API key pair"
+            "description": "Client Secret",
+            "example": "5ja0077m-55e0-47s9-9bo7-ndaa18a7c0f7"
           }
         },
         "description": "Fetch Token API payload"
@@ -2182,11 +2185,13 @@
             "properties": {
               "expiresIn": {
                 "type": "integer",
-                "description": "Token expiry duration in seconds"
+                "description": "Token expiry duration in seconds",
+                "example": 3600
               },
               "token": {
                 "type": "string",
-                "description": "Token to be used in subsequent requests"
+                "description": "Token to be used in subsequent requests",
+                "example": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImxEUXBadm5xRmtTdlRaMDV6NFdjTjl0My0zY0JSVWo5di1rYnVNX2dpQkEifQ.eyJleHAiOjE2NTgzMTUwMDcsImlhdCI6MTY1ODMxMjAwNywianRpIjoiMjQzMTAwN2MtODAwNy00MDA3LWI5ZWUtZTQ4MmY2YTU3ZGViIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLWRldi5zZXR1LmNvL2F1dGgvcmVhbG1zL2NvdS1kYy1qYW1lcy1ib25kLXVhdCIsImF1ZCI6WyJqYW1lcy1ib25kIiwiYWNjb3VudCJdLCJzdWIiOiI0ZDhkMDY1Mi1kMmY2LTQyMWYtODNkMi0xYWUxYjc5ZTI1ZGIiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJqYW1lcy1ib25kIiwic2Vzc2lvbl9zdGF0ZSI6ImExOThkMDA3LWViOWQtNDAwNy05NGRjLTNlMjJmYTEzYTAwNyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9qYW1lcy1ib25kLWNvdWRjLnNldHUuY28iXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlNlY3JldF9JbnRlbGxpZ2VuY2VfU2VydmljZSJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImphbWVzLWJvbmQiOnsicm9sZXMiOlsiU2VjcmV0X0ludGVsbGlnZW5jZV9TZXJ2aWNlIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbImNvdW50ZXItdGVycm9yaXNtIiwiY291bnRlci1wcm9saWZlcmF0aW9uIl19fSwic2NvcGUiOiJiYnBzOmJvbmQiLCJjbGllbnRJZCI6ImphbWVzLWJvbmQiLCJjbGllbnRIb3N0IjoiMDA3LjAwNy4wMDcuMDA3IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtamFtZXMtYm9uZCIsImNsaWVudEFkZHJlc3MiOiIwMDcuMDA3LjAwNy4wMDcifQ.svjuDXhx71uur_XYDCYLlObPBWctPHCDn1DtAAS-xMvnAvPdgqqVIUbGXdBxePE-blJPUDWH9J4ZXj5-kvi3onGdnmQxZcckW7dmIRrfTtUMCBj_4iefqiDV1D58Fblf9hCGjVGVWL9fuatNFvV46IaVREfaUTKuSbqwzhMpSGICJWhOM1Jt1Z2pB0x3e55dgmqhjeThZrstOwsJ2GTQ5N9gFennpmqmK_HVXU-rFwJzD44EMsN5GeH6Hh8zSC35NYkagrrlOkiuPGukoOMC9xFeGKGMSML3ve8_NmPVdhM6BaOwsau4wEJ-VV4oRY7TEl7d-IXmZqCVE0vyV2GZjQ"
               }
             }
           },
