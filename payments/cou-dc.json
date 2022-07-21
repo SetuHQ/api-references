@@ -1,8 +1,9 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "COU Direct Connectivity",
-    "version": "1.0.0"
+    "title": "Setu COU Direct Connectivity",
+    "description": "Enable easy BBPS bill payments in your App",
+    "version": "0.1.0-alpha"
   },
   "servers": [
     {
