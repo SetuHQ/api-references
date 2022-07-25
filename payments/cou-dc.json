@@ -1220,11 +1220,11 @@
             "type": "string",
             "example": "d28ca210e0267a13fa0db18ee96a349dc4578f032e5902192af762763224204a"
           },
-          "is_active": {
+          "isActive": {
             "type": "boolean",
             "example": true
           },
-          "last_fetch_date": {
+          "lastFetchDate": {
             "type": "string",
             "format": "date",
             "example": "2017-07-21T00:00:00.000Z"
@@ -1273,11 +1273,11 @@
             "type": "string",
             "example": "d28ca210e0267a13fa0db18ee96a349dc4578f032e5902192af762763224204a"
           },
-          "is_active": {
+          "isActive": {
             "type": "boolean",
             "example": true
           },
-          "next_fetch_date": {
+          "nextFetchDate": {
             "type": "string",
             "format": "date",
             "example": "2017-07-21T00:00:00.000Z"
@@ -1690,11 +1690,6 @@
           "agent": {
             "$ref": "#/components/schemas/agentDetails"
           },
-          "allowFetchForAdhocBillers": {
-            "type": "boolean",
-            "description": "On debug, make fetch for payment only billers NEGATIVE 20",
-            "nullable": true
-          },
           "autoFetch": {
             "type": "boolean",
             "description": "When `true`, enables autofetch on successful bill.",
@@ -1705,11 +1700,6 @@
           },
           "customer": {
             "$ref": "#/components/schemas/customerDetails"
-          },
-          "debug": {
-            "type": "boolean",
-            "description": "When `true`, param validation is disabled",
-            "example": false
           }
         },
         "x-go-name": "CouAgentBillFetchRequest",
@@ -1747,80 +1737,6 @@
           "customer": {
             "$ref": "#/components/schemas/customerDetails"
           },
-          "debug": {
-            "type": "boolean",
-            "description": "When a non-direct payment is being made, refId of fetch/validate is used to populate customer and biller data. When `debug` field is set to `true`, passed customer, biller or agent details will be replace the fetch/validate data. This allows us to run test cases that require diff details from initial fetch/validate request.",
-            "example": false
-          },
-          "do-ift-status-check": {
-            "type": "boolean",
-            "description": "When debug is enabled, do-ift-status-check will do status check of internal fund transfer.",
-            "example": false
-          },
-          "dummyAgentId": {
-            "type": "string",
-            "description": "On debug, this is the agent id NEGATIVE 12",
-            "nullable": true
-          },
-          "dummyAmount": {
-            "type": "integer",
-            "description": "On debug, this is the final amount NEGATIVE 11, 22",
-            "nullable": true
-          },
-          "dummyBillerId": {
-            "type": "string",
-            "description": "On debug, this is the billerId NEGATIVE 13",
-            "nullable": true
-          },
-          "dummyMsgId": {
-            "type": "string",
-            "description": "On debug, this is msgId NEGATIVE 10",
-            "nullable": true
-          },
-          "dummyTransactionRefId": {
-            "type": "string",
-            "description": "When debug is enabled, this dummy-transaction-id is used as the transaction id. This allows us to test arbitrary length refId test cases.",
-            "example": "dummy-transaction-id"
-          },
-          "headTimestamp": {
-            "type": "string",
-            "description": "On debug, this value is used as head timestamp NEGATIVE 5",
-            "nullable": true
-          },
-          "headVersion": {
-            "type": "string",
-            "description": "On debug, this head version is used. NEGATIVE - 1",
-            "nullable": true
-          },
-          "hit-fund-transfer": {
-            "type": "boolean",
-            "description": "When debug is enabled, this hits the fundtransfer API",
-            "example": false
-          },
-          "invalidCustomerTagKey": {
-            "type": "boolean",
-            "description": "On debug, invalid customer params will be sent NEGATIVE 7",
-            "nullable": true
-          },
-          "invalidCustomerTagValue": {
-            "type": "boolean",
-            "description": "On debug, pass invalid customer tag value NEGATIVE 15",
-            "nullable": true
-          },
-          "invalidPaymentInformation": {
-            "type": "string",
-            "description": "On debug, this value is sent in payment information NEGATIVE - 4",
-            "nullable": true
-          },
-          "ouid": {
-            "type": "string",
-            "nullable": true
-          },
-          "passBlankPaymentInformation": {
-            "type": "boolean",
-            "description": "On debug, pass blank payment information NEGATIVE - 26",
-            "nullable": true
-          },
           "paymentDetails": {
             "$ref": "#/components/schemas/paymentDetails"
           },
@@ -1828,31 +1744,6 @@
             "type": "string",
             "description": "BBPS Reference ID",
             "example": "HENSVVR4QOS7X1UGPY7JGUV444P10102202"
-          },
-          "skip-npci-heartbeat": {
-            "type": "boolean",
-            "description": "When debug is enabled, skips the npci heartbeat check before issuing payment request",
-            "example": false
-          },
-          "skipBillerResponse": {
-            "type": "boolean",
-            "description": "On debug, don't send biller response on fetch req NEGATIVE 21",
-            "nullable": true
-          },
-          "skipFetch": {
-            "type": "boolean",
-            "description": "On debug, skip fetch request before payment, NEGATIVE - 27,",
-            "nullable": true
-          },
-          "skipPaymentResponseAck": {
-            "type": "boolean",
-            "description": "When debug is enabled, skip the final acknowledgement. This allows us to test \"Elimination of Reversal\". The details on which case to skip ack is sent via \"eliminationOfReversalDetails\"",
-            "example": false
-          },
-          "transactionProvider": {
-            "type": "string",
-            "description": "On debug, this is the transaction provider NEGATIVE 14",
-            "nullable": true
           }
         },
         "x-go-name": "CouAgentBillPaymentRequest",
@@ -2368,24 +2259,9 @@
       "paymentDetails": {
         "type": "object",
         "properties": {
-          "COUcustConvFee": {
-            "type": "integer",
-            "nullable": true,
-            "example": 10
-          },
           "amount": {
             "type": "integer",
             "example": 10000
-          },
-          "currency": {
-            "type": "integer",
-            "nullable": true,
-            "example": 356
-          },
-          "custConvFee": {
-            "type": "integer",
-            "nullable": true,
-            "example": 59
           },
           "mode": {
             "type": "string",
