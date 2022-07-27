@@ -1,2187 +1,2132 @@
 {
-  "openapi": "3.0.0",
-  "info": {
-    "title": "Data Gateway",
-    "description": "Build the data flow you need—for customer onboarding, background verifications, and collecting electronic signatures.\n\n[See on Setu docs](https://docs.setu.co/data)\n\nWe currently support the following data blocks:\n\n**Aadhaar based e-Sign**\nCollect legally binding digital signatures. Upload a document and create a signature request for one or more signers.\n\n\n**Aadhaar Offline KYC**\nOnboard with Aadhaar XML on your platform, in compliance with UIDAI & RBI guidelines. Simply create a request and share the request URL with your customers.\n\n\n**PAN Verification**\nCheck validity and name of PAN holder, with a simple and straightforward PAN verification API.\n\n\n**Bank Account Verification**\nConfirm the validity of an account from the account holder’s bank, with penny-drop done in real-time.",
-    "contact": {},
-    "version": "1.0"
-  },
-  "servers": [
-    {
-      "url": "http://dg-sandbox.setu.co",
-      "variables": {}
-    }
-  ],
-  "paths": {
-    "/api/digilocker": {
-      "post": {
-        "tags": [
-          "Digilocker"
-        ],
-        "summary": "Create a Digilocker Request",
-        "operationId": "CreateaDigilockerRequest",
-        "parameters": [
-          {
-            "name": "x-client-id",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "{{client_id}}"
-            }
-          },
-          {
-            "name": "x-client-secret",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "{{secret}}"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateaDigilockerRequestRequest"
-              },
-              "example": {
-                "redirectUrl": "https://setu.co"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "CREATED",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "openresty"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "Mon, 20 Sep 2021 13:36:28 GMT"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "211"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "keep-alive"
-                  }
-                }
-              },
-              "Permissions-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "interest-cohort=()"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "X-XSS-Protection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "1; mode=block"
-                  }
-                }
-              },
-              "X-Content-Type-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "nosniff"
-                  }
-                }
-              },
-              "Content-Security-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
-                  }
-                }
-              },
-              "Referrer-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "strict-origin-when-cross-origin"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "max-age=31556926; includeSubDomains"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Success1"
-                },
-                "example": {
-                  "id": "ea31e1e6-96eb-4e56-a355-7bc51de94d24",
-                  "status": "unauthenticated",
-                  "url": "User login url",
-                  "validUpto": "2021-10-05T19:06:28+05:30"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "BAD REQUEST",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "openresty"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "Mon, 20 Sep 2021 13:38:26 GMT"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "101"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "keep-alive"
-                  }
-                }
-              },
-              "Permissions-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "interest-cohort=()"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "X-XSS-Protection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "1; mode=block"
-                  }
-                }
-              },
-              "X-Content-Type-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "nosniff"
-                  }
-                }
-              },
-              "Content-Security-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
-                  }
-                }
-              },
-              "Referrer-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "strict-origin-when-cross-origin"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "max-age=31556926; includeSubDomains"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InvalidredirectURL1"
-                },
-                "example": {
-                  "error": {
-                    "code": "invalid_redirect_url",
-                    "detail": "Please enter a valid redirect URL.",
-                    "traceId": ""
-                  }
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Data Gateway",
+        "description": "Build the data flow you need—for customer onboarding, background verifications, and collecting electronic signatures.\n\n[See on Setu docs](https://docs.setu.co/data)\n\nWe currently support the following data blocks:\n\n**Aadhaar based e-Sign**\nCollect legally binding digital signatures. Upload a document and create a signature request for one or more signers.\n\n\n**Aadhaar Offline KYC**\nOnboard with Aadhaar XML on your platform, in compliance with UIDAI & RBI guidelines. Simply create a request and share the request URL with your customers.\n\n\n**PAN Verification**\nCheck validity and name of PAN holder, with a simple and straightforward PAN verification API.\n\n\n**Bank Account Verification**\nConfirm the validity of an account from the account holder’s bank, with penny-drop done in real-time.",
+        "contact": {},
+        "version": "1.0"
     },
-    "/api/digilocker/{requestId}/document": {
-      "post": {
-        "tags": [
-          "Digilocker"
-        ],
-        "summary": "Fetch a document",
-        "operationId": "Fetchadocument",
-        "parameters": [
-          {
-            "name": "requestId",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "{{request_id}}"
-            }
-          },
-          {
-            "name": "x-client-id",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "{{client_id}}"
-            }
-          },
-          {
-            "name": "x-client-secret",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "{{secret}}"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FetchadocumentRequest"
-              },
-              "example": {
-                "docType": "ADHAR",
-                "format": "pdf",
-                "consent": "Y"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "400": {
-            "description": "BAD REQUEST",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "openresty"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "Tue, 21 Sep 2021 03:23:28 GMT"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "111"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "keep-alive"
-                  }
-                }
-              },
-              "Permissions-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "interest-cohort=()"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "X-XSS-Protection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "1; mode=block"
-                  }
-                }
-              },
-              "X-Content-Type-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "nosniff"
-                  }
-                }
-              },
-              "Content-Security-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
-                  }
-                }
-              },
-              "Referrer-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "strict-origin-when-cross-origin"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "max-age=31556926; includeSubDomains"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Invalidpayload1"
-                },
-                "example": {
-                  "error": {
-                    "code": "invalid_payload",
-                    "detail": "Missing required parameter in the JSON body",
-                    "traceId": ""
-                  }
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "OK",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "openresty"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "Tue, 21 Sep 2021 03:27:13 GMT"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "383"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "keep-alive"
-                  }
-                }
-              },
-              "Permissions-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "interest-cohort=()"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "X-XSS-Protection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "1; mode=block"
-                  }
-                }
-              },
-              "X-Content-Type-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "nosniff"
-                  }
-                }
-              },
-              "Content-Security-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
-                  }
-                }
-              },
-              "Referrer-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "strict-origin-when-cross-origin"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "max-age=31556926; includeSubDomains"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Successfetchadocument"
-                },
-                "example": {
-                  "fileUrl": "s3_url of the file to be downloaded",
-                  "validUpto": "2021-09-21T09:12:12+05:30"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "UNAUTHORIZED",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "openresty"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "Tue, 21 Sep 2021 03:42:25 GMT"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "113"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "keep-alive"
-                  }
-                }
-              },
-              "Permissions-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "interest-cohort=()"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "X-XSS-Protection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "1; mode=block"
-                  }
-                }
-              },
-              "X-Content-Type-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "nosniff"
-                  }
-                }
-              },
-              "Content-Security-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
-                  }
-                }
-              },
-              "Referrer-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "strict-origin-when-cross-origin"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "max-age=31556926; includeSubDomains"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Tokenrevoked1"
-                },
-                "example": {
-                  "error": {
-                    "code": "token_revoked",
-                    "detail": "The user has revoked the token for the given request.",
-                    "traceId": ""
-                  }
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
-    "/api/digilocker/{requestId}/aadhaar": {
-      "get": {
-        "tags": [
-          "Digilocker"
-        ],
-        "summary": "Get e-Aadhaar XML",
-        "operationId": "Gete-AadhaarXML",
-        "parameters": [
-          {
-            "name": "requestId",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "{{request_id}}"
-            }
-          },
-          {
-            "name": "x-client-id",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "{{client_id}}"
-            }
-          },
-          {
-            "name": "x-client-secret",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "{{secret}}"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "openresty"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "Tue, 21 Sep 2021 03:29:03 GMT"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "383"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "keep-alive"
-                  }
-                }
-              },
-              "Permissions-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "interest-cohort=()"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "X-XSS-Protection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "1; mode=block"
-                  }
-                }
-              },
-              "X-Content-Type-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "nosniff"
-                  }
-                }
-              },
-              "Content-Security-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
-                  }
-                }
-              },
-              "Referrer-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "strict-origin-when-cross-origin"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "max-age=31556926; includeSubDomains"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Success5"
-                },
-                "example": {
-                  "aadhaar": {
-                    "address": {
-                      "careOf": "S/O John Doe",
-                      "country": "India",
-                      "district": "district",
-                      "house": "house address",
-                      "landmark": "",
-                      "locality": "locality",
-                      "pin": "123456",
-                      "postOffice": "",
-                      "state": "state",
-                      "street": "",
-                      "subDistrict": "",
-                      "vtc": "vtc"
-                    },
-                    "dateOfBirth": "01-01-1990",
-                    "email": "",
-                    "gender": "M",
-                    "generatedAt": "2021-10-26T17:17:36.342+05:30",
-                    "maskedNumber": "xxxx-xxxx-1234",
-                    "name": "Jack Doe",
-                    "phone": "",
-                    "photo": "",
-                    "verified": {
-                      "email": false,
-                      "phone": false,
-                      "signature": true
-                    },
-                    "xml": {
-                      "fileUrl": "https://s3linkgoeshere.com",
-                      "shareCode": "",
-                      "validUntil": "2021-10-09T06:04:16+05:30"
-                    }
-                  },
-                  "id": "391a45be-d08d-4dd0-b8a8-06e53392d435",
-                  "status": "complete"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "UNAUTHORIZED",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "openresty"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "Tue, 21 Sep 2021 03:42:30 GMT"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "113"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "keep-alive"
-                  }
-                }
-              },
-              "Permissions-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "interest-cohort=()"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "X-XSS-Protection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "1; mode=block"
-                  }
-                }
-              },
-              "X-Content-Type-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "nosniff"
-                  }
-                }
-              },
-              "Content-Security-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
-                  }
-                }
-              },
-              "Referrer-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "strict-origin-when-cross-origin"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "max-age=31556926; includeSubDomains"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Tokenrevoked1"
-                },
-                "example": {
-                  "error": {
-                    "code": "token_revoked",
-                    "detail": "The user has revoked the token for the given request.",
-                    "traceId": ""
-                  }
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
-    "/api/digilocker/documents": {
-      "get": {
-        "tags": [
-          "Digilocker"
-        ],
-        "summary": "Get List of all docs available",
-        "operationId": "GetListofalldocsavailable",
-        "parameters": [
-          {
-            "name": "x-client-id",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "{{client_id}}"
-            }
-          },
-          {
-            "name": "x-client-secret",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "{{secret}}"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "openresty"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "Mon, 20 Sep 2021 13:45:41 GMT"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "276937"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "keep-alive"
-                  }
-                }
-              },
-              "Permissions-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "interest-cohort=()"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "X-XSS-Protection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "1; mode=block"
-                  }
-                }
-              },
-              "X-Content-Type-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "nosniff"
-                  }
-                }
-              },
-              "Content-Security-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
-                  }
-                }
-              },
-              "Referrer-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "strict-origin-when-cross-origin"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "max-age=31556926; includeSubDomains"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Success6"
-                },
-                "example": {
-                  "documents": [
+    "servers": [
+        {
+            "url": "http://dg-sandbox.setu.co",
+            "variables": {}
+        }
+    ],
+    "paths": {
+        "/api/digilocker": {
+            "post": {
+                "tags": ["Digilocker"],
+                "summary": "Create a Digilocker Request",
+                "operationId": "CreateaDigilockerRequest",
+                "parameters": [
                     {
-                      "availableFormats": [
-                        "pdf"
-                      ],
-                      "description": "Pension Certificate",
-                      "docType": "PECER",
-                      "orgId": "002317",
-                      "orgName": "Accountants General, Tripura",
-                      "parameters": [
-                        {
-                          "description": "Account No./PPO No.",
-                          "name": "AC_NO"
+                        "name": "x-client-id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "{{client_id}}"
                         }
-                      ]
                     },
                     {
-                      "availableFormats": [
-                        "pdf"
-                      ],
-                      "description": "Provident Fund Member Passbook",
-                      "docType": "PRFND",
-                      "orgId": "002317",
-                      "orgName": "Accountants General, Tripura",
-                      "parameters": [
-                        {
-                          "description": "Account No./PPO No.",
-                          "name": "AC_NO"
+                        "name": "x-client-secret",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "{{secret}}"
                         }
-                      ]
                     }
-                  ]
-                }
-              }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateaDigilockerRequestRequest"
+                            },
+                            "example": {
+                                "redirectUrl": "https://setu.co"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "CREATED",
+                        "headers": {
+                            "Server": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "openresty"
+                                    }
+                                }
+                            },
+                            "Date": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "Mon, 20 Sep 2021 13:36:28 GMT"
+                                    }
+                                }
+                            },
+                            "Content-Length": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "211"
+                                    }
+                                }
+                            },
+                            "Connection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "keep-alive"
+                                    }
+                                }
+                            },
+                            "Permissions-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "interest-cohort=()"
+                                    }
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "SAMEORIGIN"
+                                    }
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "1; mode=block"
+                                    }
+                                }
+                            },
+                            "X-Content-Type-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "nosniff"
+                                    }
+                                }
+                            },
+                            "Content-Security-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
+                                    }
+                                }
+                            },
+                            "Referrer-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "strict-origin-when-cross-origin"
+                                    }
+                                }
+                            },
+                            "Strict-Transport-Security": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "max-age=31556926; includeSubDomains"
+                                    }
+                                }
+                            },
+                            "Cache-Control": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            },
+                            "Pragma": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Success1"
+                                },
+                                "example": {
+                                    "id": "ea31e1e6-96eb-4e56-a355-7bc51de94d24",
+                                    "status": "unauthenticated",
+                                    "url": "User login url",
+                                    "validUpto": "2021-10-05T19:06:28+05:30"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "BAD REQUEST",
+                        "headers": {
+                            "Server": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "openresty"
+                                    }
+                                }
+                            },
+                            "Date": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "Mon, 20 Sep 2021 13:38:26 GMT"
+                                    }
+                                }
+                            },
+                            "Content-Length": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "101"
+                                    }
+                                }
+                            },
+                            "Connection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "keep-alive"
+                                    }
+                                }
+                            },
+                            "Permissions-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "interest-cohort=()"
+                                    }
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "SAMEORIGIN"
+                                    }
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "1; mode=block"
+                                    }
+                                }
+                            },
+                            "X-Content-Type-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "nosniff"
+                                    }
+                                }
+                            },
+                            "Content-Security-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
+                                    }
+                                }
+                            },
+                            "Referrer-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "strict-origin-when-cross-origin"
+                                    }
+                                }
+                            },
+                            "Strict-Transport-Security": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "max-age=31556926; includeSubDomains"
+                                    }
+                                }
+                            },
+                            "Cache-Control": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            },
+                            "Pragma": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InvalidredirectURL1"
+                                },
+                                "example": {
+                                    "error": {
+                                        "code": "invalid_redirect_url",
+                                        "detail": "Please enter a valid redirect URL.",
+                                        "traceId": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "security": []
             }
-          }
         },
-        "deprecated": false,
-        "security": []
-      }
+        "/api/digilocker/{requestId}/document": {
+            "post": {
+                "tags": ["Digilocker"],
+                "summary": "Fetch a document",
+                "operationId": "Fetchadocument",
+                "parameters": [
+                    {
+                        "name": "requestId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "{{request_id}}"
+                        }
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "{{client_id}}"
+                        }
+                    },
+                    {
+                        "name": "x-client-secret",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "{{secret}}"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/FetchadocumentRequest"
+                            },
+                            "example": {
+                                "docType": "ADHAR",
+                                "format": "pdf",
+                                "consent": "Y"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "400": {
+                        "description": "BAD REQUEST",
+                        "headers": {
+                            "Server": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "openresty"
+                                    }
+                                }
+                            },
+                            "Date": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "Tue, 21 Sep 2021 03:23:28 GMT"
+                                    }
+                                }
+                            },
+                            "Content-Length": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "111"
+                                    }
+                                }
+                            },
+                            "Connection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "keep-alive"
+                                    }
+                                }
+                            },
+                            "Permissions-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "interest-cohort=()"
+                                    }
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "SAMEORIGIN"
+                                    }
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "1; mode=block"
+                                    }
+                                }
+                            },
+                            "X-Content-Type-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "nosniff"
+                                    }
+                                }
+                            },
+                            "Content-Security-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
+                                    }
+                                }
+                            },
+                            "Referrer-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "strict-origin-when-cross-origin"
+                                    }
+                                }
+                            },
+                            "Strict-Transport-Security": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "max-age=31556926; includeSubDomains"
+                                    }
+                                }
+                            },
+                            "Cache-Control": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            },
+                            "Pragma": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Invalidpayload1"
+                                },
+                                "example": {
+                                    "error": {
+                                        "code": "invalid_payload",
+                                        "detail": "Missing required parameter in the JSON body",
+                                        "traceId": ""
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "openresty"
+                                    }
+                                }
+                            },
+                            "Date": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "Tue, 21 Sep 2021 03:27:13 GMT"
+                                    }
+                                }
+                            },
+                            "Content-Length": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "383"
+                                    }
+                                }
+                            },
+                            "Connection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "keep-alive"
+                                    }
+                                }
+                            },
+                            "Permissions-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "interest-cohort=()"
+                                    }
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "SAMEORIGIN"
+                                    }
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "1; mode=block"
+                                    }
+                                }
+                            },
+                            "X-Content-Type-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "nosniff"
+                                    }
+                                }
+                            },
+                            "Content-Security-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
+                                    }
+                                }
+                            },
+                            "Referrer-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "strict-origin-when-cross-origin"
+                                    }
+                                }
+                            },
+                            "Strict-Transport-Security": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "max-age=31556926; includeSubDomains"
+                                    }
+                                }
+                            },
+                            "Cache-Control": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            },
+                            "Pragma": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Successfetchadocument"
+                                },
+                                "example": {
+                                    "fileUrl": "s3_url of the file to be downloaded",
+                                    "validUpto": "2021-09-21T09:12:12+05:30"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UNAUTHORIZED",
+                        "headers": {
+                            "Server": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "openresty"
+                                    }
+                                }
+                            },
+                            "Date": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "Tue, 21 Sep 2021 03:42:25 GMT"
+                                    }
+                                }
+                            },
+                            "Content-Length": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "113"
+                                    }
+                                }
+                            },
+                            "Connection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "keep-alive"
+                                    }
+                                }
+                            },
+                            "Permissions-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "interest-cohort=()"
+                                    }
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "SAMEORIGIN"
+                                    }
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "1; mode=block"
+                                    }
+                                }
+                            },
+                            "X-Content-Type-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "nosniff"
+                                    }
+                                }
+                            },
+                            "Content-Security-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
+                                    }
+                                }
+                            },
+                            "Referrer-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "strict-origin-when-cross-origin"
+                                    }
+                                }
+                            },
+                            "Strict-Transport-Security": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "max-age=31556926; includeSubDomains"
+                                    }
+                                }
+                            },
+                            "Cache-Control": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            },
+                            "Pragma": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tokenrevoked1"
+                                },
+                                "example": {
+                                    "error": {
+                                        "code": "token_revoked",
+                                        "detail": "The user has revoked the token for the given request.",
+                                        "traceId": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "security": []
+            }
+        },
+        "/api/digilocker/{requestId}/aadhaar": {
+            "get": {
+                "tags": ["Digilocker"],
+                "summary": "Get e-Aadhaar XML",
+                "operationId": "Gete-AadhaarXML",
+                "parameters": [
+                    {
+                        "name": "requestId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "{{request_id}}"
+                        }
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "{{client_id}}"
+                        }
+                    },
+                    {
+                        "name": "x-client-secret",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "{{secret}}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "openresty"
+                                    }
+                                }
+                            },
+                            "Date": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "Tue, 21 Sep 2021 03:29:03 GMT"
+                                    }
+                                }
+                            },
+                            "Content-Length": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "383"
+                                    }
+                                }
+                            },
+                            "Connection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "keep-alive"
+                                    }
+                                }
+                            },
+                            "Permissions-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "interest-cohort=()"
+                                    }
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "SAMEORIGIN"
+                                    }
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "1; mode=block"
+                                    }
+                                }
+                            },
+                            "X-Content-Type-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "nosniff"
+                                    }
+                                }
+                            },
+                            "Content-Security-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
+                                    }
+                                }
+                            },
+                            "Referrer-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "strict-origin-when-cross-origin"
+                                    }
+                                }
+                            },
+                            "Strict-Transport-Security": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "max-age=31556926; includeSubDomains"
+                                    }
+                                }
+                            },
+                            "Cache-Control": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            },
+                            "Pragma": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Success5"
+                                },
+                                "example": {
+                                    "aadhaar": {
+                                        "address": {
+                                            "careOf": "S/O John Doe",
+                                            "country": "India",
+                                            "district": "district",
+                                            "house": "house address",
+                                            "landmark": "",
+                                            "locality": "locality",
+                                            "pin": "123456",
+                                            "postOffice": "",
+                                            "state": "state",
+                                            "street": "",
+                                            "subDistrict": "",
+                                            "vtc": "vtc"
+                                        },
+                                        "dateOfBirth": "01-01-1990",
+                                        "email": "",
+                                        "gender": "M",
+                                        "generatedAt": "2021-10-26T17:17:36.342+05:30",
+                                        "maskedNumber": "xxxx-xxxx-1234",
+                                        "name": "Jack Doe",
+                                        "phone": "",
+                                        "photo": "",
+                                        "verified": {
+                                            "email": false,
+                                            "phone": false,
+                                            "signature": true
+                                        },
+                                        "xml": {
+                                            "fileUrl": "https://s3linkgoeshere.com",
+                                            "shareCode": "",
+                                            "validUntil": "2021-10-09T06:04:16+05:30"
+                                        }
+                                    },
+                                    "id": "391a45be-d08d-4dd0-b8a8-06e53392d435",
+                                    "status": "complete"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UNAUTHORIZED",
+                        "headers": {
+                            "Server": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "openresty"
+                                    }
+                                }
+                            },
+                            "Date": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "Tue, 21 Sep 2021 03:42:30 GMT"
+                                    }
+                                }
+                            },
+                            "Content-Length": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "113"
+                                    }
+                                }
+                            },
+                            "Connection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "keep-alive"
+                                    }
+                                }
+                            },
+                            "Permissions-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "interest-cohort=()"
+                                    }
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "SAMEORIGIN"
+                                    }
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "1; mode=block"
+                                    }
+                                }
+                            },
+                            "X-Content-Type-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "nosniff"
+                                    }
+                                }
+                            },
+                            "Content-Security-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
+                                    }
+                                }
+                            },
+                            "Referrer-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "strict-origin-when-cross-origin"
+                                    }
+                                }
+                            },
+                            "Strict-Transport-Security": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "max-age=31556926; includeSubDomains"
+                                    }
+                                }
+                            },
+                            "Cache-Control": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            },
+                            "Pragma": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tokenrevoked1"
+                                },
+                                "example": {
+                                    "error": {
+                                        "code": "token_revoked",
+                                        "detail": "The user has revoked the token for the given request.",
+                                        "traceId": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "security": []
+            }
+        },
+        "/api/digilocker/documents": {
+            "get": {
+                "tags": ["Digilocker"],
+                "summary": "Get List of all docs available",
+                "operationId": "GetListofalldocsavailable",
+                "parameters": [
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "{{client_id}}"
+                        }
+                    },
+                    {
+                        "name": "x-client-secret",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "{{secret}}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "openresty"
+                                    }
+                                }
+                            },
+                            "Date": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "Mon, 20 Sep 2021 13:45:41 GMT"
+                                    }
+                                }
+                            },
+                            "Content-Length": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "276937"
+                                    }
+                                }
+                            },
+                            "Connection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "keep-alive"
+                                    }
+                                }
+                            },
+                            "Permissions-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "interest-cohort=()"
+                                    }
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "SAMEORIGIN"
+                                    }
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "1; mode=block"
+                                    }
+                                }
+                            },
+                            "X-Content-Type-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "nosniff"
+                                    }
+                                }
+                            },
+                            "Content-Security-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
+                                    }
+                                }
+                            },
+                            "Referrer-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "strict-origin-when-cross-origin"
+                                    }
+                                }
+                            },
+                            "Strict-Transport-Security": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "max-age=31556926; includeSubDomains"
+                                    }
+                                }
+                            },
+                            "Cache-Control": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            },
+                            "Pragma": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Success6"
+                                },
+                                "example": {
+                                    "documents": [
+                                        {
+                                            "availableFormats": ["pdf"],
+                                            "description": "Pension Certificate",
+                                            "docType": "PECER",
+                                            "orgId": "002317",
+                                            "orgName": "Accountants General, Tripura",
+                                            "parameters": [
+                                                {
+                                                    "description": "Account No./PPO No.",
+                                                    "name": "AC_NO"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "availableFormats": ["pdf"],
+                                            "description": "Provident Fund Member Passbook",
+                                            "docType": "PRFND",
+                                            "orgId": "002317",
+                                            "orgName": "Accountants General, Tripura",
+                                            "parameters": [
+                                                {
+                                                    "description": "Account No./PPO No.",
+                                                    "name": "AC_NO"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "security": []
+            }
+        },
+        "/api/digilocker/{requestId}/revoke": {
+            "get": {
+                "tags": ["Digilocker"],
+                "summary": "Revoke access token",
+                "operationId": "Revokeaccesstoken",
+                "parameters": [
+                    {
+                        "name": "requestId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "{{request_id}}"
+                        }
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "{{client_id}}"
+                        }
+                    },
+                    {
+                        "name": "x-client-secret",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "{{secret}}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "openresty"
+                                    }
+                                }
+                            },
+                            "Date": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "Tue, 21 Sep 2021 03:34:35 GMT"
+                                    }
+                                }
+                            },
+                            "Content-Length": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "17"
+                                    }
+                                }
+                            },
+                            "Connection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "keep-alive"
+                                    }
+                                }
+                            },
+                            "Permissions-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "interest-cohort=()"
+                                    }
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "SAMEORIGIN"
+                                    }
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "1; mode=block"
+                                    }
+                                }
+                            },
+                            "X-Content-Type-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "nosniff"
+                                    }
+                                }
+                            },
+                            "Content-Security-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
+                                    }
+                                }
+                            },
+                            "Referrer-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "strict-origin-when-cross-origin"
+                                    }
+                                }
+                            },
+                            "Strict-Transport-Security": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "max-age=31556926; includeSubDomains"
+                                    }
+                                }
+                            },
+                            "Cache-Control": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            },
+                            "Pragma": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/success7"
+                                },
+                                "example": {
+                                    "success": true
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "security": []
+            }
+        },
+        "/api/digilocker/{requestId}/status": {
+            "get": {
+                "tags": ["Digilocker"],
+                "summary": "Get status API",
+                "operationId": "GetstatusAPI",
+                "parameters": [
+                    {
+                        "name": "requestId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "{{request_id}}"
+                        }
+                    },
+                    {
+                        "name": "x-client-id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "{{client_id}}"
+                        }
+                    },
+                    {
+                        "name": "x-client-secret",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "{{secret}}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "openresty"
+                                    }
+                                }
+                            },
+                            "Date": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "Tue, 21 Sep 2021 03:32:11 GMT"
+                                    }
+                                }
+                            },
+                            "Content-Length": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "209"
+                                    }
+                                }
+                            },
+                            "Connection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "keep-alive"
+                                    }
+                                }
+                            },
+                            "Permissions-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "interest-cohort=()"
+                                    }
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "SAMEORIGIN"
+                                    }
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "1; mode=block"
+                                    }
+                                }
+                            },
+                            "X-Content-Type-Options": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "nosniff"
+                                    }
+                                }
+                            },
+                            "Content-Security-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
+                                    }
+                                }
+                            },
+                            "Referrer-Policy": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "strict-origin-when-cross-origin"
+                                    }
+                                }
+                            },
+                            "Strict-Transport-Security": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "max-age=31556926; includeSubDomains"
+                                    }
+                                }
+                            },
+                            "Cache-Control": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            },
+                            "Pragma": {
+                                "content": {
+                                    "text/plain": {
+                                        "schema": {
+                                            "type": "string"
+                                        },
+                                        "example": "no-cache"
+                                    }
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Success1"
+                                },
+                                "example": {
+                                    "id": "477dc21a-fa28-4c7f-9291-f35d63d5bda7",
+                                    "status": "authenticated",
+                                    "url": "User login url",
+                                    "validUpto": "2021-10-06T08:43:18+05:30"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "security": []
+            }
+        }
     },
-    "/api/digilocker/{requestId}/revoke": {
-      "get": {
-        "tags": [
-          "Digilocker"
-        ],
-        "summary": "Revoke access token",
-        "operationId": "Revokeaccesstoken",
-        "parameters": [
-          {
-            "name": "requestId",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "{{request_id}}"
-            }
-          },
-          {
-            "name": "x-client-id",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "{{client_id}}"
-            }
-          },
-          {
-            "name": "x-client-secret",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "{{secret}}"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "openresty"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "Tue, 21 Sep 2021 03:34:35 GMT"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "17"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "keep-alive"
-                  }
-                }
-              },
-              "Permissions-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "interest-cohort=()"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "X-XSS-Protection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "1; mode=block"
-                  }
-                }
-              },
-              "X-Content-Type-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "nosniff"
-                  }
-                }
-              },
-              "Content-Security-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
-                  }
-                }
-              },
-              "Referrer-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "strict-origin-when-cross-origin"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "max-age=31556926; includeSubDomains"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/success7"
+    "components": {
+        "schemas": {
+            "CreateaDigilockerRequestRequest": {
+                "title": "CreateaDigilockerRequestRequest",
+                "required": ["redirectUrl"],
+                "type": "object",
+                "properties": {
+                    "redirectUrl": {
+                        "type": "string"
+                    }
                 },
                 "example": {
-                  "success": true
+                    "redirectUrl": "https://setu.co"
                 }
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
-    "/api/digilocker/{requestId}/status": {
-      "get": {
-        "tags": [
-          "Digilocker"
-        ],
-        "summary": "Get status API",
-        "operationId": "GetstatusAPI",
-        "parameters": [
-          {
-            "name": "requestId",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "{{request_id}}"
-            }
-          },
-          {
-            "name": "x-client-id",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "{{client_id}}"
-            }
-          },
-          {
-            "name": "x-client-secret",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "{{secret}}"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "openresty"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "Tue, 21 Sep 2021 03:32:11 GMT"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "209"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "keep-alive"
-                  }
-                }
-              },
-              "Permissions-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "interest-cohort=()"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "X-XSS-Protection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "1; mode=block"
-                  }
-                }
-              },
-              "X-Content-Type-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "nosniff"
-                  }
-                }
-              },
-              "Content-Security-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
-                  }
-                }
-              },
-              "Referrer-Policy": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "strict-origin-when-cross-origin"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "max-age=31556926; includeSubDomains"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              }
             },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Success1"
+            "InvalidredirectURL1": {
+                "title": "InvalidredirectURL1",
+                "required": ["error"],
+                "type": "object",
+                "properties": {
+                    "error": {
+                        "$ref": "#/components/schemas/Error"
+                    }
                 },
                 "example": {
-                  "id": "477dc21a-fa28-4c7f-9291-f35d63d5bda7",
-                  "status": "authenticated",
-                  "url": "User login url",
-                  "validUpto": "2021-10-06T08:43:18+05:30"
+                    "error": {
+                        "code": "invalid_redirect_url",
+                        "detail": "Please enter a valid redirect URL.",
+                        "traceId": ""
+                    }
                 }
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "CreateaDigilockerRequestRequest": {
-        "title": "CreateaDigilockerRequestRequest",
-        "required": [
-          "redirectUrl"
-        ],
-        "type": "object",
-        "properties": {
-          "redirectUrl": {
-            "type": "string"
-          }
-        },
-        "example": {
-          "redirectUrl": "https://setu.co"
-        }
-      },
-      "InvalidredirectURL1": {
-        "title": "InvalidredirectURL1",
-        "required": [
-          "error"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "$ref": "#/components/schemas/Error"
-          }
-        },
-        "example": {
-          "error": {
-            "code": "invalid_redirect_url",
-            "detail": "Please enter a valid redirect URL.",
-            "traceId": ""
-          }
-        }
-      },
-      "FetchadocumentRequest": {
-        "title": "FetchadocumentRequest",
-        "required": [
-          "docType",
-          "format",
-          "consent"
-        ],
-        "type": "object",
-        "properties": {
-          "docType": {
-            "type": "string"
-          },
-          "format": {
-            "type": "string"
-          },
-          "consent": {
-            "type": "string"
-          }
-        },
-        "example": {
-          "docType": "ADHAR",
-          "format": "pdf",
-          "consent": "Y"
-        }
-      },
-      "Consentnotgiven1": {
-        "title": "Consentnotgiven1",
-        "required": [
-          "error"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "$ref": "#/components/schemas/Error"
-          }
-        },
-        "example": {
-          "error": {
-            "code": "consent_not_given",
-            "detail": "Only accepted value for consent is 'Y'",
-            "traceId": ""
-          }
-        }
-      },
-      "Successfetchadocument": {
-        "title": "Successfetchadocument",
-        "required": [
-          "fileUrl",
-          "validUpto"
-        ],
-        "type": "object",
-        "properties": {
-          "fileUrl": {
-            "type": "string"
-          },
-          "validUpto": {
-            "type": "string"
-          }
-        },
-        "example": {
-          "fileUrl": "s3_url of the file to be downloaded",
-          "validUpto": "2021-09-21T09:12:12+05:30"
-        }
-      },
-      "Tokenrevoked1": {
-        "title": "Tokenrevoked1",
-        "required": [
-          "error"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "$ref": "#/components/schemas/Error"
-          }
-        },
-        "example": {
-          "error": {
-            "code": "token_revoked",
-            "detail": "The user has revoked the token for the given request.",
-            "traceId": ""
-          }
-        }
-      },
-      "Success5": {
-        "title": "Success5",
-        "required": [
-          "aadhaar",
-          "id",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "aadhaar": {
-            "$ref": "#/components/schemas/Aadhaar1"
-          },
-          "id": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string"
-          }
-        },
-        "example": {
-          "aadhaar": {
-            "address": {
-              "careOf": "S/O John Doe",
-              "country": "India",
-              "district": "district",
-              "house": "house address",
-              "landmark": "",
-              "locality": "locality",
-              "pin": "123456",
-              "postOffice": "",
-              "state": "state",
-              "street": "",
-              "subDistrict": "",
-              "vtc": "vtc"
             },
-            "dateOfBirth": "01-01-1990",
-            "email": "",
-            "gender": "M",
-            "generatedAt": "2021-10-26T17:17:36.342+05:30",
-            "maskedNumber": "xxxx-xxxx-1234",
-            "name": "Jack Doe",
-            "phone": "",
-            "photo": "",
-            "verified": {
-              "email": false,
-              "phone": false,
-              "signature": true
-            },
-            "xml": {
-              "fileUrl": "https://s3linkgoeshere.com",
-              "shareCode": "",
-              "validUntil": "2021-10-09T06:04:16+05:30"
-            }
-          },
-          "id": "391a45be-d08d-4dd0-b8a8-06e53392d435",
-          "status": "complete"
-        }
-      },
-      "Success6": {
-        "title": "Success6",
-        "required": [
-          "documents"
-        ],
-        "type": "object",
-        "properties": {
-          "documents": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Document1"
-            },
-            "description": ""
-          }
-        },
-        "example": {
-          "documents": [
-            {
-              "availableFormats": [
-                "pdf"
-              ],
-              "description": "Pension Certificate",
-              "docType": "PECER",
-              "orgId": "002317",
-              "orgName": "Accountants General, Tripura",
-              "parameters": [
-                {
-                  "description": "Account No./PPO No.",
-                  "name": "AC_NO"
+            "FetchadocumentRequest": {
+                "title": "FetchadocumentRequest",
+                "required": ["docType", "format", "consent"],
+                "type": "object",
+                "properties": {
+                    "docType": {
+                        "type": "string"
+                    },
+                    "format": {
+                        "type": "string"
+                    },
+                    "consent": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "docType": "ADHAR",
+                    "format": "pdf",
+                    "consent": "Y"
                 }
-              ]
             },
-            {
-              "availableFormats": [
-                "pdf"
-              ],
-              "description": "Provident Fund Member Passbook",
-              "docType": "PRFND",
-              "orgId": "002317",
-              "orgName": "Accountants General, Tripura",
-              "parameters": [
-                {
-                  "description": "Account No./PPO No.",
-                  "name": "AC_NO"
+            "Consentnotgiven1": {
+                "title": "Consentnotgiven1",
+                "required": ["error"],
+                "type": "object",
+                "properties": {
+                    "error": {
+                        "$ref": "#/components/schemas/Error"
+                    }
+                },
+                "example": {
+                    "error": {
+                        "code": "consent_not_given",
+                        "detail": "Only accepted value for consent is 'Y'",
+                        "traceId": ""
+                    }
                 }
-              ]
-            }
-          ]
-        }
-      },
-      "Document1": {
-        "title": "Document1",
-        "required": [
-          "availableFormats",
-          "description",
-          "docType",
-          "orgId",
-          "orgName",
-          "parameters"
-        ],
-        "type": "object",
-        "properties": {
-          "availableFormats": {
-            "type": "array",
-            "items": {
-              "type": "string"
             },
-            "description": ""
-          },
-          "description": {
-            "type": "string"
-          },
-          "docType": {
-            "type": "string"
-          },
-          "orgId": {
-            "type": "string"
-          },
-          "orgName": {
-            "type": "string"
-          },
-          "parameters": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Parameters4"
+            "Successfetchadocument": {
+                "title": "Successfetchadocument",
+                "required": ["fileUrl", "validUpto"],
+                "type": "object",
+                "properties": {
+                    "fileUrl": {
+                        "type": "string"
+                    },
+                    "validUpto": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "fileUrl": "s3_url of the file to be downloaded",
+                    "validUpto": "2021-09-21T09:12:12+05:30"
+                }
             },
-            "description": ""
-          }
-        },
-        "example": {
-          "availableFormats": [
-            "pdf"
-          ],
-          "description": "Pension Certificate",
-          "docType": "PECER",
-          "orgId": "002317",
-          "orgName": "Accountants General, Tripura",
-          "parameters": [
-            {
-              "description": "Account No./PPO No.",
-              "name": "AC_NO"
+            "Tokenrevoked1": {
+                "title": "Tokenrevoked1",
+                "required": ["error"],
+                "type": "object",
+                "properties": {
+                    "error": {
+                        "$ref": "#/components/schemas/Error"
+                    }
+                },
+                "example": {
+                    "error": {
+                        "code": "token_revoked",
+                        "detail": "The user has revoked the token for the given request.",
+                        "traceId": ""
+                    }
+                }
+            },
+            "Success5": {
+                "title": "Success5",
+                "required": ["aadhaar", "id", "status"],
+                "type": "object",
+                "properties": {
+                    "aadhaar": {
+                        "$ref": "#/components/schemas/Aadhaar1"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "aadhaar": {
+                        "address": {
+                            "careOf": "S/O John Doe",
+                            "country": "India",
+                            "district": "district",
+                            "house": "house address",
+                            "landmark": "",
+                            "locality": "locality",
+                            "pin": "123456",
+                            "postOffice": "",
+                            "state": "state",
+                            "street": "",
+                            "subDistrict": "",
+                            "vtc": "vtc"
+                        },
+                        "dateOfBirth": "01-01-1990",
+                        "email": "",
+                        "gender": "M",
+                        "generatedAt": "2021-10-26T17:17:36.342+05:30",
+                        "maskedNumber": "xxxx-xxxx-1234",
+                        "name": "Jack Doe",
+                        "phone": "",
+                        "photo": "",
+                        "verified": {
+                            "email": false,
+                            "phone": false,
+                            "signature": true
+                        },
+                        "xml": {
+                            "fileUrl": "https://s3linkgoeshere.com",
+                            "shareCode": "",
+                            "validUntil": "2021-10-09T06:04:16+05:30"
+                        }
+                    },
+                    "id": "391a45be-d08d-4dd0-b8a8-06e53392d435",
+                    "status": "complete"
+                }
+            },
+            "Success6": {
+                "title": "Success6",
+                "required": ["documents"],
+                "type": "object",
+                "properties": {
+                    "documents": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Document1"
+                        },
+                        "description": ""
+                    }
+                },
+                "example": {
+                    "documents": [
+                        {
+                            "availableFormats": ["pdf"],
+                            "description": "Pension Certificate",
+                            "docType": "PECER",
+                            "orgId": "002317",
+                            "orgName": "Accountants General, Tripura",
+                            "parameters": [
+                                {
+                                    "description": "Account No./PPO No.",
+                                    "name": "AC_NO"
+                                }
+                            ]
+                        },
+                        {
+                            "availableFormats": ["pdf"],
+                            "description": "Provident Fund Member Passbook",
+                            "docType": "PRFND",
+                            "orgId": "002317",
+                            "orgName": "Accountants General, Tripura",
+                            "parameters": [
+                                {
+                                    "description": "Account No./PPO No.",
+                                    "name": "AC_NO"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "Document1": {
+                "title": "Document1",
+                "required": ["availableFormats", "description", "docType", "orgId", "orgName", "parameters"],
+                "type": "object",
+                "properties": {
+                    "availableFormats": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": ""
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "docType": {
+                        "type": "string"
+                    },
+                    "orgId": {
+                        "type": "string"
+                    },
+                    "orgName": {
+                        "type": "string"
+                    },
+                    "parameters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameters4"
+                        },
+                        "description": ""
+                    }
+                },
+                "example": {
+                    "availableFormats": ["pdf"],
+                    "description": "Pension Certificate",
+                    "docType": "PECER",
+                    "orgId": "002317",
+                    "orgName": "Accountants General, Tripura",
+                    "parameters": [
+                        {
+                            "description": "Account No./PPO No.",
+                            "name": "AC_NO"
+                        }
+                    ]
+                }
+            },
+            "Parameters4": {
+                "title": "Parameters4",
+                "required": ["description", "name"],
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "description": "Account No./PPO No.",
+                    "name": "AC_NO"
+                }
+            },
+            "success7": {
+                "title": "success7",
+                "required": ["success"],
+                "type": "object",
+                "properties": {
+                    "success": {
+                        "type": "boolean"
+                    }
+                },
+                "example": {
+                    "success": true
+                }
             }
-          ]
-        }
-      },
-      "Parameters4": {
-        "title": "Parameters4",
-        "required": [
-          "description",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "description": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          }
         },
-        "example": {
-          "description": "Account No./PPO No.",
-          "name": "AC_NO"
+        "securitySchemes": {
+            "bearer": {
+                "type": "http",
+                "scheme": "bearer"
+            }
         }
-      },
-      "success7": {
-        "title": "success7",
-        "required": [
-          "success"
-        ],
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean"
-          }
-        },
-        "example": {
-          "success": true
-        }
-      }
     },
-    "securitySchemes": {
-      "bearer": {
-        "type": "http",
-        "scheme": "bearer"
-      }
-    }
-  },
-  "security": [
-    {
-      "bearer": []
-    }
-  ],
-  "tags": [
-    {
-      "name": "Digilocker"
-    }
-  ]
+    "security": [
+        {
+            "bearer": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "Digilocker"
+        }
+    ]
 }
