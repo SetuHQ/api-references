@@ -8,7 +8,7 @@
   "servers": [
     {
       "url": "https://sandbox-coudc.setu.co/api/v1",
-      "description": "Sandbox server"
+      "description": "Sandbox Server"
     }
   ],
   "paths": {
@@ -17,7 +17,7 @@
         "tags": [
           "Auth"
         ],
-        "summary": "Token Request",
+        "summary": "Fetch token",
         "operationId": "fetchToken",
         "requestBody": {
           "description": "The API key pair",
@@ -212,9 +212,9 @@
     "/bbps/billers": {
       "get": {
         "tags": [
-          "List"
+          "Take bulk actions"
         ],
-        "summary": "Billers",
+        "summary": "List billers for category",
         "operationId": "getBillers",
         "parameters": [
           {
@@ -320,9 +320,9 @@
     "/bbps/bills/complaint/request": {
       "post": {
         "tags": [
-          "Dispute"
+          "Manage Dispute"
         ],
-        "summary": "Request",
+        "summary": "Raise dispute",
         "operationId": "DisputeRequest",
         "parameters": [
           {
@@ -390,9 +390,9 @@
     "/bbps/bills/complaint/response": {
       "post": {
         "tags": [
-          "Dispute"
+          "Manage Dispute"
         ],
-        "summary": "Response",
+        "summary": "Check dispute status",
         "operationId": "DisputeResponse",
         "parameters": [
           {
@@ -460,9 +460,9 @@
     "/bbps/bills/fetch/request": {
       "post": {
         "tags": [
-          "Fetch"
+          "Fetch bill"
         ],
-        "summary": "Request",
+        "summary": "Fetch bill",
         "operationId": "FetchRequest",
         "parameters": [
           {
@@ -530,9 +530,9 @@
     "/bbps/bills/fetch/response": {
       "post": {
         "tags": [
-          "Fetch"
+          "Fetch bill"
         ],
-        "summary": "Response",
+        "summary": "Get fetched bill",
         "operationId": "FetchResponse",
         "parameters": [
           {
@@ -600,9 +600,9 @@
     "/bbps/bills/payment/request": {
       "post": {
         "tags": [
-          "Pay"
+          "Pay bill"
         ],
-        "summary": "Request",
+        "summary": "Post payment details",
         "operationId": "PaymentRequest",
         "parameters": [
           {
@@ -670,9 +670,9 @@
     "/bbps/bills/payment/response": {
       "post": {
         "tags": [
-          "Pay"
+          "Pay bill"
         ],
-        "summary": "Response",
+        "summary": "Check payment status",
         "operationId": "PaymentResponse",
         "parameters": [
           {
@@ -740,9 +740,9 @@
     "/bbps/categories": {
       "get": {
         "tags": [
-          "List"
+          "Take bulk actions"
         ],
-        "summary": "Categories",
+        "summary": "List all categories",
         "operationId": "getCategories",
         "parameters": [
           {
@@ -799,9 +799,9 @@
     "/bbps/disputes": {
       "get": {
         "tags": [
-          "List"
+          "Take bulk actions"
         ],
-        "summary": "Disputes",
+        "summary": "List disputes",
         "operationId": "getDisputes",
         "parameters": [
           {
@@ -884,9 +884,9 @@
     "/bbps/fetched-bills": {
       "get": {
         "tags": [
-          "List"
+          "Take bulk actions"
         ],
-        "summary": "Fetched bills",
+        "summary": "List fetched bills",
         "operationId": "getFetchedBills",
         "parameters": [
           {
@@ -970,9 +970,9 @@
     "/bbps/transactions": {
       "get": {
         "tags": [
-          "List"
+          "Take bulk actions"
         ],
-        "summary": "Transactions",
+        "summary": "List paid bills",
         "operationId": "getTxns",
         "parameters": [
           {
@@ -1070,7 +1070,7 @@
         "tags": [
           "Health"
         ],
-        "summary": "Health check",
+        "summary": "Check health",
         "operationId": "getHealth",
         "responses": {
           "200": {
