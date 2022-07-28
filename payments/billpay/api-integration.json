@@ -58,9 +58,9 @@
     "/bbps/autofetches": {
       "get": {
         "tags": [
-          "autofetch"
+          "Manage auto-fetch for bills"
         ],
-        "summary": "List",
+        "summary": "List auto-fetched bills",
         "operationId": "listAutofetchSubscriptions",
         "parameters": [
           {
@@ -105,9 +105,9 @@
       },
       "post": {
         "tags": [
-          "autofetch"
+          "Manage auto-fetch for bills"
         ],
-        "summary": "Bulk subscriptions",
+        "summary": "Enable auto-fetch",
         "operationId": "bulkAutofetchSubscriptions",
         "parameters": [
           {
@@ -165,9 +165,9 @@
     "/bbps/autofetches/{autofetchHash}": {
       "delete": {
         "tags": [
-          "autofetch"
+          "Manage auto-fetch for bills"
         ],
-        "summary": "Disable",
+        "summary": "Disable auto-fetch",
         "operationId": "disableAutofetch",
         "parameters": [
           {
