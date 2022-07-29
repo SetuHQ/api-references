@@ -4,14 +4,222 @@
     ],
     "swagger": "2.0",
     "info": {
-        "description": "\u003ca href=\"http://docs.setu.co/\" target=\"_blank\"\u003eSetu Collect Documentation ↗\u003c/a\u003e\n",
+        "description": "<a href=\"http://docs.setu.co/\" target=\"_blank\">Setu Collect Documentation ↗</a>\n",
         "title": "Setu Collect APIs",
         "version": "1.0.0"
     },
     "host": "uat.setu.co",
-    "basePath": "/api",
+    "basePath": "/api/v2",
     "paths": {
-        "/\u003cpartner-base-api-url\u003e/notifications": {
+        "/<partner-base-api-url>/bills/fetch": {
+            "post": {
+                "description": "Used to validate the customer account and fetch the bill details.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Billers",
+                    "bbps-integration-implement"
+                ],
+                "summary": "Respond to bill fetch",
+                "operationId": "fetchCustomerBills",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Input parameters for fetching a bill",
+                        "name": "fetchBillandValidateCustomer",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/billerFetchBillsRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/billerFetchBillsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/<partner-base-api-url>/bills/fetchReceipt": {
+            "post": {
+                "description": "Used to validate the customer and fetch bill details.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Billers",
+                    "bbps-integration-implement"
+                ],
+                "summary": "Acknowledge payment",
+                "operationId": "fetchBillReceipt",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Input parameters for fetching a bill.",
+                        "name": "fetchBillReceiptAfterPayment",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/fetchReceiptRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/fetchBillReceiptResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/<partner-base-api-url>/notifications": {
             "post": {
                 "consumes": [
                     "application/json"
@@ -20,7 +228,9 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Notifications"
+                    "Notifications",
+                    "bbps-integration-events",
+                    "upi-deep-links-events"
                 ],
                 "operationId": "notification",
                 "parameters": [
@@ -91,6 +301,2449 @@
                 }
             }
         },
+        "/actors": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Sangam"
+                ],
+                "summary": "List Actors",
+                "operationId": "listActors",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for the user interacting with console. Required for logging purposes.",
+                        "name": "X-Requestor-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "name": "partnerIds",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "name": "appIds",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "name": "ids",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "enum": [
+                                "Bank",
+                                "Biller",
+                                "BillerAggregator",
+                                "Payer",
+                                "PayerAggregator",
+                                "PaymentProcessor",
+                                "GSTPayer",
+                                "GSTProcessor",
+                                "Reporter"
+                            ],
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "name": "types",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/listActorsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Sangam"
+                ],
+                "summary": "Create a new Actor",
+                "operationId": "createActor",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Create Actor Request body",
+                        "name": "createActorRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/baseActor"
+                        }
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for the user interacting with console. Required for logging purposes.",
+                        "name": "X-Requestor-ID",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Resource Created",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/createActorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/actors/{actorId}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Sangam"
+                ],
+                "summary": "Get Actor",
+                "operationId": "getActorById",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for the user interacting with console. Required for logging purposes.",
+                        "name": "X-Requestor-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "actorId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/getActorByIdResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Sangam"
+                ],
+                "summary": "Delete Actor",
+                "operationId": "deleteActorByID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for the user interacting with console. Required for logging purposes.",
+                        "name": "X-Requestor-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "actorId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "type": "object",
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Sangam"
+                ],
+                "summary": "Update Actor",
+                "operationId": "updateActorByID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for the user interacting with console. Required for logging purposes.",
+                        "name": "X-Requestor-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "actorId",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "name": "UpdateActorByIDRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/updateActor"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/updateActorByIdResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/apps": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Sangam"
+                ],
+                "summary": "List Apps",
+                "operationId": "listApps",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for the user interacting with console. Required for logging purposes.",
+                        "name": "X-Requestor-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "name": "partnerIds",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "name": "ids",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/listAppsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Sangam"
+                ],
+                "summary": "Create a new App",
+                "operationId": "createApp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Create App Request body",
+                        "name": "createAppRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/createAppRequest"
+                        }
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for the user interacting with console. Required for logging purposes.",
+                        "name": "X-Requestor-ID",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Resource Created",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/createAppResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/apps/{appId}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Sangam"
+                ],
+                "summary": "Get App",
+                "operationId": "getAppById",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for the user interacting with console. Required for logging purposes.",
+                        "name": "X-Requestor-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "appId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/getAppByIdResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Sangam"
+                ],
+                "summary": "Delete App",
+                "operationId": "deleteAppByID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for the user interacting with console. Required for logging purposes.",
+                        "name": "X-Requestor-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "appId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "type": "object",
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Sangam"
+                ],
+                "summary": "Update App",
+                "operationId": "updateAppByID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for the user interacting with console. Required for logging purposes.",
+                        "name": "X-Requestor-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "appId",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "name": "UpdateAppByIDRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/updateApp"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/updateAppByIdResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/apps/{appId}/api-keys": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Sangam"
+                ],
+                "summary": "Reset app auth scheme",
+                "operationId": "resetAppAuthScheme",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for the user interacting with console. Required for logging purposes.",
+                        "name": "X-Requestor-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "appId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "type": "object",
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/appCredentialsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/token": {
+            "post": {
+                "description": "Fetch token to be used to authorize all Setu APIs",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "operationId": "fetchToken",
+                "parameters": [
+                    {
+                        "description": "ClientID from the API key pair",
+                        "name": "fetchTokenPayload",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/fetchTokenRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/fetchTokenResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/callbacks": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Callbacks"
+                ],
+                "operationId": "createCallbackEvent",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Input parameters for a callback request.",
+                        "name": "callbackEventCreateRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/callbackEventCreateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/callbackresponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/callbacks/upi-credit-alert": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Callbacks"
+                ],
+                "operationId": "kotakUpiCallback",
+                "parameters": [
+                    {
+                        "description": "Input parameters for a callback request.",
+                        "name": "kotakUPICallbackRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/kotakUpiCallbackRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/code/version": {
+            "get": {
+                "description": "Returns the code version(or,git hash) associated with the running application.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Version"
+                ],
+                "operationId": "fetchCodeVersion",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/fetchCodeVersionResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/db/version": {
+            "get": {
+                "description": "Returns the DB migrations/version info.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Version"
+                ],
+                "operationId": "fetchDbVersion",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/fetchDbVersionResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/partners": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Sangam"
+                ],
+                "summary": "List Partners",
+                "operationId": "listPartners",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for the user interacting with console. Required for logging purposes.",
+                        "name": "X-Requestor-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "Filter by list of Partner-IDs",
+                        "name": "ids",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/listPartnersResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Sangam"
+                ],
+                "summary": "Create a new Partner",
+                "operationId": "createPartner",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Partner request object",
+                        "name": "createPartnerRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/basePartner"
+                        }
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for the user interacting with console. Required for logging purposes.",
+                        "name": "X-Requestor-ID",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Resource Created",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/createPartnerResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/partners/{partnerId}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Sangam"
+                ],
+                "summary": "Get Partner",
+                "operationId": "getPartnerByID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for the user requesting the change. Required for logging purposes.",
+                        "name": "X-Requestor-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "partnerId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/getPartnerByIdResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Sangam"
+                ],
+                "summary": "Delete Partner",
+                "operationId": "deletePartnerByID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "partnerId",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for the user interacting with console. Required for logging purposes.",
+                        "name": "X-Requestor-ID",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "type": "object",
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Sangam"
+                ],
+                "summary": "Update Partner",
+                "operationId": "updatePartnerByID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for the user interacting with console. Required for logging purposes.",
+                        "name": "X-Requestor-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "partnerId",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "name": "updatePartnerByIDRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/updatePartnerRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/updatePartnerByIdResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/payer/link": {
+            "post": {
+                "description": "Fetch payer link",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Payers"
+                ],
+                "operationId": "fetchPayerLink",
+                "parameters": [
+                    {
+                        "description": "API key pair",
+                        "name": "fetchPayerLinkPayload",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/fetchPayerLinkRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/fetchPayerLinkResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/payment-addresses/verify": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Addressing"
+                ],
+                "operationId": "verifyPaymentAddress",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Input parameters for a verify payment address request.",
+                        "name": "verifyPaymentAddressRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/verifyPaymentAddressRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/verifyPaymentAddressResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/payment-links": {
             "post": {
                 "consumes": [
@@ -100,11 +2753,19 @@
                     "application/json"
                 ],
                 "tags": [
-                    "APIs to call"
+                    "Billers",
+                    "upi-deep-links"
                 ],
                 "summary": "Create a payment link",
                 "operationId": "paymentLink",
                 "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
                     {
                         "type": "string",
                         "description": "Identifier for product instance. Required for authorisation.",
@@ -197,11 +2858,19 @@
                     "application/json"
                 ],
                 "tags": [
-                    "APIs to call"
+                    "Billers",
+                    "upi-deep-links"
                 ],
                 "summary": "Check payment status",
                 "operationId": "paymentStatus",
                 "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
                     {
                         "type": "string",
                         "description": "Identifier for product instance. Required for authorisation.",
@@ -292,11 +2961,19 @@
                     "application/json"
                 ],
                 "tags": [
-                    "APIs to call"
+                    "Billers",
+                    "upi-deep-links"
                 ],
                 "summary": "Initiate Batch Refund",
                 "operationId": "initiateBatchRefund",
                 "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
                     {
                         "type": "string",
                         "description": "Identifier for product instance. Required for authorisation.",
@@ -379,7 +3056,7 @@
                 }
             }
         },
-        "/refund/batch/{batchID}": {
+        "/refund/{identifierType}/{identifier}": {
             "get": {
                 "description": "Returns details about all refunds as part of the requested batch",
                 "consumes": [
@@ -389,11 +3066,19 @@
                     "application/json"
                 ],
                 "tags": [
-                    "APIs to call"
+                    "Billers",
+                    "upi-deep-links"
                 ],
                 "summary": "Get status of a refund batch",
                 "operationId": "getRefundsBatchStatus",
                 "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
                     {
                         "type": "string",
                         "description": "Identifier for product instance. Required for authorisation.",
@@ -402,9 +3087,20 @@
                         "required": true
                     },
                     {
+                        "enum": [
+                            "batch",
+                            "bill"
+                        ],
                         "type": "string",
-                        "description": "ID corresponding to refund batch",
-                        "name": "batchID",
+                        "description": "Identifier type",
+                        "name": "identifierType",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier value",
+                        "name": "identifier",
                         "in": "path",
                         "required": true
                     }
@@ -484,11 +3180,19 @@
                     "application/json"
                 ],
                 "tags": [
-                    "APIs to call"
+                    "Billers",
+                    "upi-deep-links"
                 ],
                 "summary": "Get status of a refund",
                 "operationId": "getRefundStatus",
                 "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
                     {
                         "type": "string",
                         "description": "Identifier for product instance. Required for authorisation.",
@@ -569,9 +3273,9 @@
                 }
             }
         },
-        "/utilities/bills/{platformBillId}/expire": {
+        "/reports": {
             "post": {
-                "description": "Used to expire a bill.",
+                "description": "Used to retreive a report from the Setu system.",
                 "consumes": [
                     "application/json"
                 ],
@@ -579,103 +3283,20 @@
                     "application/json"
                 ],
                 "tags": [
-                    "APIs to call"
+                    "Reports",
+                    "bbps-integration-reports",
+                    "upi-deep-links-reports"
                 ],
-                "operationId": "expireBill",
+                "summary": "Retreive reports",
+                "operationId": "getReport",
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "Identifier for product instance. Required for authorisation.",
-                        "name": "X-Setu-Product-Instance-ID",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
                         "in": "header",
                         "required": true
                     },
-                    {
-                        "type": "string",
-                        "description": "The unique identifier for a bill in Setu.",
-                        "name": "platformBillId",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "schema": {
-                            "type": "object",
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/baseResponse"
-                                }
-                            ]
-                        }
-                    },
-                    "400": {
-                        "description": "Malformed request",
-                        "schema": {
-                            "$ref": "#/definitions/errorResponse"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthenticated request",
-                        "schema": {
-                            "$ref": "#/definitions/errorResponse"
-                        }
-                    },
-                    "403": {
-                        "description": "Unauthorised request",
-                        "schema": {
-                            "$ref": "#/definitions/errorResponse"
-                        }
-                    },
-                    "404": {
-                        "description": "Resource not found",
-                        "schema": {
-                            "$ref": "#/definitions/errorResponse"
-                        }
-                    },
-                    "405": {
-                        "description": "HTTP method not allowed",
-                        "schema": {
-                            "$ref": "#/definitions/errorResponse"
-                        }
-                    },
-                    "429": {
-                        "description": "Too many requests",
-                        "schema": {
-                            "$ref": "#/definitions/errorResponse"
-                        }
-                    },
-                    "500": {
-                        "description": "Unable to fulfil request",
-                        "schema": {
-                            "$ref": "#/definitions/errorResponse"
-                        }
-                    },
-                    "503": {
-                        "description": "Server under maintenance",
-                        "schema": {
-                            "$ref": "#/definitions/errorResponse"
-                        }
-                    }
-                }
-            }
-        },
-        "/reports": {
-            "post": {
-                "description": "Used to retrieve a report from the Setu system.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Reports"
-                ],
-                "summary": "Retrieve reports",
-                "operationId": "getReport",
-                "parameters": [
                     {
                         "type": "string",
                         "description": "Identifier for product instance. Required for authorisation.",
@@ -768,11 +3389,19 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Testing integration"
+                    "Triggers",
+                    "upi-deep-links-test-integration"
                 ],
                 "summary": "Trigger mock payment",
                 "operationId": "addCredit",
                 "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
                     {
                         "description": "Input parameters for requesting a bank account credit.",
                         "name": "addCreditToAccountTriggerRequest",
@@ -858,11 +3487,19 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Testing integration"
+                    "Triggers",
+                    "upi-deep-links-test-integration"
                 ],
                 "summary": "Trigger mock settlement",
                 "operationId": "mockSettlement",
                 "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
                     {
                         "description": "Input parameters for mocking a settlement.",
                         "name": "mockSettlementTriggerRequest",
@@ -891,6 +3528,765 @@
                     },
                     "403": {
                         "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/utilities/billers/bills/{billerBillId}": {
+            "get": {
+                "description": "Returns a list of bills for the supplied Biller bill ID.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Bills",
+                    "bbps-integration"
+                ],
+                "summary": "Get bill with biller bill ID",
+                "operationId": "getBillWithBillerBillID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "The unique identifier for a bill on the biller's system.",
+                        "name": "billerBillId",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "enum": [
+                            "CREATED",
+                            "WAITING_FOR_CREDIT",
+                            "CREDIT_RECEIVED",
+                            "SETTLEMENT_PENDING",
+                            "SETTLED",
+                            "EXPIRED",
+                            "PAYMENT_ACK"
+                        ],
+                        "type": "string",
+                        "description": "Current status of bill in Setu.",
+                        "name": "status",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/billWithBillerBillIdResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/utilities/bills/billers": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Payers",
+                    "bbps-integration"
+                ],
+                "summary": "Fetch biller list",
+                "operationId": "getBillers",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/fetchBillersResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/utilities/bills/fetch": {
+            "post": {
+                "description": "Returns a list of bills for a given customer account.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Payers",
+                    "bbps-integration"
+                ],
+                "summary": "Fetch outstanding bills",
+                "operationId": "fetchBills",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Input parameters for Fetch bill.",
+                        "name": "fetchBillsRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/fetchBillsRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/fetchBillsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/utilities/bills/settlement": {
+            "post": {
+                "description": "Used by a payment processor to settle bill payments.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Payment Processors",
+                    "bbps-integration"
+                ],
+                "summary": "Settle bill payments",
+                "operationId": "billSettlement",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Input parameters for Bill Settlement.",
+                        "name": "billSettlement",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/billSettlementRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/utilities/bills/{platformBillId}": {
+            "get": {
+                "description": "Returns a bill for supplied unique Setu bill ID.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Bills",
+                    "bbps-integration"
+                ],
+                "summary": "Get bill with id",
+                "operationId": "getBillWithID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "The unique identifier for a bill in Setu.",
+                        "name": "platformBillId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/platformBill"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/utilities/bills/{platformBillId}/expire": {
+            "post": {
+                "description": "Used to expire a bill.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Bills"
+                ],
+                "operationId": "expireBill",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "The unique identifier for a bill in Setu.",
+                        "name": "platformBillId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "405": {
+                        "description": "HTTP method not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to fulfil request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Server under maintenance",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/utilities/bills/{platformBillId}/fulfilment": {
+            "post": {
+                "description": "Used to fulfill a bill payment.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Payers",
+                    "bbps-integration"
+                ],
+                "summary": "Request bill payment",
+                "operationId": "billFulfilment",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Identifier for product instance. Required for authorisation.",
+                        "name": "X-Setu-Product-Instance-ID",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "The unique identifier for a bill in Setu.",
+                        "name": "platformBillId",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Input parameters for Bill Fulfilment.",
+                        "name": "billFulfilment",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/billFulfilmentRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "data"
+                            ],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/baseResponse"
+                                }
+                            ],
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/billFulfilmentResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Malformed request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorised request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
                         "schema": {
                             "$ref": "#/definitions/errorResponse"
                         }
@@ -1340,11 +4736,6 @@
         },
         "batchRefundResponse": {
             "type": "object",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/batchRefundResponseBase"
-                }
-            ],
             "properties": {
                 "refunds": {
                     "description": "Contains status for each transaction being refunded.",
@@ -2304,7 +5695,7 @@
                 "paymentLink": {
                     "shortURL": "https://sandbox.bills.pe/8tA2TQd",
                     "upiID": "nareshlocal@kaypay",
-                    "upiLink": "upi://pay?pa=nareshlocal@kaypay\u0026pn=Setu%20Payment%20Links%20Test\u0026am=200.00\u0026tr=875621444531258946\u0026tn=Payment%20for%20918147077472\u0026cu=INR\u0026mode=04"
+                    "upiLink": "upi://pay?pa=nareshlocal@kaypay&pn=Setu%20Payment%20Links%20Test&am=200.00&tr=875621444531258946&tn=Payment%20for%20918147077472&cu=INR&mode=04"
                 },
                 "platformBillID": "875621444531258946"
             }
@@ -3193,7 +6584,7 @@
             ],
             "properties": {
                 "amount": {
-                    "description": "Amount for the mock credit.",
+                    "description": "Amount for the mock credit in rupees.",
                     "type": "number",
                     "format": "double"
                 },
@@ -3314,7 +6705,7 @@
                 "payerVpa": "saainithil97@icici",
                 "paymentLink": {
                     "upiID": "nareshlocal@kaypay",
-                    "upiLink": "upi://pay?pa=nareshlocal@kaypay\u0026pn=Setu%20Payment%20Links%20Test\u0026am=200.00\u0026tr=875621444531258946\u0026tn=Payment%20for%20918147077472\u0026cu=INR\u0026mode=04"
+                    "upiLink": "upi://pay?pa=nareshlocal@kaypay&pn=Setu%20Payment%20Links%20Test&am=200.00&tr=875621444531258946&tn=Payment%20for%20918147077472&cu=INR&mode=04"
                 },
                 "platformBillID": "875621444531258946",
                 "receipt": {
@@ -3407,6 +6798,9 @@
                 },
                 "receipt": {
                     "$ref": "#/definitions/billReceiptWithStatus"
+                },
+                "settlement": {
+                    "$ref": "#/definitions/settlementConfiguration"
                 }
             }
         },
@@ -3510,6 +6904,11 @@
                 },
                 "billID": {
                     "type": "string"
+                },
+                "createdAt": {
+                    "description": "Refund creation time in the format \\\"2019-08-01T08:28:12Z\\\".",
+                    "type": "string",
+                    "format": "date-time"
                 },
                 "deductions": {
                     "description": "List of accounts to deduct refund from.",
@@ -3969,7 +7368,7 @@
                 "upiLink": {
                     "description": "Account Number",
                     "type": "string",
-                    "example": "upi://pay?pa=setu-358715582872290627@setubank\u0026pn=Setu\u0026am=1\u0026cu=INR"
+                    "example": "upi://pay?pa=setu-358715582872290627@setubank&pn=Setu&am=1&cu=INR"
                 }
             }
         },
@@ -4012,7 +7411,7 @@
     },
     "tags": [
         {
-            "description": "Notifications are pushed to `\u003cCallback URL\u003e/api/notifications`. A partner can listen to this endpoint and consume notification requests.\n",
+            "description": "Notifications are pushed to `<Callback URL>/api/notifications`. A partner can listen to this endpoint and consume notification requests.\n",
             "name": "upi-deep-links-events",
             "x-displayName": "Notifications"
         },
