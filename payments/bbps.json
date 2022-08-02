@@ -10,6 +10,7 @@
     "basePath": "/api",
     "paths": {
         "/\u003cpartner-base-api-url\u003e/bills/fetch": {
+            "servers": { "url": "partner-base-url.com" },
             "post": {
                 "description": "Used to validate the customer account and fetch the bill details.",
                 "consumes": ["application/json"],
@@ -189,9 +190,7 @@
             "post": {
                 "consumes": ["application/json"],
                 "produces": ["application/json"],
-                "tags": [
-                    "Notifications"
-                ],
+                "tags": ["Notifications"],
                 "operationId": "notification",
                 "parameters": [
                     {
@@ -266,9 +265,7 @@
                 "description": "Used to retrieve a report from the Setu system.",
                 "consumes": ["application/json"],
                 "produces": ["application/json"],
-                "tags": [
-                    "Reports"
-                ],
+                "tags": ["Reports"],
                 "summary": "Retrieve reports",
                 "operationId": "getReport",
                 "parameters": [
