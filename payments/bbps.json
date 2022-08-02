@@ -10,8 +10,8 @@
     "basePath": "/api",
     "paths": {
         "/\u003cpartner-base-api-url\u003e/bills/fetch": {
-            "servers": { "url": "partner-base-url.com" },
             "post": {
+                "servers": { "url": "partner-base-url.com" },
                 "description": "Used to validate the customer account and fetch the bill details.",
                 "consumes": ["application/json"],
                 "produces": ["application/json"],
