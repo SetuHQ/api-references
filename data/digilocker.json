@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
       "title": "Data Gateway - Digilocker",
-      "description": "DigiLocker is a document wallet approved by Government of India, that citizens can use to store digital versions of documents like Aadhaar, driving license, marks sheets, ration card and more. This API works best to get Aadhaar details of your user.",
+      "description": "DigiLocker is a document wallet approved by Government of India, that citizens can use to store digital versions of documents like Aadhaar, driving license, marks sheets, ration card and more. This API works best to get Aadhaar details of your user. Check how to get started <a href='https://docs.setu.co/data/digilocker/quickstart'>here</a>",
       "contact": {},
       "version": "1.0"
     },
