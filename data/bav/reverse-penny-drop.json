@@ -15,7 +15,7 @@
   "paths": {
     "/api/verify/ban/reverse": {
       "post": {
-        "summary": "Create Reverse Penny-drop (without body)",
+        "summary": "Create reverse penny drop request (no body)",
         "operationId": "CreateRPD(withoutbody)",
         "parameters": [
           {
@@ -53,7 +53,7 @@
     },
     "/api/verify/ban/reverse/mock_payment/{requestId}": {
       "post": {
-        "summary": "Mock Penny-drop (Sandbox)",
+        "summary": "Mock customer payment (sandbox)",
         "operationId": "MockPayment",
         "parameters": [
           {
@@ -102,7 +102,7 @@
     },
     "/api/verify/ban/reverse/{requestId}": {
       "get": {
-        "summary": "Get penny-drop Details",
+        "summary": "Get request details",
         "operationId": "GetDetails",
         "parameters": [
           {
