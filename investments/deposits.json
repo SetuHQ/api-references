@@ -3182,7 +3182,7 @@
       "tags": [
         "FD - management APIs"
       ],
-      "summary": "FD Calculator",
+      "summary": "Miscellaneous Details",
       "description": "### Description\nGet miscellaneous details for an FD with a given provider, for a given amount & tenure.\n\n### Applicable Providers \n- Equitas (EQTS)\n- Ujjivan (UJVN)",
       "operationId": "FDMisc",
       "parameters": [
