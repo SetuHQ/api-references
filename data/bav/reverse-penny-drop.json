@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Data Gateway - Bank account verification (Reverse Penny drop)",
-    "description": "Build the data flow you need—for customer onboarding, background verifications, and collecting electronic signatures.\n\n[See on Setu docs](https://docs.setu.co/data)\n\nWe currently support the following data blocks:\n\n**Aadhaar based e-Sign**\nCollect legally binding digital signatures. Upload a document and create a signature request for one or more signers.\n\n\n**Aadhaar Offline KYC**\nOnboard with Aadhaar XML on your platform, in compliance with UIDAI & RBI guidelines. Simply create a request and share the request URL with your customers.\n\n\n**PAN Verification**\nCheck validity and name of PAN holder, with a simple and straightforward PAN verification API.\n\n\n**Bank Account Verification**\nConfirm the validity of an account from the account holder’s bank, with penny-drop done in real-time.",
+    "description": "**Bank Account Verification**\nConfirm the validity of an account from the account holder’s bank, with reverse penny-drop (Get the user to penny-drop via UPI!). ",
     "contact": {},
     "version": "1.0"
   },
@@ -15,7 +15,7 @@
   "paths": {
     "/api/verify/ban/reverse": {
       "post": {
-        "summary": "Create RPD (without body)",
+        "summary": "Create Reverse Penny-drop (without body)",
         "operationId": "CreateRPD(withoutbody)",
         "parameters": [
           {
@@ -53,7 +53,7 @@
     },
     "/api/verify/ban/reverse/mock_payment/{requestId}": {
       "post": {
-        "summary": "Mock Payment",
+        "summary": "Mock Penny-drop (Sandbox)",
         "operationId": "MockPayment",
         "parameters": [
           {
@@ -102,7 +102,7 @@
     },
     "/api/verify/ban/reverse/{requestId}": {
       "get": {
-        "summary": "Get Details",
+        "summary": "Get penny-drop Details",
         "operationId": "GetDetails",
         "parameters": [
           {
