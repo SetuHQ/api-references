@@ -3177,6 +3177,40 @@
         },
         "deprecated": false
       }
+    },
+    "/misc": {
+      "tags": [
+        "FD - management APIs"
+      ],
+      "summary": "FD Calculator",
+      "description": "### Description\nGet miscellaneous details for an FD with a given provider, for a given amount & tenure.\n\n### Applicable Providers \n- Equitas (EQTS)\n- Ujjivan (UJVN)",
+      "operationId": "FDMisc",
+      "parameters": [
+          {
+              "name": "provider",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "default": "EQTS",
+              "description": "FD provider code"
+          }
+      ],
+      "responses": {
+          "200": {
+              "description": "miscellaneous details about an FD product",
+              "schema": {
+                  "type": "object",
+                  "properties": {
+                      "provider": {
+                          "$ref": "#/components/schemas/Provider"
+                      },
+                      "miscellaneousDetails": {
+                          "$ref": "#/definitions/MiscellaneousDetails"
+                      }
+                  }
+              }
+          }
+      }
     }
   },
   "components": {
@@ -6173,6 +6207,114 @@
         "example": {
           "recordId": "201127044128340",
           "message": "Service request 201127044128340 is under process."
+        }
+      },
+      "MiscellaneousDetails": {
+        "type": "object",
+        "properties": {
+            "maximumAmount": {
+                "type": "number",
+                "example": 90000,
+                "description": "maximum amount allowed by an FD product"
+            },
+            "minimumAmount": {
+                "type": "number",
+                "example": 10000,
+                "description": "minimum amount allowed by an FD product"
+            },
+            "minimumTenure": {
+                "type": "object",
+                "propeties": {
+                    "unit": {
+                        "type": "string",
+                        "example": "MONTH",
+                        "description": "time unit for a tenure"
+                    },
+                    "value": {
+                        "type": "number",
+                        "example": 6,
+                        "description": "unit value for a tenure"
+                    }
+                }
+            },
+            "maximumTenure": {
+                "type": "object",
+                "propeties": {
+                    "unit": {
+                        "type": "string",
+                        "example": "MONTH",
+                        "description": "time unit for a tenure"
+                    },
+                    "value": {
+                        "type": "number",
+                        "example": 6,
+                        "description": "unit value for a tenure"
+                    }
+                }
+            },
+            "maxFDPerUser": {
+                "type": [
+                    "number",
+                    null
+                ],
+                "example": 1,
+                "description": "maximum number of FDs one user can open"
+            },
+            "paymentMethod": {
+                "type": "array",
+                "example": [
+                    "UPI"
+                ],
+                "description": "payment methods supported by an FD product"
+            },
+            "prematureRedemptionOnline": {
+                "type": "boolean",
+                "example": true,
+                "description": "if premature redemption online is allowed"
+            },
+            "KYCMethod": {
+                "type": "string",
+                "example": "ADHAR",
+                "description": "the method required to do kyc of an applicant"
+            },
+            "lockIn": {
+                "type": [
+                    "object",
+                    null
+                ],
+                "properties": {
+                    "unit": {
+                        "type": "string",
+                        "example": "MONTH",
+                        "description": "time unit for a tenure"
+                    },
+                    "value": {
+                        "type": "number",
+                        "example": 6,
+                        "description": "unit value for a tenure"
+                    }
+                }
+            },
+            "customerServiceDetails": {
+                "type": "object",
+                "properties": {
+                    "phone": {
+                        "type": "string",
+                        "example": "8698010101",
+                        "description": "phone number of the customer service of the FD provider"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "xyz@gmail.com",
+                        "description": "email of the customer service of the FD provider"
+                    }
+                }
+            },
+            "tnc": {
+                "type": "string",
+                "example": "",
+                "description": "terms and conditions of an FD provider"
+            }
         }
       }
     },
