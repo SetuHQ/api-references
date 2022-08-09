@@ -3179,37 +3179,39 @@
       }
     },
     "/misc": {
-      "tags": [
-        "FD - management APIs"
-      ],
-      "summary": "Miscellaneous Details",
-      "description": "### Description\nGet miscellaneous details for an FD with a given provider, for a given amount & tenure.\n\n### Applicable Providers \n- Equitas (EQTS)\n- Ujjivan (UJVN)",
-      "operationId": "FDMisc",
-      "parameters": [
+      "get": {
+        "tags": [
+          "FD - management APIs"
+        ],
+        "summary": "Miscellaneous Details",
+        "description": "### Description\nGet miscellaneous details for an FD with a given provider, for a given amount & tenure.\n\n### Applicable Providers \n- Equitas (EQTS)\n- Ujjivan (UJVN)",
+        "operationId": "FDMisc",
+        "parameters": [
           {
-              "name": "provider",
-              "in": "query",
-              "type": "string",
-              "required": true,
-              "default": "EQTS",
-              "description": "FD provider code"
+            "name": "provider",
+            "in": "query",
+            "type": "string",
+            "required": true,
+            "default": "EQTS",
+            "description": "FD provider code"
           }
-      ],
-      "responses": {
+        ],
+        "responses": {
           "200": {
-              "description": "miscellaneous details about an FD product",
-              "schema": {
-                  "type": "object",
-                  "properties": {
-                      "provider": {
-                          "$ref": "#/components/schemas/Provider"
-                      },
-                      "miscellaneousDetails": {
-                          "$ref": "#/components/schemas/MiscellaneousDetails"
-                      }
-                  }
+            "description": "miscellaneous details about an FD product",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "provider": {
+                  "$ref": "#/components/schemas/Provider"
+                },
+                "miscellaneousDetails": {
+                    "$ref": "#/components/schemas/MiscellaneousDetails"
+                }
               }
+            }
           }
+        }
       }
     }
   },
