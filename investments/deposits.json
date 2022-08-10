@@ -2163,7 +2163,6 @@
         ],
         "responses": {
           "200": {
-            "description": "miscellaneous details about an FD product",
             "content": {
               "application/json": {
                 "schema": {
@@ -5268,6 +5267,10 @@
                         "example": 6,
                         "description": "unit value for a tenure"
                     }
+                },
+                "example": {
+                  "unit": "MONTH",
+                  "value": 4 
                 }
             },
             "maximumTenure": {
@@ -5283,6 +5286,10 @@
                         "example": 6,
                         "description": "unit value for a tenure"
                     }
+                },
+                "example": {
+                  "unit": "MONTH",
+                  "value": 7 
                 }
             },
             "maxFDPerUser": {
