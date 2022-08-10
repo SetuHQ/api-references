@@ -8,7 +8,7 @@
   },
   "servers": [
     {
-      "url": "http://example.com/deposits/v1",
+      "url": "http://deposits-sandbox.setu.co:3002/deposits/v1",
       "variables": {}
     }
   ],
@@ -74,7 +74,7 @@
           }
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "",
             "headers": {},
             "content": {
@@ -112,107 +112,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SETU"
-                    },
-                    "example": "SETU"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "Thu, 10 Dec 2020 10:17:16 GMT"
-                    },
-                    "example": "Thu, 10 Dec 2020 10:17:16 GMT"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "close"
-                    },
-                    "example": "close"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "170"
-                    },
-                    "example": "170"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache, no-store, must-revalidate"
-                    },
-                    "example": "no-cache, no-store, must-revalidate"
-                  }
-                }
-              },
-              "Expires": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "0"
-                    },
-                    "example": "0"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SAMEORIGIN"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "max-age=31536000;includeSubDomains"
-                    },
-                    "example": "max-age=31536000;includeSubDomains"
-                  }
-                }
-              }
-            },
+            "headers": {},
             "content": {
               "application/json": {
                 "schema": {
@@ -267,107 +167,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SETU"
-                    },
-                    "example": "SETU"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "Thu, 10 Dec 2020 10:12:01 GMT"
-                    },
-                    "example": "Thu, 10 Dec 2020 10:12:01 GMT"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "close"
-                    },
-                    "example": "close"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "8959"
-                    },
-                    "example": "8959"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache, no-store, must-revalidate"
-                    },
-                    "example": "no-cache, no-store, must-revalidate"
-                  }
-                }
-              },
-              "Expires": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "0"
-                    },
-                    "example": "0"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SAMEORIGIN"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "max-age=31536000;includeSubDomains"
-                    },
-                    "example": "max-age=31536000;includeSubDomains"
-                  }
-                }
-              }
-            },
+            "headers": {},
             "content": {
               "application/json": {
                 "schema": {
@@ -1055,107 +855,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SETU"
-                    },
-                    "example": "SETU"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "Thu, 10 Dec 2020 13:02:00 GMT"
-                    },
-                    "example": "Thu, 10 Dec 2020 13:02:00 GMT"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "close"
-                    },
-                    "example": "close"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "661"
-                    },
-                    "example": "661"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache, no-store, must-revalidate"
-                    },
-                    "example": "no-cache, no-store, must-revalidate"
-                  }
-                }
-              },
-              "Expires": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "0"
-                    },
-                    "example": "0"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SAMEORIGIN"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "max-age=31536000;includeSubDomains"
-                    },
-                    "example": "max-age=31536000;includeSubDomains"
-                  }
-                }
-              }
-            },
+            "headers": {},
             "content": {
               "application/json": {
                 "schema": {
@@ -1224,107 +924,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SETU"
-                    },
-                    "example": "SETU"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "Fri, 11 Dec 2020 05:30:32 GMT"
-                    },
-                    "example": "Fri, 11 Dec 2020 05:30:32 GMT"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "close"
-                    },
-                    "example": "close"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "4904"
-                    },
-                    "example": "4904"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache, no-store, must-revalidate"
-                    },
-                    "example": "no-cache, no-store, must-revalidate"
-                  }
-                }
-              },
-              "Expires": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "0"
-                    },
-                    "example": "0"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SAMEORIGIN"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "max-age=31536000;includeSubDomains"
-                    },
-                    "example": "max-age=31536000;includeSubDomains"
-                  }
-                }
-              }
-            },
+            "headers": {},
             "content": {
               "application/json": {
                 "schema": {
@@ -1405,107 +1005,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SETU"
-                    },
-                    "example": "SETU"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "Fri, 11 Dec 2020 06:26:08 GMT"
-                    },
-                    "example": "Fri, 11 Dec 2020 06:26:08 GMT"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "close"
-                    },
-                    "example": "close"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "589"
-                    },
-                    "example": "589"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache, no-store, must-revalidate"
-                    },
-                    "example": "no-cache, no-store, must-revalidate"
-                  }
-                }
-              },
-              "Expires": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "0"
-                    },
-                    "example": "0"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SAMEORIGIN"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "max-age=31536000;includeSubDomains"
-                    },
-                    "example": "max-age=31536000;includeSubDomains"
-                  }
-                }
-              }
-            },
+            "headers": {},
             "content": {
               "application/json": {
                 "schema": {
@@ -1566,107 +1066,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SETU"
-                    },
-                    "example": "SETU"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "Fri, 11 Dec 2020 07:12:05 GMT"
-                    },
-                    "example": "Fri, 11 Dec 2020 07:12:05 GMT"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "close"
-                    },
-                    "example": "close"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "747"
-                    },
-                    "example": "747"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache, no-store, must-revalidate"
-                    },
-                    "example": "no-cache, no-store, must-revalidate"
-                  }
-                }
-              },
-              "Expires": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "0"
-                    },
-                    "example": "0"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SAMEORIGIN"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "max-age=31536000;includeSubDomains"
-                    },
-                    "example": "max-age=31536000;includeSubDomains"
-                  }
-                }
-              }
-            },
+            "headers": {},
             "content": {
               "application/json": {
                 "schema": {
@@ -1785,107 +1185,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SETU"
-                    },
-                    "example": "SETU"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "Fri, 11 Dec 2020 07:43:07 GMT"
-                    },
-                    "example": "Fri, 11 Dec 2020 07:43:07 GMT"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "close"
-                    },
-                    "example": "close"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "822"
-                    },
-                    "example": "822"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache, no-store, must-revalidate"
-                    },
-                    "example": "no-cache, no-store, must-revalidate"
-                  }
-                }
-              },
-              "Expires": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "0"
-                    },
-                    "example": "0"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SAMEORIGIN"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "max-age=31536000;includeSubDomains"
-                    },
-                    "example": "max-age=31536000;includeSubDomains"
-                  }
-                }
-              }
-            },
+            "headers": {},
             "content": {
               "application/json": {
                 "schema": {
@@ -1997,107 +1297,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SETU"
-                    },
-                    "example": "SETU"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "Fri, 11 Dec 2020 06:52:42 GMT"
-                    },
-                    "example": "Fri, 11 Dec 2020 06:52:42 GMT"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "close"
-                    },
-                    "example": "close"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "59"
-                    },
-                    "example": "59"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache, no-store, must-revalidate"
-                    },
-                    "example": "no-cache, no-store, must-revalidate"
-                  }
-                }
-              },
-              "Expires": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "0"
-                    },
-                    "example": "0"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SAMEORIGIN"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "max-age=31536000;includeSubDomains"
-                    },
-                    "example": "max-age=31536000;includeSubDomains"
-                  }
-                }
-              }
-            },
+            "headers": {},
             "content": {
               "application/json": {
                 "schema": {
@@ -2151,107 +1351,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SETU"
-                    },
-                    "example": "SETU"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "Fri, 11 Dec 2020 07:11:52 GMT"
-                    },
-                    "example": "Fri, 11 Dec 2020 07:11:52 GMT"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "close"
-                    },
-                    "example": "close"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "34"
-                    },
-                    "example": "34"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache, no-store, must-revalidate"
-                    },
-                    "example": "no-cache, no-store, must-revalidate"
-                  }
-                }
-              },
-              "Expires": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "0"
-                    },
-                    "example": "0"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SAMEORIGIN"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "max-age=31536000;includeSubDomains"
-                    },
-                    "example": "max-age=31536000;includeSubDomains"
-                  }
-                }
-              }
-            },
+            "headers": {},
             "content": {
               "application/json": {
                 "schema": {
@@ -2290,107 +1390,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SETU"
-                    },
-                    "example": "SETU"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "Fri, 11 Dec 2020 11:11:20 GMT"
-                    },
-                    "example": "Fri, 11 Dec 2020 11:11:20 GMT"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "close"
-                    },
-                    "example": "close"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "59"
-                    },
-                    "example": "59"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache, no-store, must-revalidate"
-                    },
-                    "example": "no-cache, no-store, must-revalidate"
-                  }
-                }
-              },
-              "Expires": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "0"
-                    },
-                    "example": "0"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SAMEORIGIN"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "max-age=31536000;includeSubDomains"
-                    },
-                    "example": "max-age=31536000;includeSubDomains"
-                  }
-                }
-              }
-            },
+            "headers": {},
             "content": {
               "application/json": {
                 "schema": {
@@ -2454,7 +1454,7 @@
           "required": true
         },
         "responses": {
-          "default": {
+          "200": {
             "description": "",
             "headers": {},
             "content": {
@@ -2556,7 +1556,7 @@
           "required": true
         },
         "responses": {
-          "default": {
+          "200": {
             "description": "",
             "headers": {},
             "content": {
@@ -2628,7 +1628,7 @@
           }
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "",
             "headers": {},
             "content": {
@@ -2704,7 +1704,7 @@
           "required": true
         },
         "responses": {
-          "default": {
+          "200": {
             "description": "",
             "headers": {},
             "content": {
@@ -2743,7 +1743,7 @@
           }
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "",
             "headers": {},
             "content": {
@@ -2806,7 +1806,7 @@
           }
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "",
             "headers": {},
             "content": {
@@ -2867,7 +1867,7 @@
           }
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "",
             "headers": {},
             "content": {
@@ -2910,7 +1910,7 @@
           }
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "",
             "headers": {},
             "content": {
@@ -2965,7 +1965,7 @@
           }
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "",
             "headers": {},
             "content": {
@@ -3023,7 +2023,7 @@
           "required": true
         },
         "responses": {
-          "default": {
+          "200": {
             "description": "",
             "headers": {},
             "content": {
@@ -3097,107 +2097,7 @@
         "responses": {
           "400": {
             "description": "BAD REQUEST",
-            "headers": {
-              "Server": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SETU"
-                    },
-                    "example": "SETU"
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "Mon, 14 Dec 2020 05:34:06 GMT"
-                    },
-                    "example": "Mon, 14 Dec 2020 05:34:06 GMT"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "close"
-                    },
-                    "example": "close"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "209"
-                    },
-                    "example": "209"
-                  }
-                }
-              },
-              "Cache-Control": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache, no-store, must-revalidate"
-                    },
-                    "example": "no-cache, no-store, must-revalidate"
-                  }
-                }
-              },
-              "Expires": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "0"
-                    },
-                    "example": "0"
-                  }
-                }
-              },
-              "Pragma": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "no-cache"
-                    },
-                    "example": "no-cache"
-                  }
-                }
-              },
-              "X-Frame-Options": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "SAMEORIGIN"
-                    },
-                    "example": "SAMEORIGIN"
-                  }
-                }
-              },
-              "Strict-Transport-Security": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string",
-                      "example": "max-age=31536000;includeSubDomains"
-                    },
-                    "example": "max-age=31536000;includeSubDomains"
-                  }
-                }
-              }
-            },
+            "headers": {},
             "content": {
               "application/json": {
                 "schema": {
