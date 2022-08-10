@@ -2163,7 +2163,6 @@
         ],
         "responses": {
           "200": {
-            "description": "miscellaneous details about an FD product",
             "content": {
               "application/json": {
                 "schema": {
@@ -3140,23 +3139,151 @@
         "type": "object",
         "properties": {
           "kyc": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+              "mobile": {
+                "type": "string"
+              },
+              "pan": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            }
           },
           "personal": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+              "fathersName": {
+                "type": "string"
+              }, 
+              "mothersName": {
+                "type": "string"
+              },
+              "occupation": {
+                "type": "string"
+              },
+              "designation": {
+                "type": "string"
+              },
+              "qualification": {
+                "type": "string"
+              },
+              "maritalStatus": {
+                "type": "string"
+              },
+              "incomeGroup": {
+                "type": "string"
+              }, 
+              "cityOfBirth": {
+                "type": "string"
+              }, 
+              "countryOfBirth": {
+                "type": "string"
+              }, 
+              "mobile": {
+                "type": "string"
+              }
+            }
           },
           "nominee": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+              "skipNominee": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string"
+              },
+              "dob": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "relationship": {
+                "type": "string"
+              },
+              "isSameAsCustomerAddress": {
+                "type": "string"
+              },
+              "pinCode": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "addressType": {
+                "type": "string"
+              }
+            }
           },
           "declarations": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+              "fundFromOwnAccount": {
+                "type": "string"
+              },
+              "maturityAutoTransfer":{
+                "type": "string"
+              },
+              "fatca":{
+                "type": "string"
+              },
+              "pep":{
+                "type": "string"
+              },
+              "tnc":{
+                "type": "string"
+              },
+              "aadhaar":{
+                "type": "string"
+              }
+            }
           }
         },
         "example": {
-          "kyc": {},
-          "personal": {},
-          "nominee": {},
-          "declarations": {}
+          "kyc": {
+            "mobile": "919404746750",
+            "pan": "AGXPM3070D",
+            "email": "test@setu.co"
+          },
+          "personal": {
+            "fathersName":"Aman Kumar", 
+            "mothersName":"Sarita Devi" ,
+            "occupation": "SALARIED",
+            "designation": "SALARIED",
+            "qualification": "UNDER_GRADUATE",
+            "maritalStatus":"SINGLE",
+            "incomeGroup":"LIGHT_INCOME_GROUP_1", 
+            "cityOfBirth": "New Delhi", 
+            "countryOfBirth": "INDIA", 
+            "mobile": "919404746750"
+          },
+          "nominee": {
+            "skipNominee": false,
+            "name": "test",
+            "dob": "1991-12-01",
+            "email": "test@setu.co",
+            "relationship": "FATHER",
+            "isSameAsCustomerAddress": "false",
+            "pinCode": "341506",
+            "city": "JHAROD",
+            "address": "asdashghjg",
+            "addressType": "PERMANENT_ADDRESS"
+          },
+          "declarations": {
+            "fundFromOwnAccount":"accepted",
+            "maturityAutoTransfer":"accepted",
+            "fatca":"accepted",
+            "pep":"accepted",
+            "tnc":"accepted",
+            "aadhaar":"accepted"
+          }
         }
       },
       "ApplicationstatejustafterSMSverification": {
@@ -3422,8 +3549,8 @@
               "aadhaar":"accepted"
             },
             "personal": {
-              "fathersName":"randomFather", 
-              "mothersName":"randomMother" ,
+              "fathersName":"Aman Kumar", 
+              "mothersName":"Sarita Devi" ,
               "occupation": "SALARIED",
               "designation": "SALARIED",
               "qualification": "UNDER_GRADUATE",
@@ -5268,6 +5395,10 @@
                         "example": 6,
                         "description": "unit value for a tenure"
                     }
+                },
+                "example": {
+                  "unit": "MONTH",
+                  "value": 4 
                 }
             },
             "maximumTenure": {
@@ -5283,6 +5414,10 @@
                         "example": 6,
                         "description": "unit value for a tenure"
                     }
+                },
+                "example": {
+                  "unit": "MONTH",
+                  "value": 7 
                 }
             },
             "maxFDPerUser": {
