@@ -9,7 +9,7 @@
         "version": "1.0.0"
     },
     "host": "uat.setu.co",
-    "basePath": "/api",
+    "basePath": "/api/v2",
     "paths": {
         "/\u003cpartner-base-api-url\u003e/notifications": {
             "post": {
@@ -32,6 +32,13 @@
                         "schema": {
                             "$ref": "#/definitions/notificationRequest"
                         }
+                    },
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -120,6 +127,13 @@
                         "schema": {
                             "$ref": "#/definitions/createPaymentLinkRequest"
                         }
+                    },
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -214,6 +228,13 @@
                         "description": "The unique identifier for a payment link in Setu.",
                         "name": "platformBillId",
                         "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
                         "required": true
                     }
                 ],
@@ -312,6 +333,13 @@
                         "schema": {
                             "$ref": "#/definitions/batchRefundRequest"
                         }
+                    },
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -406,6 +434,13 @@
                         "description": "ID corresponding to refund batch",
                         "name": "batchID",
                         "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
                         "required": true
                     }
                 ],
@@ -502,6 +537,13 @@
                         "name": "refundID",
                         "in": "path",
                         "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -595,6 +637,13 @@
                         "description": "The unique identifier for a bill in Setu.",
                         "name": "platformBillId",
                         "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
                         "required": true
                     }
                 ],
@@ -691,6 +740,13 @@
                         "schema": {
                             "$ref": "#/definitions/getReportRequest"
                         }
+                    },
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -781,6 +837,13 @@
                         "schema": {
                             "$ref": "#/definitions/paymentBase"
                         }
+                    },
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -871,6 +934,13 @@
                         "schema": {
                             "$ref": "#/definitions/settlementBase"
                         }
+                    },
+                    {
+                        "type": "string",
+                        "description": "OAuth token. Required for authorisation.",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
                     }
                 ],
                 "responses": {
