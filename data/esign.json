@@ -1778,6 +1778,7 @@
               {
                 "identifier": "9876543210",
                 "displayName": "Ian Fernandes",
+                "yearOfBirth": "1991",  
                 "signature": {
                   "height": 60,
                   "onPages": ["1"],
