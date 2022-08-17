@@ -363,7 +363,6 @@
                 "example": {
                   "documentId": "{{document_id}}",
                   "redirectUrl": "http://setu.co",
-                  "yearOfBirth": "1991",
                   "signers": [
                     {
                       "identifier": "9876543210",
@@ -1800,6 +1799,9 @@
             "displayName": {
               "type": "string"
             },
+            "yearOfBirth":{
+              "type": "string"
+            }
             "signature": {
               "$ref": "#/components/schemas/Signature"
             }
@@ -1903,6 +1905,9 @@
             "displayName": {
               "type": "string"
             },
+            "yearOfBirth":{
+              "type": "string"
+            }
             "id": {
               "type": "string"
             },
@@ -1923,6 +1928,7 @@
           "example": {
             "displayName": "Akshay P",
             "id": "34f94af1-a8b9-4797-b287-c5ef7bff99a1",
+            "yearOfBirth": "1991",
             "identifier": "9876543210",
             "signatureDetails": null,
             "status": "pending",
