@@ -367,6 +367,7 @@
                     {
                       "identifier": "9876543210",
                       "displayName": "Ian Fernandes",
+                      "yearOfBirth": "1991",
                       "signature": {
                         "height": 60,
                         "onPages": ["1"],
@@ -540,6 +541,7 @@
                     "signers": [
                       {
                         "displayName": "Akshay P",
+                        "yearOfBirth": "1991",
                         "id": "34f94af1-a8b9-4797-b287-c5ef7bff99a1",
                         "identifier": "9876543210",
                         "signatureDetails": null,
