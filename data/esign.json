@@ -1801,7 +1801,7 @@
             },
             "yearOfBirth":{
               "type": "string"
-            }
+            },
             "signature": {
               "$ref": "#/components/schemas/Signature"
             }
@@ -1907,7 +1907,7 @@
             },
             "yearOfBirth":{
               "type": "string"
-            }
+            },
             "id": {
               "type": "string"
             },
