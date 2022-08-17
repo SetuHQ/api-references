@@ -363,6 +363,7 @@
                 "example": {
                   "documentId": "{{document_id}}",
                   "redirectUrl": "http://setu.co",
+                  "yearOfBirth": "1991",
                   "signers": [
                     {
                       "identifier": "9876543210",
