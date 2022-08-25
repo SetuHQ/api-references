@@ -250,7 +250,7 @@ components:
                             provider:
                                 $ref: "#/components/schemas/Provider"
                             payment:
-                                $ref: "https://raw.githubusercontent.com/Open-network-for-digital-commerce/ONDC-Protocol-Specs/master/protocol-specifications/core/v0/api/retail-hyperlocal.yaml#/components/schemas/Payment"
+                                $ref: "#/components/schemas/Payment"
                             payout_bank_uri:
                                 type: string
                                 format: uri
