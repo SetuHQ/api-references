@@ -1204,6 +1204,8 @@ components:
                         $ref: "#/components/schemas/RefundTerm"
                 rating_policy:
                     $ref: "#/components/schemas/RatingPolicy"
+                state:
+                    $ref: "#/components/schemas/State"
                 quote:
                     $ref: "#/components/schemas/Quotation"
                 payments:
