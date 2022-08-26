@@ -60,52 +60,6 @@ paths:
                                         $ref: "#/components/schemas/Error"
                                 required:
                                     - message
-    /on_settle:
-        post:
-            tags:
-                - RSP
-            description: settlement status for payments to different receivers (Step 2b)
-            requestBody:
-                description: Settlement Agency responding to RSP with settlement status
-                content:
-                    application/json:
-                        schema:
-                            type: object
-                            properties:
-                                context:
-                                    $ref: "#/components/schemas/Context"
-                                message:
-                                    type: object
-                                    properties:
-                                        settlement:
-                                            $ref: "#/components/schemas/Settlement"
-                            required:
-                                - context
-                                - message
-                                - message.settlement.id
-                                - message.settlement.transaction_id
-                                - message.settlement.seller_app_id
-                                - message.settlement.settlement_id
-                                - message.settlement.settlement_status
-            responses:
-                "200":
-                    description: Acknowledgement of message received
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                properties:
-                                    message:
-                                        type: object
-                                        properties:
-                                            ack:
-                                                $ref: "#/components/schemas/Ack"
-                                        required:
-                                            - ack
-                                    error:
-                                        $ref: "#/components/schemas/Error"
-                                required:
-                                    - message
     /on_recon:
         post:
             tags:
