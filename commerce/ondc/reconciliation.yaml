@@ -31,16 +31,6 @@ paths:
                             required:
                                 - context
                                 - message
-                                - message.orderbook.orders.id
-                                - message.orderbook.orders.invoice_no
-                                - message.orderbook.orders.buyer_app_id
-                                - message.orderbook.orders.seller_app_id
-                                - message.orderbook.orders.value
-                                - message.orderbook.orders.state
-                                - message.orderbook.orders.provider
-                                - message.orderbook.orders.payment
-                                - message.orderbook.orders.created_at
-                                - message.orderbook.orders.updated_at
             responses:
                 "200":
                     description: Acknowledgement of message received
@@ -83,10 +73,6 @@ paths:
                             required:
                                 - context
                                 - message
-                                - message.orderbook.orders.id
-                                - message.orderbook.orders.transaction_id
-                                - message.orderbook.orders.seller_app_id
-                                - message.orderbook.orders.recon_status
             responses:
                 "200":
                     description: Acknowledgement of message received
