@@ -187,6 +187,8 @@ components:
                                 $ref: "#/components/schemas/Quotation/properties/price"
                             state:
                                 $ref: "#/components/schemas/Order/properties/state"
+                            payment:
+                                $ref: "#/components/schemas/Payment"
                             payout_bank_uri:
                                 type: string
                                 format: uri
