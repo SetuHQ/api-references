@@ -451,7 +451,8 @@ components:
                     type: string
                     description: ID of the category
                 parent_category_id:
-                    $ref: "#/components/schemas/Category/properties/id"
+                    type: string
+                    description: Unique id of the parent category
                 descriptor:
                     $ref: "#/components/schemas/Descriptor"
                 time:
@@ -888,7 +889,8 @@ components:
                     description: This is the most unique identifier of a service item.
                     type: string
                 parent_item_id:
-                    $ref: "#/components/schemas/Item/properties/id"
+                    type: string
+                    description: Unique id of the parent item
                 descriptor:
                     $ref: "#/components/schemas/Descriptor"
                 manufacturer:
@@ -1037,6 +1039,10 @@ components:
                     items:
                         type: string
                         description: ID of a previous order
+                provider:
+                    description: Details of the provider whose catalog items have been selected.
+                    allOf:
+                        - $ref: "#/components/schemas/Provider"
                 items:
                     type: array
                     items:

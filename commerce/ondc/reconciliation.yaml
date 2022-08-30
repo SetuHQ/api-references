@@ -187,6 +187,8 @@ components:
                                 $ref: "#/components/schemas/Quotation/properties/price"
                             state:
                                 $ref: "#/components/schemas/Order/properties/state"
+                            provider:
+                                $ref: "#/components/schemas/Provider"
                             payment:
                                 $ref: "#/components/schemas/Payment"
                             payout_bank_uri:
@@ -510,7 +512,8 @@ components:
                     type: string
                     description: ID of the category
                 parent_category_id:
-                    $ref: "#/components/schemas/Category/properties/id"
+                    type: string
+                    description: Unique id of the parent category
                 descriptor:
                     $ref: "#/components/schemas/Descriptor"
                 time:
@@ -947,7 +950,8 @@ components:
                     description: This is the most unique identifier of a service item.
                     type: string
                 parent_item_id:
-                    $ref: "#/components/schemas/Item/properties/id"
+                    type: string
+                    description: Unique id of the parent item
                 descriptor:
                     $ref: "#/components/schemas/Descriptor"
                 manufacturer:
