@@ -962,8 +962,6 @@ components:
                     $ref: "#/components/schemas/ItemQuantity"
                 category_id:
                     $ref: "#/components/schemas/Category/properties/id"
-                fulfillment_id:
-                    $ref: "#/components/schemas/Fulfillment/properties/id"
                 rating:
                     $ref: "#/components/schemas/Rating/properties/value"
                 location_id:
@@ -1301,6 +1299,10 @@ components:
                     type: array
                     items:
                         $ref: "#/components/schemas/Offer"
+                items:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/Item"
                 exp:
                     type: string
                     description: Time after which catalog has to be refreshed
