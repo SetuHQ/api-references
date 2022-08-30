@@ -964,20 +964,12 @@ components:
                     $ref: "#/components/schemas/Category/properties/id"
                 fulfillment_id:
                     $ref: "#/components/schemas/Fulfillment/properties/id"
-                cancellation_terms:
-                    type: array
-                    items:
-                        $ref: "#/components/schemas/CancellationTerm"
-                return_terms:
-                    type: array
-                    items:
-                        $ref: "#/components/schemas/ReturnTerm"
-                replacement_terms:
-                    type: array
-                    items:
-                        $ref: "#/components/schemas/ReplacementTerm"
-                xinput_required:
-                    $ref: "#/components/schemas/XInput"
+                rating:
+                    $ref: "#/components/schemas/Rating/properties/value"
+                location_id:
+                    $ref: "#/components/schemas/Location/properties/id"
+                payment_id:
+                    $ref: "#/components/schemas/Payment/properties/id"
                 time:
                     $ref: "#/components/schemas/Time"
                 rating_policy:
