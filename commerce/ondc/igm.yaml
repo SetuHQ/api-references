@@ -1037,10 +1037,6 @@ components:
                     items:
                         type: string
                         description: ID of a previous order
-                provider:
-                    description: Details of the provider whose catalog items have been selected.
-                    allOf:
-                        - $ref: "#/components/schemas/Provider"
                 items:
                     type: array
                     items:
