@@ -179,6 +179,14 @@ components:
                                 description: Invoice Number of the Order
                                 pattern: '[\da-zA-Z\-\/]{3,16}$'
                                 example: "2022/XYZ/12345-2"
+                            buyer_app_id:
+                                $ref: "#/components/schemas/Context/properties/bap_id"
+                            seller_app_id:
+                                $ref: "#/components/schemas/Context/properties/bpp_id"
+                            provider:
+                                $ref: "#/components/schemas/Provider"
+                            payment:
+                                $ref: "#/components/schemas/Payment"
                             payout_bank_uri:
                                 type: string
                                 format: uri
