@@ -183,6 +183,10 @@ components:
                                 $ref: "#/components/schemas/Context/properties/bap_id"
                             seller_app_id:
                                 $ref: "#/components/schemas/Context/properties/bpp_id"
+                            value:
+                                $ref: "#/components/schemas/Quotation/properties/price"
+                            state:
+                                $ref: "#/components/schemas/Order/properties/state"
                             payout_bank_uri:
                                 type: string
                                 format: uri
