@@ -31,6 +31,62 @@ paths:
                             required:
                                 - context
                                 - message
+                                - message.orderbook.orders.id
+                                - message.orderbook.orders.invoice_no
+                                - message.orderbook.orders.buyer_app_id
+                                - message.orderbook.orders.seller_app_id
+                                - message.orderbook.orders.value
+                                - message.orderbook.orders.state
+                                - message.orderbook.orders.provider
+                                - message.orderbook.orders.payment
+                                - message.orderbook.orders.created_at
+                                - message.orderbook.orders.updated_at
+            responses:
+                "200":
+                    description: Acknowledgement of message received
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: object
+                                        properties:
+                                            ack:
+                                                $ref: "#/components/schemas/Ack"
+                                        required:
+                                            - ack
+                                    error:
+                                        $ref: "#/components/schemas/Error"
+                                required:
+                                    - message
+    /on_settle:
+        post:
+            tags:
+                - RSP
+            description: settlement status for payments to different receivers (Step 2b)
+            requestBody:
+                description: Settlement Agency responding to RSP with settlement status
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                context:
+                                    $ref: "#/components/schemas/Context"
+                                message:
+                                    type: object
+                                    properties:
+                                        settlement:
+                                            $ref: "#/components/schemas/Settlement"
+                            required:
+                                - context
+                                - message
+                                - message.settlement.id
+                                - message.settlement.transaction_id
+                                - message.settlement.seller_app_id
+                                - message.settlement.settlement_id
+                                - message.settlement.settlement_status
             responses:
                 "200":
                     description: Acknowledgement of message received
@@ -73,6 +129,10 @@ paths:
                             required:
                                 - context
                                 - message
+                                - message.orderbook.orders.id
+                                - message.orderbook.orders.transaction_id
+                                - message.orderbook.orders.seller_app_id
+                                - message.orderbook.orders.recon_status
             responses:
                 "200":
                     description: Acknowledgement of message received
@@ -512,8 +572,7 @@ components:
                     type: string
                     description: ID of the category
                 parent_category_id:
-                    type: string
-                    description: Unique id of the parent category
+                    $ref: "#/components/schemas/Category/properties/id"
                 descriptor:
                     $ref: "#/components/schemas/Descriptor"
                 time:
@@ -950,8 +1009,7 @@ components:
                     description: This is the most unique identifier of a service item.
                     type: string
                 parent_item_id:
-                    type: string
-                    description: Unique id of the parent item
+                    $ref: "#/components/schemas/Item/properties/id"
                 descriptor:
                     $ref: "#/components/schemas/Descriptor"
                 manufacturer:
