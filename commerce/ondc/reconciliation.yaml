@@ -213,6 +213,14 @@ components:
                                     - overpaid
                                     - underpaid
                                     - not paid
+                            diff_amount:
+                                $ref: "#/components/schemas/Price"
+                            message:
+                                $ref: "#/components/schemas/Descriptor"
+                            created_at:
+                                $ref: "#/components/schemas/Order/properties/created_at"
+                            updated_at:
+                                $ref: "#/components/schemas/Order/properties/updated_at"
         Settlement:
             description: Settlement details
             type: object
