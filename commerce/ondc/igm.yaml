@@ -391,8 +391,8 @@ components:
             type: object
             properties:
                 refund_eligible:
-                description: Indicates if cancellation will result in a refund
-                type: boolean
+                    description: Indicates if cancellation will result in a refund
+                    type: boolean
                 return_eligible:
                     description: Indicates if cancellation will result in a return to origin
                     type: boolean
