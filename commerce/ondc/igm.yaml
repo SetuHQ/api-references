@@ -391,8 +391,8 @@ components:
             type: object
             properties:
                 refund_eligible:
-                description: Indicates if cancellation will result in a refund
-                type: boolean
+                    description: Indicates if cancellation will result in a refund
+                    type: boolean
                 return_eligible:
                     description: Indicates if cancellation will result in a return to origin
                     type: boolean
@@ -451,8 +451,7 @@ components:
                     type: string
                     description: ID of the category
                 parent_category_id:
-                    type: string
-                    description: Unique id of the parent category
+                    $ref: "#/components/schemas/Category/properties/id"
                 descriptor:
                     $ref: "#/components/schemas/Descriptor"
                 time:
@@ -889,8 +888,7 @@ components:
                     description: This is the most unique identifier of a service item.
                     type: string
                 parent_item_id:
-                    type: string
-                    description: Unique id of the parent item
+                    $ref: "#/components/schemas/Item/properties/id"
                 descriptor:
                     $ref: "#/components/schemas/Descriptor"
                 manufacturer:
