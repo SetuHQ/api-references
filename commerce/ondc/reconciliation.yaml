@@ -970,6 +970,18 @@ components:
                     $ref: "#/components/schemas/Location/properties/id"
                 payment_id:
                     $ref: "#/components/schemas/Payment/properties/id"
+                cancellation_terms:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/CancellationTerm"
+                return_terms:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/ReturnTerm"
+                replacement_terms:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/ReplacementTerm"
                 time:
                     $ref: "#/components/schemas/Time"
                 rating_policy:
