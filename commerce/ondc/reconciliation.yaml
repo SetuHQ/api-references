@@ -962,12 +962,8 @@ components:
                     $ref: "#/components/schemas/ItemQuantity"
                 category_id:
                     $ref: "#/components/schemas/Category/properties/id"
-                rating:
-                    $ref: "#/components/schemas/Rating/properties/value"
-                location_id:
-                    $ref: "#/components/schemas/Location/properties/id"
-                payment_id:
-                    $ref: "#/components/schemas/Payment/properties/id"
+                fulfillment_id:
+                    $ref: "#/components/schemas/Fulfillment/properties/id"
                 cancellation_terms:
                     type: array
                     items:
