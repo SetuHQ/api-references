@@ -1301,10 +1301,6 @@ components:
                     type: array
                     items:
                         $ref: "#/components/schemas/Offer"
-                items:
-                    type: array
-                    items:
-                        $ref: "#/components/schemas/Item"
                 exp:
                     type: string
                     description: Time after which catalog has to be refreshed
