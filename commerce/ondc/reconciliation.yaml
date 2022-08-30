@@ -23,14 +23,8 @@ paths:
                             properties:
                                 context:
                                     $ref: "#/components/schemas/Context"
-                                message:
-                                    type: object
-                                    properties:
-                                        orderbook:
-                                            $ref: "#/components/schemas/OrderBook"
                             required:
                                 - context
-                                - message
             responses:
                 "200":
                     description: Acknowledgement of message received
@@ -65,14 +59,8 @@ paths:
                             properties:
                                 context:
                                     $ref: "#/components/schemas/Context"
-                                message:
-                                    type: object
-                                    properties:
-                                        orderbook:
-                                            $ref: "#/components/schemas/OrderBook"
                             required:
                                 - context
-                                - message
             responses:
                 "200":
                     description: Acknowledgement of message received
