@@ -378,6 +378,16 @@
                                           "type": "string",
                                           "description": 'Exactness of the bill amount. "ANY" means customer can pay any amount. "EXACT" means customer can pay only the amount specified in the bill. "EXACT_UP" means customer must pay at least the specified amount or more, and "EXACT_DOWN" means customer can pay any amount upto the specified amount.',
                                         },
+                                      "transactionNote": 
+                                        {
+                                          "type": "string",
+                                          "description": "`transactionNote` is a field that can be used to show a note on payer app",
+                                        },
+                                      "campaignID":
+                                        {
+                                          "type": "string",
+                                          "description": "`campaignID` is a field that can be used to group payment links.",
+                                        }
                                     },
                                   "description": "The bill object will contain the information to create a bill/UPI deeplink",
                                 },
