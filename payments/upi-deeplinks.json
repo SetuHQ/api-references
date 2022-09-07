@@ -1,7 +1,5 @@
 {
-    "schemes": [
-        "https"
-    ],
+    "schemes": ["https"],
     "swagger": "2.0",
     "info": {
         "description": "\u003ca href=\"http://docs.setu.co/\" target=\"_blank\"\u003eSetu Collect Documentation ↗\u003c/a\u003e\n",
@@ -10,19 +8,13 @@
     },
     "host": "uat.setu.co",
     "basePath": "/api/v2",
-    "paths": {        
+    "paths": {
         "/refund/batch": {
             "post": {
                 "description": "Initiate a batch of several refunds at once",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "APIs to call"
-                ],
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "tags": ["APIs to call"],
                 "summary": "Initiate Batch Refund",
                 "operationId": "initiateBatchRefund",
                 "parameters": [
@@ -55,9 +47,7 @@
                         "description": "Success",
                         "schema": {
                             "type": "object",
-                            "required": [
-                                "data"
-                            ],
+                            "required": ["data"],
                             "allOf": [
                                 {
                                     "$ref": "#/definitions/baseResponse"
@@ -69,48 +59,6 @@
                                 }
                             }
                         }
-                    },
-                    "400": {
-                        "description": "Malformed request",
-                        "schema": {
-                            "$ref": "#/definitions/errorResponse"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthenticated request",
-                        "schema": {
-                            "$ref": "#/definitions/errorResponse"
-                        }
-                    },
-                    "403": {
-                        "description": "Unauthorised request",
-                        "schema": {
-                            "$ref": "#/definitions/errorResponse"
-                        }
-                    },
-                    "405": {
-                        "description": "HTTP method not allowed",
-                        "schema": {
-                            "$ref": "#/definitions/errorResponse"
-                        }
-                    },
-                    "429": {
-                        "description": "Too many requests",
-                        "schema": {
-                            "$ref": "#/definitions/errorResponse"
-                        }
-                    },
-                    "500": {
-                        "description": "Unable to fulfil request",
-                        "schema": {
-                            "$ref": "#/definitions/errorResponse"
-                        }
-                    },
-                    "503": {
-                        "description": "Server under maintenance",
-                        "schema": {
-                            "$ref": "#/definitions/errorResponse"
-                        }
                     }
                 }
             }
@@ -121,11 +69,7 @@
             "allOf": [
                 {
                     "type": "object",
-                    "required": [
-                        "id",
-                        "createdAt",
-                        "lastModifiedAt"
-                    ],
+                    "required": ["id", "createdAt", "lastModifiedAt"],
                     "properties": {
                         "createdAt": {
                             "type": "string",
@@ -147,13 +91,7 @@
         },
         "address": {
             "type": "object",
-            "required": [
-                "line1",
-                "city",
-                "state",
-                "country",
-                "pincode"
-            ],
+            "required": ["line1", "city", "state", "country", "pincode"],
             "properties": {
                 "city": {
                     "type": "string"
@@ -178,9 +116,7 @@
         "amount": {
             "description": "Amount to be refunded",
             "type": "object",
-            "required": [
-                "value"
-            ],
+            "required": ["value"],
             "properties": {
                 "currencyCode": {
                     "description": "Currency code of the amount, in the ISO-4217 standard.",
@@ -196,20 +132,11 @@
         "amountExactness": {
             "description": "Exactness of the bill amount. \"ANY\" means customer can pay any amount. \"EXACT\" means customer can pay only the amount specified in the bill. \"EXACT_UP\" means customer must pay at least the specified amount or more, and \"EXACT_DOWN\" means customer can pay any amount upto the specified amount. \"RANGE\" means the customer can pay any amount between amountMin and amountMax specified in the validationRules.",
             "type": "string",
-            "enum": [
-                "ANY",
-                "EXACT",
-                "EXACT_UP",
-                "EXACT_DOWN",
-                "RANGE"
-            ]
+            "enum": ["ANY", "EXACT", "EXACT_UP", "EXACT_DOWN", "RANGE"]
         },
         "amountObject": {
             "type": "object",
-            "required": [
-                "displayName",
-                "amount"
-            ],
+            "required": ["displayName", "amount"],
             "properties": {
                 "amount": {
                     "$ref": "#/definitions/amount"
@@ -239,10 +166,7 @@
         "apiKeys": {
             "description": "Details of the reset credentials",
             "type": "object",
-            "required": [
-                "schemeID",
-                "secret"
-            ],
+            "required": ["schemeID", "secret"],
             "properties": {
                 "schemeID": {
                     "type": "string"
@@ -256,11 +180,7 @@
             "allOf": [
                 {
                     "type": "object",
-                    "required": [
-                        "id",
-                        "createdAt",
-                        "lastModifiedAt"
-                    ],
+                    "required": ["id", "createdAt", "lastModifiedAt"],
                     "properties": {
                         "createdAt": {
                             "type": "string",
@@ -291,9 +211,7 @@
         },
         "bankAccount": {
             "type": "object",
-            "required": [
-                "accountID"
-            ],
+            "required": ["accountID"],
             "properties": {
                 "accountID": {
                     "description": "Used to uniquely identify the account.",
@@ -334,10 +252,7 @@
                 },
                 "productType": {
                     "type": "string",
-                    "enum": [
-                        "Collect",
-                        "GST"
-                    ]
+                    "enum": ["Collect", "GST"]
                 },
                 "type": {
                     "type": "string",
@@ -357,11 +272,7 @@
         },
         "baseApp": {
             "type": "object",
-            "required": [
-                "name",
-                "description",
-                "partnerId"
-            ],
+            "required": ["name", "description", "partnerId"],
             "properties": {
                 "bizRules": {
                     "type": "array",
@@ -382,11 +293,7 @@
         },
         "baseBizRule": {
             "type": "object",
-            "required": [
-                "displayName",
-                "type",
-                "data"
-            ],
+            "required": ["displayName", "type", "data"],
             "properties": {
                 "data": {
                     "type": "object"
@@ -422,9 +329,7 @@
                 },
                 "contacts": {
                     "type": "object",
-                    "required": [
-                        "business"
-                    ],
+                    "required": ["business"],
                     "properties": {
                         "business": {
                             "$ref": "#/definitions/contact"
@@ -436,10 +341,7 @@
                 },
                 "currency": {
                     "type": "string",
-                    "enum": [
-                        "INR",
-                        "USD"
-                    ]
+                    "enum": ["INR", "USD"]
                 },
                 "description": {
                     "type": "string"
@@ -459,10 +361,7 @@
         },
         "baseResponse": {
             "type": "object",
-            "required": [
-                "status",
-                "success"
-            ],
+            "required": ["status", "success"],
             "properties": {
                 "status": {
                     "description": "HTTP status code for the response.",
@@ -477,10 +376,7 @@
         },
         "baseType": {
             "type": "string",
-            "enum": [
-                "UPI",
-                "ACCOUNT"
-            ]
+            "enum": ["UPI", "ACCOUNT"]
         },
         "batchCreateRefundResponse": {
             "type": "object",
@@ -501,9 +397,7 @@
         },
         "batchRefundRequest": {
             "type": "object",
-            "required": [
-                "refunds"
-            ],
+            "required": ["refunds"],
             "properties": {
                 "refunds": {
                     "description": "Contains individual transactions to refund.",
@@ -516,9 +410,7 @@
         },
         "batchRefundRequestItem": {
             "type": "object",
-            "required": [
-                "seqNo"
-            ],
+            "required": ["seqNo"],
             "allOf": [
                 {
                     "$ref": "#/definitions/refundRequestItem"
@@ -575,10 +467,7 @@
         },
         "batchRefundResponseItem": {
             "type": "object",
-            "required": [
-                "seqNo",
-                "success"
-            ],
+            "required": ["seqNo", "success"],
             "allOf": [
                 {
                     "$ref": "#/definitions/refundResponseItem"
@@ -686,9 +575,7 @@
         "billAggregates": {
             "description": "Contains bill-level aggregates of individual data points. For example \"Total number of items\" is an aggregate.",
             "type": "object",
-            "required": [
-                "total"
-            ],
+            "required": ["total"],
             "properties": {
                 "discount": {
                     "$ref": "#/definitions/amountObject"
@@ -824,19 +711,12 @@
         "billFetchStatus": {
             "description": "Types of fetch bill statuses.",
             "type": "string",
-            "enum": [
-                "NOT_SUPPORTED",
-                "NO_OUTSTANDING",
-                "AVAILABLE"
-            ]
+            "enum": ["NOT_SUPPORTED", "NO_OUTSTANDING", "AVAILABLE"]
         },
         "billFulfilmentRequest": {
             "description": "Specifications of the bill fulfilment request.",
             "type": "object",
-            "required": [
-                "transactionID",
-                "payment"
-            ],
+            "required": ["transactionID", "payment"],
             "properties": {
                 "payment": {
                     "$ref": "#/definitions/fulfilmentPaymentDetails"
@@ -851,11 +731,7 @@
         },
         "billFulfilmentResponse": {
             "type": "object",
-            "required": [
-                "platformBillID",
-                "platformBillStatus",
-                "receipt"
-            ],
+            "required": ["platformBillID", "platformBillStatus", "receipt"],
             "properties": {
                 "name": {
                     "description": "Human-readable name of bill.",
@@ -877,10 +753,7 @@
         "billReceipt": {
             "description": "Receipt details of a bill.",
             "type": "object",
-            "required": [
-                "id",
-                "date"
-            ],
+            "required": ["id", "date"],
             "properties": {
                 "date": {
                     "description": "Receipt date of the bill.",
@@ -896,9 +769,7 @@
         "billReceiptWithStatus": {
             "description": "Receipt details of a bill.",
             "type": "object",
-            "required": [
-                "status"
-            ],
+            "required": ["status"],
             "properties": {
                 "date": {
                     "description": "Receipt date of the bill.",
@@ -977,9 +848,7 @@
         "billSettlementRequest": {
             "description": "Specifications of the bill settlement request.",
             "type": "object",
-            "required": [
-                "settlement"
-            ],
+            "required": ["settlement"],
             "properties": {
                 "settlement": {
                     "$ref": "#/definitions/billSettlementDetails"
@@ -990,10 +859,7 @@
         "billTax": {
             "description": "Tax parent object containing all the relevant taxes and their individual components at the bill-level.",
             "type": "object",
-            "required": [
-                "displayName",
-                "amount"
-            ],
+            "required": ["displayName", "amount"],
             "properties": {
                 "amount": {
                     "$ref": "#/definitions/amount"
@@ -1021,17 +887,12 @@
         "billType": {
             "description": "Type of bill. eg. GST.",
             "type": "string",
-            "enum": [
-                "GST",
-                "COLLECT"
-            ]
+            "enum": ["GST", "COLLECT"]
         },
         "billWithBillerBillIdResponse": {
             "description": "Details of bills for the supplied biller billID.",
             "type": "object",
-            "required": [
-                "bills"
-            ],
+            "required": ["bills"],
             "properties": {
                 "bills": {
                     "description": "List of bills for the supplied biller billID.",
@@ -1087,10 +948,7 @@
                 "partner": {
                     "description": "Partner details such as ID and Name.",
                     "type": "object",
-                    "required": [
-                        "id",
-                        "name"
-                    ],
+                    "required": ["id", "name"],
                     "properties": {
                         "id": {
                             "description": "Unique identifier of a biller partner in Setu.",
@@ -1162,9 +1020,7 @@
         "billerFetchBillsRequest": {
             "description": "Details of customer identifiers.",
             "type": "object",
-            "required": [
-                "customerIdentifiers"
-            ],
+            "required": ["customerIdentifiers"],
             "properties": {
                 "customerIdentifiers": {
                     "description": "List of parameters to uniquely identify a customer.",
@@ -1178,10 +1034,7 @@
         "billerFetchBillsResponse": {
             "description": "Details of bills for the supplied customer identifiers.",
             "type": "object",
-            "required": [
-                "customer",
-                "billDetails"
-            ],
+            "required": ["customer", "billDetails"],
             "properties": {
                 "billDetails": {
                     "$ref": "#/definitions/fetchBillsDetails"
@@ -1195,9 +1048,7 @@
             "allOf": [
                 {
                     "type": "object",
-                    "required": [
-                        "id"
-                    ],
+                    "required": ["id"],
                     "properties": {
                         "id": {
                             "type": "string"
@@ -1255,12 +1106,7 @@
         },
         "charges": {
             "type": "object",
-            "required": [
-                "amount",
-                "percentage",
-                "flatFee",
-                "type"
-            ],
+            "required": ["amount", "percentage", "flatFee", "type"],
             "properties": {
                 "amount": {
                     "$ref": "#/definitions/amount"
@@ -1282,10 +1128,7 @@
         },
         "computation": {
             "type": "object",
-            "required": [
-                "method",
-                "value"
-            ],
+            "required": ["method", "value"],
             "properties": {
                 "currencyCode": {
                     "description": "Currency code of the amount, in the ISO-4217 standard.",
@@ -1294,10 +1137,7 @@
                 "method": {
                     "description": "The method used to calculate the value of a particular component. This is usually done as a flat fee or a percentage. Some examples could be calculating the processing fees for a bill, or the discount amount for an item.",
                     "type": "string",
-                    "enum": [
-                        "PERCENTAGE",
-                        "VALUE"
-                    ]
+                    "enum": ["PERCENTAGE", "VALUE"]
                 },
                 "value": {
                     "description": "Amount value in the smallest subunit of the currency. If a currency has two or more subunits, use the smallest one. For example, For INR it would be paisa, and for Yen, which has two subunits sen(1/100) and rin(1/1000), it would be rin.",
@@ -1307,12 +1147,7 @@
         },
         "contact": {
             "type": "object",
-            "required": [
-                "title",
-                "firstName",
-                "email",
-                "phone"
-            ],
+            "required": ["title", "firstName", "email", "phone"],
             "properties": {
                 "email": {
                     "type": "string"
@@ -1334,9 +1169,7 @@
         "createActorResponse": {
             "description": "Details of the created actor .",
             "type": "object",
-            "required": [
-                "actor"
-            ],
+            "required": ["actor"],
             "properties": {
                 "actor": {
                     "$ref": "#/definitions/actor"
@@ -1345,11 +1178,7 @@
         },
         "createAppRequest": {
             "type": "object",
-            "required": [
-                "name",
-                "description",
-                "partnerId"
-            ],
+            "required": ["name", "description", "partnerId"],
             "properties": {
                 "bizRules": {
                     "type": "array",
@@ -1371,10 +1200,7 @@
         "createAppResponse": {
             "description": "Details of the created app .",
             "type": "object",
-            "required": [
-                "apiKeys",
-                "app"
-            ],
+            "required": ["apiKeys", "app"],
             "properties": {
                 "apiKeys": {
                     "$ref": "#/definitions/apiKeys"
@@ -1387,9 +1213,7 @@
         "createPartnerResponse": {
             "description": "Details of the created partner .",
             "type": "object",
-            "required": [
-                "partner"
-            ],
+            "required": ["partner"],
             "properties": {
                 "partner": {
                     "$ref": "#/definitions/partner"
@@ -1398,10 +1222,7 @@
         },
         "createPaymentLinkRequest": {
             "type": "object",
-            "required": [
-                "billerBillID",
-                "amountExactness"
-            ],
+            "required": ["billerBillID", "amountExactness"],
             "properties": {
                 "additionalInfo": {
                     "type": "object"
@@ -1505,9 +1326,7 @@
         "customer": {
             "description": "Details of a customer in the biller system.",
             "type": "object",
-            "required": [
-                "name"
-            ],
+            "required": ["name"],
             "properties": {
                 "additionalInfo": {
                     "description": "Additional details of the customer in the biller system.",
@@ -1522,9 +1341,7 @@
         "customerAccount": {
             "description": "Details of a customer account in the biller system.",
             "type": "object",
-            "required": [
-                "id"
-            ],
+            "required": ["id"],
             "properties": {
                 "additionalInfo": {
                     "description": "Additional details for the customer account in the biller system.",
@@ -1539,10 +1356,7 @@
         "customerIdentifier": {
             "description": "Unique customer identifier for a particular biller.",
             "type": "object",
-            "required": [
-                "attributeName",
-                "attributeValue"
-            ],
+            "required": ["attributeName", "attributeValue"],
             "properties": {
                 "attributeName": {
                     "description": "Attribute used to identify a customer of a biller. Could be phone number, PAN or email, depending on the biller.",
@@ -1557,10 +1371,7 @@
         "deductionParts": {
             "description": "Account and split details for the deduction.",
             "type": "object",
-            "required": [
-                "account",
-                "split"
-            ],
+            "required": ["account", "split"],
             "properties": {
                 "account": {
                     "$ref": "#/definitions/splitAccount"
@@ -1573,9 +1384,7 @@
         "discount": {
             "description": "Contains details about the discount in a particular bill, if available. In a given bill, there could be upto three kinds of discount, bill-level, item-level and fee-level.",
             "type": "object",
-            "required": [
-                "amount"
-            ],
+            "required": ["amount"],
             "properties": {
                 "amount": {
                     "$ref": "#/definitions/amount"
@@ -1595,12 +1404,7 @@
         },
         "error": {
             "type": "object",
-            "required": [
-                "code",
-                "title",
-                "detail",
-                "docURL"
-            ],
+            "required": ["code", "title", "detail", "docURL"],
             "properties": {
                 "code": {
                     "description": "Custom Setu error code.",
@@ -1623,9 +1427,7 @@
         },
         "errorResponse": {
             "type": "object",
-            "required": [
-                "error"
-            ],
+            "required": ["error"],
             "allOf": [
                 {
                     "$ref": "#/definitions/baseResponse"
@@ -1641,9 +1443,7 @@
         "errorResponseData": {
             "description": "Object containing data about the error.",
             "type": "object",
-            "required": [
-                "traceID"
-            ],
+            "required": ["traceID"],
             "allOf": [
                 {
                     "$ref": "#/definitions/error"
@@ -1667,12 +1467,7 @@
         "eventDetails": {
             "description": "Details about the event.",
             "type": "object",
-            "required": [
-                "id",
-                "type",
-                "timeStamp",
-                "data"
-            ],
+            "required": ["id", "type", "timeStamp", "data"],
             "properties": {
                 "data": {
                     "description": "Payload of an event which contains detailed information about an event.",
@@ -1695,9 +1490,7 @@
         "feeAggregates": {
             "description": "Aggregate section for fees",
             "type": "object",
-            "required": [
-                "total"
-            ],
+            "required": ["total"],
             "properties": {
                 "discount": {
                     "$ref": "#/definitions/amount"
@@ -1716,10 +1509,7 @@
         "fees": {
             "description": "Fees levied on the bill or individual items.",
             "type": "object",
-            "required": [
-                "displayName",
-                "aggregates"
-            ],
+            "required": ["displayName", "aggregates"],
             "properties": {
                 "aggregates": {
                     "$ref": "#/definitions/feeAggregates"
@@ -1778,10 +1568,7 @@
         "fetchBillsDetails": {
             "description": "Details of the bill to be paid.",
             "type": "object",
-            "required": [
-                "billFetchStatus",
-                "bills"
-            ],
+            "required": ["billFetchStatus", "bills"],
             "properties": {
                 "billFetchStatus": {
                     "$ref": "#/definitions/billFetchStatus"
@@ -1799,10 +1586,7 @@
         "fetchBillsRequest": {
             "description": "Fetch bill request payload",
             "type": "object",
-            "required": [
-                "billerProductInstanceID",
-                "customerIdentifiers"
-            ],
+            "required": ["billerProductInstanceID", "customerIdentifiers"],
             "properties": {
                 "billerProductInstanceID": {
                     "description": "Unique identifier of the biller product instance in Setu.",
@@ -1824,9 +1608,7 @@
         "fetchBillsResponse": {
             "description": "Details of bills for the supplied customer identifiers.",
             "type": "object",
-            "required": [
-                "bills"
-            ],
+            "required": ["bills"],
             "properties": {
                 "bills": {
                     "description": "List of bills for the supplied customer identifiers.",
@@ -1840,9 +1622,7 @@
         "fetchCodeVersionResponse": {
             "description": "Fetch Code version response data",
             "type": "object",
-            "required": [
-                "commit_sha"
-            ],
+            "required": ["commit_sha"],
             "properties": {
                 "commit_sha": {
                     "description": "GitLab commit-ID of the deployed code",
@@ -1885,10 +1665,7 @@
         },
         "fetchPayerLinkResponse": {
             "type": "object",
-            "required": [
-                "url",
-                "token"
-            ],
+            "required": ["url", "token"],
             "properties": {
                 "token": {
                     "description": "One-time auth token to be used to retrieve the JWT for subsequent API requests",
@@ -1902,11 +1679,7 @@
         },
         "fetchReceiptRequest": {
             "type": "object",
-            "required": [
-                "platformBillID",
-                "billerBillID",
-                "paymentDetails"
-            ],
+            "required": ["platformBillID", "billerBillID", "paymentDetails"],
             "properties": {
                 "billerBillID": {
                     "description": "Unique bill identifier in the biller's system.",
@@ -1973,10 +1746,7 @@
         },
         "fetchTokenResponse": {
             "type": "object",
-            "required": [
-                "token",
-                "expiresIn"
-            ],
+            "required": ["token", "expiresIn"],
             "properties": {
                 "expiresIn": {
                     "description": "Token expiry duration in seconds",
@@ -1990,11 +1760,7 @@
         },
         "fulfilmentPaymentDetails": {
             "type": "object",
-            "required": [
-                "paidOn",
-                "amount",
-                "instrument"
-            ],
+            "required": ["paidOn", "amount", "instrument"],
             "properties": {
                 "accountIdentifier": {
                     "description": "The masked digits of the account used. In case of `CC` / `DC` / `PREPAID`, it is the last 4 digits of the Card Number. In case of  `NEFT` / `RTGS` / `IFT` / `IMPS`, it is the last 4 digits of the Account Number. In case of `UPI`, it is the VPA. In case of  `PPI` / `CASH`, it is the last 4 digits of Mobile Number.",
@@ -2023,9 +1789,7 @@
         "getActorByIdResponse": {
             "description": "Details of actor for the supplied actor identifier.",
             "type": "object",
-            "required": [
-                "actor"
-            ],
+            "required": ["actor"],
             "properties": {
                 "actor": {
                     "$ref": "#/definitions/actor"
@@ -2035,9 +1799,7 @@
         "getAppByIdResponse": {
             "description": "Details of app for the supplied app identifier.",
             "type": "object",
-            "required": [
-                "app"
-            ],
+            "required": ["app"],
             "properties": {
                 "app": {
                     "$ref": "#/definitions/app"
@@ -2047,9 +1809,7 @@
         "getPartnerByIdResponse": {
             "description": "Details of partner for the supplied partner identifier.",
             "type": "object",
-            "required": [
-                "partner"
-            ],
+            "required": ["partner"],
             "properties": {
                 "partner": {
                     "$ref": "#/definitions/partner"
@@ -2059,9 +1819,7 @@
         "getReportRequest": {
             "description": "get report request payload",
             "type": "object",
-            "required": [
-                "productInstanceIDOfReport"
-            ],
+            "required": ["productInstanceIDOfReport"],
             "properties": {
                 "filters": {
                     "description": "Payload containing the filters to be applied.",
@@ -2098,9 +1856,7 @@
         "itemAggregates": {
             "description": "Aggregate section for item.",
             "type": "object",
-            "required": [
-                "total"
-            ],
+            "required": ["total"],
             "properties": {
                 "discount": {
                     "$ref": "#/definitions/amount"
@@ -2118,10 +1874,7 @@
         },
         "itemQuantity": {
             "type": "object",
-            "required": [
-                "quantity",
-                "displayName"
-            ],
+            "required": ["quantity", "displayName"],
             "properties": {
                 "displayName": {
                     "description": "Display name for the quantity on payers app.",
@@ -2136,10 +1889,7 @@
         "itemTax": {
             "description": "Tax parent object containing all the relevant taxes and their individual components at the item-level.",
             "type": "object",
-            "required": [
-                "displayName",
-                "amount"
-            ],
+            "required": ["displayName", "amount"],
             "properties": {
                 "amount": {
                     "$ref": "#/definitions/amount"
@@ -2167,10 +1917,7 @@
         "items": {
             "description": "Line items for the bill.",
             "type": "object",
-            "required": [
-                "displayName",
-                "aggregates"
-            ],
+            "required": ["displayName", "aggregates"],
             "properties": {
                 "aggregates": {
                     "$ref": "#/definitions/itemAggregates"
@@ -2204,11 +1951,7 @@
                 "measurementUnit": {
                     "description": "Unit of measurement for the item.",
                     "type": "string",
-                    "enum": [
-                        "WEIGHT",
-                        "VOLUME",
-                        "NUMBER"
-                    ]
+                    "enum": ["WEIGHT", "VOLUME", "NUMBER"]
                 },
                 "quantity": {
                     "description": "Total number of items of one type.",
@@ -2238,9 +1981,7 @@
         },
         "listActorsResponse": {
             "type": "object",
-            "required": [
-                "actors"
-            ],
+            "required": ["actors"],
             "properties": {
                 "actors": {
                     "description": "Details of actors for the supplied actor identifiers.",
@@ -2253,9 +1994,7 @@
         },
         "listAppsResponse": {
             "type": "object",
-            "required": [
-                "apps"
-            ],
+            "required": ["apps"],
             "properties": {
                 "apps": {
                     "description": "Details of apps for the supplied app identifiers.",
@@ -2268,9 +2007,7 @@
         },
         "listPartnersResponse": {
             "type": "object",
-            "required": [
-                "partners"
-            ],
+            "required": ["partners"],
             "properties": {
                 "partners": {
                     "description": "Details of partners for the supplied partner identifiers.",
@@ -2283,10 +2020,7 @@
         },
         "notificationRequest": {
             "type": "object",
-            "required": [
-                "partnerDetails",
-                "events"
-            ],
+            "required": ["partnerDetails", "events"],
             "properties": {
                 "events": {
                     "description": "Array of events.",
@@ -2305,11 +2039,7 @@
             "allOf": [
                 {
                     "type": "object",
-                    "required": [
-                        "id",
-                        "createdAt",
-                        "lastModifiedAt"
-                    ],
+                    "required": ["id", "createdAt", "lastModifiedAt"],
                     "properties": {
                         "createdAt": {
                             "type": "string",
@@ -2332,10 +2062,7 @@
         "partnerDetails": {
             "description": "Details about the partner.",
             "type": "object",
-            "required": [
-                "appID",
-                "productInstanceID"
-            ],
+            "required": ["appID", "productInstanceID"],
             "properties": {
                 "appID": {
                     "description": "Unique identifier for the app.",
@@ -2350,11 +2077,7 @@
         "paymentAddress": {
             "description": "Payment address info where funds can be deposited.",
             "type": "object",
-            "required": [
-                "addressType",
-                "identifier",
-                "additionalInfo"
-            ],
+            "required": ["addressType", "identifier", "additionalInfo"],
             "properties": {
                 "additionalInfo": {
                     "description": "Payment address details for this type.",
@@ -2372,18 +2095,11 @@
         "paymentAddressType": {
             "description": "Type of paymnent address. Can be a bank account or UPI handle.",
             "type": "string",
-            "enum": [
-                "ACCOUNT",
-                "VPA"
-            ]
+            "enum": ["ACCOUNT", "VPA"]
         },
         "paymentBase": {
             "type": "object",
-            "required": [
-                "amount",
-                "sourceAccount",
-                "destinationAccount"
-            ],
+            "required": ["amount", "sourceAccount", "destinationAccount"],
             "properties": {
                 "amount": {
                     "description": "Amount for the mock credit.",
@@ -2545,10 +2261,7 @@
         },
         "phone": {
             "type": "object",
-            "required": [
-                "countryCode",
-                "number"
-            ],
+            "required": ["countryCode", "number"],
             "properties": {
                 "countryCode": {
                     "type": "string"
@@ -2606,9 +2319,7 @@
         "processingFees": {
             "description": "Fees involved in processing a particular bill payment / refund.",
             "type": "object",
-            "required": [
-                "amount"
-            ],
+            "required": ["amount"],
             "properties": {
                 "amount": {
                     "$ref": "#/definitions/amount"
@@ -2625,10 +2336,7 @@
         "productInstance": {
             "description": "Biller product details such as the ID and Name.",
             "type": "object",
-            "required": [
-                "id",
-                "name"
-            ],
+            "required": ["id", "name"],
             "properties": {
                 "id": {
                     "description": "Unique identifier of a biller product instance in Setu.",
@@ -2643,20 +2351,11 @@
         "receiptFetchStatus": {
             "description": "Receipt fetch status for a particular biller. Eg. AVAILABLE.",
             "type": "string",
-            "enum": [
-                "AVAILABLE",
-                "NOT_SUPPORTED",
-                "UNAVAILABLE",
-                "DEEMED"
-            ]
+            "enum": ["AVAILABLE", "NOT_SUPPORTED", "UNAVAILABLE", "DEEMED"]
         },
         "refundRequestItem": {
             "type": "object",
-            "required": [
-                "identifier",
-                "identifierType",
-                "refundType"
-            ],
+            "required": ["identifier", "identifierType", "refundType"],
             "properties": {
                 "deductions": {
                     "description": "List of accounts to deduct refund from. Required only if original bill had split settlements specified.",
@@ -2683,17 +2382,12 @@
         "refundRequestItemAmountType": {
             "description": "Type of refund. Can be either FULL or PARTIAL. If PARTIAL, refundAmount should also be specified.",
             "type": "string",
-            "enum": [
-                "FULL",
-                "PARTIAL"
-            ]
+            "enum": ["FULL", "PARTIAL"]
         },
         "refundRequestItemIdentifierType": {
             "description": "Type of identifier. Currently, only BILL_ID is supported.",
             "type": "string",
-            "enum": [
-                "BILL_ID"
-            ]
+            "enum": ["BILL_ID"]
         },
         "refundResponseItem": {
             "type": "object",
@@ -2731,11 +2425,7 @@
         "settlementAggregates": {
             "description": "Aggregates section for settlement.",
             "type": "object",
-            "required": [
-                "total",
-                "payment",
-                "refund"
-            ],
+            "required": ["total", "payment", "refund"],
             "properties": {
                 "payment": {
                     "$ref": "#/definitions/transactionTotal"
@@ -2750,9 +2440,7 @@
         },
         "settlementBase": {
             "type": "object",
-            "required": [
-                "transactions"
-            ],
+            "required": ["transactions"],
             "properties": {
                 "transactions": {
                     "type": "array",
@@ -2766,9 +2454,7 @@
         "settlementConfiguration": {
             "description": "Contains the settlement configuration for the bill.",
             "type": "object",
-            "required": [
-                "primaryAccount"
-            ],
+            "required": ["primaryAccount"],
             "properties": {
                 "parts": {
                     "description": "Array of settlement parts which have to be split.",
@@ -2785,9 +2471,7 @@
         "settlementParts": {
             "description": "Part of the bill which has to be split and settled.",
             "type": "object",
-            "required": [
-                "account"
-            ],
+            "required": ["account"],
             "properties": {
                 "account": {
                     "$ref": "#/definitions/splitAccount"
@@ -2803,9 +2487,7 @@
         },
         "settlementTransaction": {
             "type": "object",
-            "required": [
-                "utr"
-            ],
+            "required": ["utr"],
             "properties": {
                 "utr": {
                     "type": "string"
@@ -2815,11 +2497,7 @@
         "setuBillDeemedStatus": {
             "description": "Current deemed status of bill in Setu.",
             "type": "string",
-            "enum": [
-                "NOT_DEEMED",
-                "DEEMED",
-                "DEEMED_RETRY_SUCCESSFUL"
-            ]
+            "enum": ["NOT_DEEMED", "DEEMED", "DEEMED_RETRY_SUCCESSFUL"]
         },
         "setuBillStatus": {
             "description": "Current status of bill in Setu.",
@@ -2836,10 +2514,7 @@
         },
         "sourceAccount": {
             "type": "object",
-            "required": [
-                "number",
-                "ifsc"
-            ],
+            "required": ["number", "ifsc"],
             "properties": {
                 "ifsc": {
                     "description": "IFSC code of the source account.",
@@ -2861,10 +2536,7 @@
         "splitAccount": {
             "description": "Details of the settlement account to which a split has to be settled.",
             "type": "object",
-            "required": [
-                "id",
-                "ifsc"
-            ],
+            "required": ["id", "ifsc"],
             "properties": {
                 "id": {
                     "description": "Beneficiary account id as in Setu's biller actor configuration.",
@@ -2884,10 +2556,7 @@
         "splitDetails": {
             "description": "Details of split to be processed.",
             "type": "object",
-            "required": [
-                "value",
-                "unit"
-            ],
+            "required": ["value", "unit"],
             "properties": {
                 "unit": {
                     "$ref": "#/definitions/splitUnit"
@@ -2900,20 +2569,12 @@
         },
         "splitUnit": {
             "type": "string",
-            "enum": [
-                "BPS",
-                "PERCENTAGE",
-                "INR",
-                "INP"
-            ]
+            "enum": ["BPS", "PERCENTAGE", "INR", "INP"]
         },
         "taxComponent": {
             "description": "Describes the tax levied on a particular bill. In a given bill, there could be upto three kinds of taxes, bill-level, item-level and fee-level.",
             "type": "object",
-            "required": [
-                "displayName",
-                "amount"
-            ],
+            "required": ["displayName", "amount"],
             "properties": {
                 "amount": {
                     "$ref": "#/definitions/amount"
@@ -2933,9 +2594,7 @@
         },
         "transactionAggregate": {
             "type": "object",
-            "required": [
-                "amount"
-            ],
+            "required": ["amount"],
             "allOf": [
                 {
                     "$ref": "#/definitions/transactionCount"
@@ -2949,9 +2608,7 @@
         },
         "transactionCount": {
             "type": "object",
-            "required": [
-                "transactionCount"
-            ],
+            "required": ["transactionCount"],
             "properties": {
                 "transactionCount": {
                     "description": "Total number of transactions made in the process.",
@@ -2971,10 +2628,7 @@
         "transactionType": {
             "description": "Transaction type for a bill.",
             "type": "string",
-            "enum": [
-                "PAYMENT",
-                "REFUND"
-            ]
+            "enum": ["PAYMENT", "REFUND"]
         },
         "transactions": {
             "description": "Individual transaction details of the settlement made by the payment processor.",
@@ -3036,9 +2690,7 @@
         "updateActorByIdResponse": {
             "description": "Details of the updated actor .",
             "type": "object",
-            "required": [
-                "actor"
-            ],
+            "required": ["actor"],
             "properties": {
                 "actor": {
                     "$ref": "#/definitions/actor"
@@ -3067,9 +2719,7 @@
         "updateAppByIdResponse": {
             "description": "Details of the updated app .",
             "type": "object",
-            "required": [
-                "app"
-            ],
+            "required": ["app"],
             "properties": {
                 "app": {
                     "$ref": "#/definitions/app"
@@ -3079,9 +2729,7 @@
         "updatePartnerByIdResponse": {
             "description": "Details of the updated partner .",
             "type": "object",
-            "required": [
-                "partner"
-            ],
+            "required": ["partner"],
             "properties": {
                 "partner": {
                     "$ref": "#/definitions/partner"
@@ -3096,9 +2744,7 @@
                 },
                 "contacts": {
                     "type": "object",
-                    "required": [
-                        "business"
-                    ],
+                    "required": ["business"],
                     "properties": {
                         "business": {
                             "$ref": "#/definitions/contact"
@@ -3110,10 +2756,7 @@
                 },
                 "currency": {
                     "type": "string",
-                    "enum": [
-                        "INR",
-                        "USD"
-                    ]
+                    "enum": ["INR", "USD"]
                 },
                 "description": {
                     "type": "string"
@@ -3180,9 +2823,7 @@
         },
         "verifyPaymentAddressRequest": {
             "type": "object",
-            "required": [
-                "RequestData"
-            ],
+            "required": ["RequestData"],
             "properties": {
                 "RequestData": {
                     "description": "Encrypted request for VPA verification.",
@@ -3192,9 +2833,7 @@
         },
         "verifyPaymentAddressResponse": {
             "type": "object",
-            "required": [
-                "ResponseData"
-            ],
+            "required": ["ResponseData"],
             "properties": {
                 "ResponseData": {
                     "description": "Encrypted response for VPA verification request.",
