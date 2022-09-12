@@ -3,7 +3,8 @@
   "info": {
     "title": "Order & Process Payment Micro",
     "contact": {},
-    "version": "1.0"
+    "version": "1.0",
+    "description": "Plural APIs"
   },
   "servers": [
     {
