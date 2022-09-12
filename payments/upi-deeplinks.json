@@ -26,15 +26,6 @@
                         "required": true
                     },
                     {
-                        "description": "Input parameters for initiating a refund",
-                        "name": "initiateRefundPayload",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/batchRefundRequest"
-                        }
-                    },
-                    {
                         "type": "string",
                         "description": "OAuth token. Required for authorisation.",
                         "name": "Authorization",
