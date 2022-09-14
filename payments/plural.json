@@ -1,9 +1,10 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Order & Process Payment Micro",
+    "title": "Order & Process Payment APIs",
     "contact": {},
-    "version": "1.0"
+    "version": "1.0",
+    "description": "Comprehensive reference for integrating with Plural APIs."
   },
   "servers": [
     {
