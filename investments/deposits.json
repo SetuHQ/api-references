@@ -8,7 +8,7 @@
   },
   "servers": [
     {
-      "url": "{{hostname}}"
+      "url": "https://example.com"
     }
   ],
   "paths": {
