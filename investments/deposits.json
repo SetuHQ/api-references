@@ -50,7 +50,6 @@
                     {
                         "name": "provider",
                         "in": "query",
-                        "required": true,
                         "schema": {
                             "type": "string"
                         },
@@ -59,7 +58,6 @@
                     {
                         "name": "amount",
                         "in": "query",
-                        "required": true,
                         "schema": {
                             "type": "integer"
                         },
@@ -69,7 +67,6 @@
                     {
                         "name": "tenure",
                         "in": "query",
-                        "required": true,
                         "schema": {
                             "type": "integer"
                         },
@@ -79,7 +76,6 @@
                     {
                         "name": "category",
                         "in": "query",
-                        "required": true,
                         "schema": {
                             "type": "string"
                         },
@@ -99,37 +95,44 @@
                                             "properties": {
                                                 "id": {
                                                     "type": "string",
-                                                    "example": "EQTS"
+                                                    "example": "EQTS",
+                                                    "required": "true"
                                                 },
                                                 "name": {
                                                     "type": "string",
-                                                    "example": "Equitas Small Finance Bank"
+                                                    "example": "Equitas Small Finance Bank",
+                                                    "required": "true"
                                                 },
                                                 "logoUrl": {
                                                     "type": "string",
-                                                    "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png"
+                                                    "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png",
+                                                    "required": "true"
                                                 }
                                             }
                                         },
                                         "principalAmount": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "9000"
+                                            "example": "9000",
+                                            "required": "true"
                                         },
                                         "maturityAmount": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "9012"
+                                            "example": "9012",
+                                            "required": "true"
                                         },
                                         "interestAccrued": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "12"
+                                            "example": "12",
+                                            "required": "true"
                                         },
                                         "interestRate": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "5"
+                                            "example": "5",
+                                            "required": "true"
                                         }
                                     }
                                 },
@@ -176,15 +179,18 @@
                                             "properties": {
                                                 "id": {
                                                     "type": "string",
-                                                    "example": "EQTS"
+                                                    "example": "EQTS",
+                                                    "required": "true"
                                                 },
                                                 "name": {
                                                     "type": "string",
-                                                    "example": "Equitas Small Finance Bank"
+                                                    "example": "Equitas Small Finance Bank",
+                                                    "required": "true"
                                                 },
                                                 "logoUrl": {
                                                     "type": "string",
-                                                    "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png"
+                                                    "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png",
+                                                    "required": "true"
                                                 }
                                             }
                                         }
@@ -220,7 +226,6 @@
                     {
                         "name": "Accept",
                         "in": "header",
-                        "required": true,
                         "schema": {
                             "type": "string"
                         },
@@ -240,28 +245,33 @@
                                             "properties": {
                                                 "id": {
                                                     "type": "string",
-                                                    "example": "EQTS_SNR_07"
+                                                    "example": "EQTS_SNR_07",
+                                                    "required": "true"
                                                 },
                                                 "provider": {
                                                     "type": "object",
                                                     "properties": {
                                                         "id": {
                                                             "type": "string",
-                                                            "example": "EQTS"
+                                                            "example": "EQTS",
+                                                            "required": "true"
                                                         },
                                                         "name": {
                                                             "type": "string",
-                                                            "example": "Equitas Small Finance Bank"
+                                                            "example": "Equitas Small Finance Bank",
+                                                            "required": "true"
                                                         },
                                                         "logoUrl": {
                                                             "type": "string",
-                                                            "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png"
+                                                            "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png",
+                                                            "required": "true"
                                                         }
                                                     }
                                                 },
                                                 "category": {
                                                     "type": "string",
-                                                    "example": "SENIOR_CITIZEN"
+                                                    "example": "SENIOR_CITIZEN",
+                                                    "required": "true"
                                                 },
                                                 "amount": {
                                                     "type": "object",
@@ -269,12 +279,14 @@
                                                         "min": {
                                                             "type": "integer",
                                                             "format": "int32",
-                                                            "example": "5000"
+                                                            "example": "5000",
+                                                            "required": "true"
                                                         },
                                                         "max": {
                                                             "type": "integer",
                                                             "format": "int32",
-                                                            "example": "5000"
+                                                            "example": "5000",
+                                                            "required": "true"
                                                         }
                                                     }
                                                 },
@@ -284,12 +296,14 @@
                                                         "min": {
                                                             "type": "integer",
                                                             "format": "int32",
-                                                            "example": "271"
+                                                            "example": "271",
+                                                            "required": "true"
                                                         },
                                                         "max": {
                                                             "type": "integer",
                                                             "format": "int32",
-                                                            "example": "364"
+                                                            "example": "364",
+                                                            "required": "true"
                                                         }
                                                     }
                                                 },
@@ -298,11 +312,13 @@
                                                     "properties": {
                                                         "payoutFrequency": {
                                                             "type": "string",
-                                                            "example": "NONE"
+                                                            "example": "NONE",
+                                                            "required": "true"
                                                         },
                                                         "rate": {
                                                             "type": "number",
-                                                            "example": "7.2"
+                                                            "example": "7.2",
+                                                            "required": "true"
                                                         }
                                                     }
                                                 },
@@ -315,18 +331,21 @@
                                                                 "value": {
                                                                     "type": "integer",
                                                                     "format": "int32",
-                                                                    "example": "1"
+                                                                    "example": "1",
+                                                                    "required": "true"
                                                                 },
                                                                 "unit": {
                                                                     "type": "string",
-                                                                    "example": "PERCENTAGE"
+                                                                    "example": "PERCENTAGE",
+                                                                    "required": "true"
                                                                 }
                                                             }
                                                         },
                                                         "isAllowed": {
                                                             "type": "integer",
                                                             "format": "int32",
-                                                            "example": "1"
+                                                            "example": "1",
+                                                            "required": "true"
                                                         }
                                                     }
                                                 },
@@ -340,7 +359,8 @@
                                                                 "properties": {
                                                                     "name": {
                                                                         "type": "string",
-                                                                        "example": "aadhaar"
+                                                                        "example": "aadhaar",
+                                                                        "required": "true"
                                                                     },
                                                                     "required": {
                                                                         "type": "boolean"
@@ -355,7 +375,8 @@
                                                                 "properties": {
                                                                     "name": {
                                                                         "type": "string",
-                                                                        "example": "mobile"
+                                                                        "example": "mobile",
+                                                                        "required": "true"
                                                                     },
                                                                     "required": {
                                                                         "type": "boolean"
@@ -370,7 +391,8 @@
                                                                 "properties": {
                                                                     "name": {
                                                                         "type": "string",
-                                                                        "example": "skipNominee"
+                                                                        "example": "skipNominee",
+                                                                        "required": "true"
                                                                     },
                                                                     "required": {
                                                                         "type": "boolean"
@@ -385,7 +407,8 @@
                                                                 "properties": {
                                                                     "name": {
                                                                         "type": "string",
-                                                                        "example": "aadhaar"
+                                                                        "example": "aadhaar",
+                                                                        "required": "true"
                                                                     },
                                                                     "required": {
                                                                         "type": "boolean"
@@ -402,28 +425,33 @@
                                             "properties": {
                                                 "id": {
                                                     "type": "string",
-                                                    "example": "EQTS_SNR_08"
+                                                    "example": "EQTS_SNR_08",
+                                                    "required": "true"
                                                 },
                                                 "provider": {
                                                     "type": "object",
                                                     "properties": {
                                                         "id": {
                                                             "type": "string",
-                                                            "example": "EQTS"
+                                                            "example": "EQTS",
+                                                            "required": "true"
                                                         },
                                                         "name": {
                                                             "type": "string",
-                                                            "example": "Equitas Small Finance Bank"
+                                                            "example": "Equitas Small Finance Bank",
+                                                            "required": "true"
                                                         },
                                                         "logoUrl": {
                                                             "type": "string",
-                                                            "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png"
+                                                            "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png",
+                                                            "required": "true"
                                                         }
                                                     }
                                                 },
                                                 "category": {
                                                     "type": "string",
-                                                    "example": "SENIOR_CITIZEN"
+                                                    "example": "SENIOR_CITIZEN",
+                                                    "required": "true"
                                                 },
                                                 "amount": {
                                                     "type": "object",
@@ -431,12 +459,14 @@
                                                         "min": {
                                                             "type": "integer",
                                                             "format": "int32",
-                                                            "example": "5000"
+                                                            "example": "5000",
+                                                            "required": "true"
                                                         },
                                                         "max": {
                                                             "type": "integer",
                                                             "format": "int32",
-                                                            "example": "5000"
+                                                            "example": "5000",
+                                                            "required": "true"
                                                         }
                                                     }
                                                 },
@@ -446,12 +476,14 @@
                                                         "min": {
                                                             "type": "integer",
                                                             "format": "int32",
-                                                            "example": "365"
+                                                            "example": "365",
+                                                            "required": "true"
                                                         },
                                                         "max": {
                                                             "type": "integer",
                                                             "format": "int32",
-                                                            "example": "365"
+                                                            "example": "365",
+                                                            "required": "true"
                                                         }
                                                     }
                                                 },
@@ -460,11 +492,13 @@
                                                     "properties": {
                                                         "payoutFrequency": {
                                                             "type": "string",
-                                                            "example": "NONE"
+                                                            "example": "NONE",
+                                                            "required": "true"
                                                         },
                                                         "rate": {
                                                             "type": "number",
-                                                            "example": "7.7"
+                                                            "example": "7.7",
+                                                            "required": "true"
                                                         }
                                                     }
                                                 },
@@ -477,18 +511,21 @@
                                                                 "value": {
                                                                     "type": "integer",
                                                                     "format": "int32",
-                                                                    "example": "1"
+                                                                    "example": "1",
+                                                                    "required": "true"
                                                                 },
                                                                 "unit": {
                                                                     "type": "string",
-                                                                    "example": "PERCENTAGE"
+                                                                    "example": "PERCENTAGE",
+                                                                    "required": "true"
                                                                 }
                                                             }
                                                         },
                                                         "isAllowed": {
                                                             "type": "integer",
                                                             "format": "int32",
-                                                            "example": "1"
+                                                            "example": "1",
+                                                            "required": "true"
                                                         }
                                                     }
                                                 },
@@ -502,7 +539,8 @@
                                                                 "properties": {
                                                                     "name": {
                                                                         "type": "string",
-                                                                        "example": "aadhaar"
+                                                                        "example": "aadhaar",
+                                                                        "required": "true"
                                                                     },
                                                                     "required": {
                                                                         "type": "boolean"
@@ -517,7 +555,8 @@
                                                                 "properties": {
                                                                     "name": {
                                                                         "type": "string",
-                                                                        "example": "mobile"
+                                                                        "example": "mobile",
+                                                                        "required": "true"
                                                                     },
                                                                     "required": {
                                                                         "type": "boolean"
@@ -532,7 +571,8 @@
                                                                 "properties": {
                                                                     "name": {
                                                                         "type": "string",
-                                                                        "example": "skipNominee"
+                                                                        "example": "skipNominee",
+                                                                        "required": "true"
                                                                     },
                                                                     "required": {
                                                                         "type": "boolean"
@@ -547,7 +587,8 @@
                                                                 "properties": {
                                                                     "name": {
                                                                         "type": "string",
-                                                                        "example": "aadhaar"
+                                                                        "example": "aadhaar",
+                                                                        "required": "true"
                                                                     },
                                                                     "required": {
                                                                         "type": "boolean"
@@ -924,7 +965,8 @@
                                     "properties": {
                                         "param": {
                                             "type": "string",
-                                            "example": "occupation"
+                                            "example": "occupation",
+                                            "required": "true"
                                         },
                                         "options": {
                                             "type": "array",
@@ -933,11 +975,13 @@
                                                 "properties": {
                                                     "key": {
                                                         "type": "string",
-                                                        "example": "SALARIED"
+                                                        "example": "SALARIED",
+                                                        "required": "true"
                                                     },
                                                     "value": {
                                                         "type": "string",
-                                                        "example": "Salaried"
+                                                        "example": "Salaried",
+                                                        "required": "true"
                                                     }
                                                 }
                                             }
@@ -1018,42 +1062,48 @@
                                             "type": "array",
                                             "items": {
                                                 "type": "string",
-                                                "example": "I agree and I hereby declare that I am a tax resident of India above the age of 18 years, and hereby comply with FATCA Declaration."
+                                                "example": "I agree and I hereby declare that I am a tax resident of India above the age of 18 years, and hereby comply with FATCA Declaration.",
+                                                "required": "true"
                                             }
                                         },
                                         "PEP": {
                                             "type": "array",
                                             "items": {
                                                 "type": "string",
-                                                "example": ""
+                                                "example": "",
+                                                "required": "true"
                                             }
                                         },
                                         "TNC": {
                                             "type": "array",
                                             "items": {
                                                 "type": "string",
-                                                "example": "Opening this FD account online through your digital platform has no intervention or role of the Bank except providing the facility of the digital platform. The initial payment for the account shall be remitted only from a full KYC complied account."
+                                                "example": "Opening this FD account online through your digital platform has no intervention or role of the Bank except providing the facility of the digital platform. The initial payment for the account shall be remitted only from a full KYC complied account.",
+                                                "required": "true"
                                             }
                                         },
                                         "AADHAAR": {
                                             "type": "array",
                                             "items": {
                                                 "type": "string",
-                                                "example": ""
+                                                "example": "",
+                                                "required": "true"
                                             }
                                         },
                                         "MATURITY_AUTO_TRANSFER": {
                                             "type": "array",
                                             "items": {
                                                 "type": "string",
-                                                "example": ""
+                                                "example": "",
+                                                "required": "true"
                                             }
                                         },
                                         "FUND_FROM_OWN_ACCOUNT": {
                                             "type": "array",
                                             "items": {
                                                 "type": "string",
-                                                "example": ""
+                                                "example": "",
+                                                "required": "true"
                                             }
                                         }
                                     }
@@ -1125,16 +1175,19 @@
                                     "amount": {
                                         "type": "integer",
                                         "format": "int32",
-                                        "example": "9000"
+                                        "example": "9000",
+                                        "required": "true"
                                     },
                                     "offerId": {
                                         "type": "string",
-                                        "example": "EQTS_REG_01"
+                                        "example": "EQTS_REG_01",
+                                        "required": "true"
                                     },
                                     "tenure": {
                                         "type": "integer",
                                         "format": "int32",
-                                        "example": "365"
+                                        "example": "365",
+                                        "required": "true"
                                     }
                                 }
                             },
@@ -1156,18 +1209,21 @@
                                     "properties": {
                                         "id": {
                                             "type": "string",
-                                            "example": "ec164d44-b275-4b78-9a56-31fd2f6145d3"
+                                            "example": "ec164d44-b275-4b78-9a56-31fd2f6145d3",
+                                            "required": "true"
                                         },
                                         "offerId": {
                                             "type": "string",
-                                            "example": "EQTS_REG_01"
+                                            "example": "EQTS_REG_01",
+                                            "required": "true"
                                         },
                                         "state": {
                                             "type": "object",
                                             "properties": {
                                                 "code": {
                                                     "type": "string",
-                                                    "example": "AWT_GENERATE_VERIFY_OTP"
+                                                    "example": "AWT_GENERATE_VERIFY_OTP",
+                                                    "required": "true"
                                                 },
                                                 "description": {
                                                     "type": "object",
@@ -1180,38 +1236,45 @@
                                             "properties": {
                                                 "id": {
                                                     "type": "string",
-                                                    "example": "EQTS"
+                                                    "example": "EQTS",
+                                                    "required": "true"
                                                 },
                                                 "name": {
                                                     "type": "string",
-                                                    "example": "Equitas Small Finance Bank"
+                                                    "example": "Equitas Small Finance Bank",
+                                                    "required": "true"
                                                 },
                                                 "logoUrl": {
                                                     "type": "string",
-                                                    "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png"
+                                                    "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png",
+                                                    "required": "true"
                                                 }
                                             }
                                         },
                                         "tenure": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "10"
+                                            "example": "10",
+                                            "required": "true"
                                         },
                                         "amount": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "9000"
+                                            "example": "9000",
+                                            "required": "true"
                                         },
                                         "interest": {
                                             "type": "object",
                                             "properties": {
                                                 "payoutFrequency": {
                                                     "type": "string",
-                                                    "example": "NONE"
+                                                    "example": "NONE",
+                                                    "required": "true"
                                                 },
                                                 "rate": {
                                                     "type": "number",
-                                                    "example": "3.6"
+                                                    "example": "3.6",
+                                                    "required": "true"
                                                 }
                                             }
                                         },
@@ -1302,18 +1365,21 @@
                                     "properties": {
                                         "id": {
                                             "type": "string",
-                                            "example": "ec164d44-b275-4b78-9a56-31fd2f6145d3"
+                                            "example": "ec164d44-b275-4b78-9a56-31fd2f6145d3",
+                                            "required": "true"
                                         },
                                         "offerId": {
                                             "type": "string",
-                                            "example": "EQTS_REG_01"
+                                            "example": "EQTS_REG_01",
+                                            "required": "true"
                                         },
                                         "state": {
                                             "type": "object",
                                             "properties": {
                                                 "code": {
                                                     "type": "string",
-                                                    "example": "AWT_KYC_INPUT"
+                                                    "example": "AWT_KYC_INPUT",
+                                                    "required": "true"
                                                 },
                                                 "description": {
                                                     "type": "object",
@@ -1322,7 +1388,8 @@
                                                             "type": "array",
                                                             "items": {
                                                                 "type": "string",
-                                                                "example": "pan"
+                                                                "example": "pan",
+                                                                "required": "true"
                                                             }
                                                         }
                                                     }
@@ -1334,38 +1401,45 @@
                                             "properties": {
                                                 "id": {
                                                     "type": "string",
-                                                    "example": "EQTS"
+                                                    "example": "EQTS",
+                                                    "required": "true"
                                                 },
                                                 "name": {
                                                     "type": "string",
-                                                    "example": "Equitas Small Finance Bank"
+                                                    "example": "Equitas Small Finance Bank",
+                                                    "required": "true"
                                                 },
                                                 "logoUrl": {
                                                     "type": "string",
-                                                    "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png"
+                                                    "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png",
+                                                    "required": "true"
                                                 }
                                             }
                                         },
                                         "tenure": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "10"
+                                            "example": "10",
+                                            "required": "true"
                                         },
                                         "amount": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "9000"
+                                            "example": "9000",
+                                            "required": "true"
                                         },
                                         "interest": {
                                             "type": "object",
                                             "properties": {
                                                 "payoutFrequency": {
                                                     "type": "string",
-                                                    "example": "NONE"
+                                                    "example": "NONE",
+                                                    "required": "true"
                                                 },
                                                 "rate": {
                                                     "type": "number",
-                                                    "example": "3.6"
+                                                    "example": "3.6",
+                                                    "required": "true"
                                                 }
                                             }
                                         },
@@ -1381,7 +1455,8 @@
                                                     "properties": {
                                                         "mobile": {
                                                             "type": "string",
-                                                            "example": "919483895729"
+                                                            "example": "919483895729",
+                                                            "required": "true"
                                                         }
                                                     }
                                                 },
@@ -1461,27 +1536,33 @@
                                                 "properties": {
                                                     "fundFromOwnAccount": {
                                                         "type": "string",
-                                                        "example": "accepted"
+                                                        "example": "accepted",
+                                                        "required": "true"
                                                     },
                                                     "maturityAutoTransfer": {
                                                         "type": "string",
-                                                        "example": "accepted"
+                                                        "example": "accepted",
+                                                        "required": "true"
                                                     },
                                                     "fatca": {
                                                         "type": "string",
-                                                        "example": "accepted"
+                                                        "example": "accepted",
+                                                        "required": "true"
                                                     },
                                                     "pep": {
                                                         "type": "string",
-                                                        "example": "accepted"
+                                                        "example": "accepted",
+                                                        "required": "true"
                                                     },
                                                     "tnc": {
                                                         "type": "string",
-                                                        "example": "accepted"
+                                                        "example": "accepted",
+                                                        "required": "true"
                                                     },
                                                     "aadhaar": {
                                                         "type": "string",
-                                                        "example": "accepted"
+                                                        "example": "accepted",
+                                                        "required": "true"
                                                     }
                                                 }
                                             }
@@ -1550,7 +1631,8 @@
                                 "properties": {
                                     "mobile": {
                                         "type": "string",
-                                        "example": "919404746750"
+                                        "example": "919404746750",
+                                        "required": "true"
                                     }
                                 }
                             },
@@ -1580,7 +1662,8 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "OTP Send Successfully to 919483895719"
+                                            "example": "OTP Send Successfully to 919483895719",
+                                            "required": "true"
                                         }
                                     }
                                 },
@@ -1614,11 +1697,13 @@
                                 "properties": {
                                     "mobile": {
                                         "type": "string",
-                                        "example": "919404746750"
+                                        "example": "919404746750",
+                                        "required": "true"
                                     },
                                     "otp": {
                                         "type": "string",
-                                        "example": "111111"
+                                        "example": "111111",
+                                        "required": "true"
                                     }
                                 }
                             },
@@ -1649,7 +1734,8 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "OTP verified"
+                                            "example": "OTP verified",
+                                            "required": "true"
                                         }
                                     }
                                 },
@@ -1703,11 +1789,13 @@
                                             "properties": {
                                                 "name": {
                                                     "type": "string",
-                                                    "example": "UPI"
+                                                    "example": "UPI",
+                                                    "required": "true"
                                                 },
                                                 "id": {
                                                     "type": "string",
-                                                    "example": "UPI"
+                                                    "example": "UPI",
+                                                    "required": "true"
                                                 }
                                             }
                                         }
@@ -1746,7 +1834,8 @@
                                 "properties": {
                                     "paymentMethodId": {
                                         "type": "string",
-                                        "example": "UPI"
+                                        "example": "UPI",
+                                        "required": "true"
                                     }
                                 }
                             },
@@ -1783,29 +1872,35 @@
                                             "properties": {
                                                 "id": {
                                                     "type": "string",
-                                                    "example": "UPI"
+                                                    "example": "UPI",
+                                                    "required": "true"
                                                 },
                                                 "name": {
                                                     "type": "string",
-                                                    "example": "UPI"
+                                                    "example": "UPI",
+                                                    "required": "true"
                                                 }
                                             }
                                         },
                                         "applicationId": {
                                             "type": "string",
-                                            "example": "ec164d44-b275-4b78-9a56-31fd2f6145d3"
+                                            "example": "ec164d44-b275-4b78-9a56-31fd2f6145d3",
+                                            "required": "true"
                                         },
                                         "txnRefId": {
                                             "type": "string",
-                                            "example": "QG9snkmXtqijcH4eT7n4am"
+                                            "example": "QG9snkmXtqijcH4eT7n4am",
+                                            "required": "true"
                                         },
                                         "upiDeeplink": {
                                             "type": "string",
-                                            "example": "upi://pay?pa=setu@equitas&pn=equitasbank&tr=QG9snkmXtqijcH4eT7n4am&mc=6012&am=5500"
+                                            "example": "upi://pay?pa=setu@equitas&pn=equitasbank&tr=QG9snkmXtqijcH4eT7n4am&mc=6012&am=5500",
+                                            "required": "true"
                                         },
                                         "status": {
                                             "type": "string",
-                                            "example": "PENDING"
+                                            "example": "PENDING",
+                                            "required": "true"
                                         },
                                         "paymentDetails": {
                                             "type": "object",
@@ -1897,15 +1992,18 @@
                                 "properties": {
                                     "txnRefId": {
                                         "type": "string",
-                                        "example": "MAkeJhrPsNAC5UyowLn8W4"
+                                        "example": "MAkeJhrPsNAC5UyowLn8W4",
+                                        "required": "true"
                                     },
                                     "maturityAccountNumber": {
                                         "type": "string",
-                                        "example": "100002372849"
+                                        "example": "100002372849",
+                                        "required": "true"
                                     },
                                     "maturityIfsc": {
                                         "type": "string",
-                                        "example": "ESFB0001001"
+                                        "example": "ESFB0001001",
+                                        "required": "true"
                                     }
                                 }
                             },
@@ -1941,14 +2039,16 @@
                                     "properties": {
                                         "applicationId": {
                                             "type": "string",
-                                            "example": "09378f81-f196-4243-9dba-0ec1a148bfea"
+                                            "example": "09378f81-f196-4243-9dba-0ec1a148bfea",
+                                            "required": "true"
                                         },
                                         "state": {
                                             "type": "object",
                                             "properties": {
                                                 "code": {
                                                     "type": "string",
-                                                    "example": "FINISH"
+                                                    "example": "FINISH",
+                                                    "required": "true"
                                                 },
                                                 "description": {
                                                     "type": "object",
@@ -1956,20 +2056,24 @@
                                                         "opening_date": {
                                                             "type": "string",
                                                             "format": "date",
-                                                            "example": "2019-12-31"
+                                                            "example": "2019-12-31",
+                                                            "required": "true"
                                                         },
                                                         "maturity_date": {
                                                             "type": "string",
                                                             "format": "date",
-                                                            "example": "2020-01-10"
+                                                            "example": "2020-01-10",
+                                                            "required": "true"
                                                         },
                                                         "maturity_amount": {
                                                             "type": "string",
-                                                            "example": "5508"
+                                                            "example": "5508",
+                                                            "required": "true"
                                                         },
                                                         "interest_rate": {
                                                             "type": "string",
-                                                            "example": "5"
+                                                            "example": "5",
+                                                            "required": "true"
                                                         }
                                                     }
                                                 }
@@ -1977,45 +2081,53 @@
                                         },
                                         "offerId": {
                                             "type": "string",
-                                            "example": "EQTS_REG_01"
+                                            "example": "EQTS_REG_01",
+                                            "required": "true"
                                         },
                                         "provider": {
                                             "type": "object",
                                             "properties": {
                                                 "id": {
                                                     "type": "string",
-                                                    "example": "EQTS"
+                                                    "example": "EQTS",
+                                                    "required": "true"
                                                 },
                                                 "name": {
                                                     "type": "string",
-                                                    "example": "Equitas Small Finance Bank"
+                                                    "example": "Equitas Small Finance Bank",
+                                                    "required": "true"
                                                 },
                                                 "logoUrl": {
                                                     "type": "string",
-                                                    "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png"
+                                                    "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png",
+                                                    "required": "true"
                                                 }
                                             }
                                         },
                                         "tenure": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "10"
+                                            "example": "10",
+                                            "required": "true"
                                         },
                                         "amount": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "5500"
+                                            "example": "5500",
+                                            "required": "true"
                                         },
                                         "interest": {
                                             "type": "object",
                                             "properties": {
                                                 "rate": {
                                                     "type": "number",
-                                                    "example": "3.6"
+                                                    "example": "3.6",
+                                                    "required": "true"
                                                 },
                                                 "payoutFrequency": {
                                                     "type": "string",
-                                                    "example": "NONE"
+                                                    "example": "NONE",
+                                                    "required": "true"
                                                 }
                                             }
                                         },
@@ -2024,53 +2136,65 @@
                                             "properties": {
                                                 "accountId": {
                                                     "type": "string",
-                                                    "example": "300000663913"
+                                                    "example": "300000663913",
+                                                    "required": "true"
                                                 },
                                                 "productCode": {
                                                     "type": "string",
-                                                    "example": "EQTS_REG_01"
+                                                    "example": "EQTS_REG_01",
+                                                    "required": "true"
                                                 },
                                                 "urn": {
                                                     "type": "string",
-                                                    "example": ""
+                                                    "example": "",
+                                                    "required": "true"
                                                 },
                                                 "customerId": {
                                                     "type": "string",
-                                                    "example": "7727386"
+                                                    "example": "7727386",
+                                                    "required": "true"
                                                 },
                                                 "name": {
                                                     "type": "string",
-                                                    "example": "Sunil Ghintala"
+                                                    "example": "Sunil Ghintala",
+                                                    "required": "true"
                                                 },
                                                 "dob": {
                                                     "type": "string",
                                                     "format": "date",
-                                                    "example": "1993-01-21"
+                                                    "example": "1993-01-21",
+                                                    "required": "true"
                                                 },
                                                 "pan": {
                                                     "type": "string",
-                                                    "example": "TGXPM3070D"
+                                                    "example": "TGXPM3070D",
+                                                    "required": "true"
                                                 },
                                                 "mobile": {
                                                     "type": "string",
-                                                    "example": "919483895729"
+                                                    "example": "919483895729",
+                                                    "required": "true"
                                                 },
                                                 "email": {
                                                     "type": "string",
-                                                    "example": "test@setu.co"
+                                                    "example": "test@setu.co",
+                                                    "required": "true"
                                                 },
                                                 "nomineeName": {
                                                     "type": "string",
-                                                    "example": "test"
+                                                    "example": "test",
+                                                    "required": "true"
                                                 },
                                                 "nomineeRelation": {
                                                     "type": "string",
-                                                    "example": "FATHER"
+                                                    "example": "FATHER",
+                                                    "required": "true"
                                                 },
                                                 "nomineeDob": {
                                                     "type": "string",
                                                     "format": "date",
-                                                    "example": "1991-12-01"
+                                                    "example": "1991-12-01",
+                                                    "required": "true"
                                                 }
                                             }
                                         }
@@ -2156,14 +2280,16 @@
                                     "properties": {
                                         "applicationId": {
                                             "type": "string",
-                                            "example": "ec164d44-b275-4b78-9a56-31fd2f6145d3"
+                                            "example": "ec164d44-b275-4b78-9a56-31fd2f6145d3",
+                                            "required": "true"
                                         },
                                         "state": {
                                             "type": "object",
                                             "properties": {
                                                 "code": {
                                                     "type": "string",
-                                                    "example": "FINISH"
+                                                    "example": "FINISH",
+                                                    "required": "true"
                                                 },
                                                 "description": {
                                                     "type": "object",
@@ -2171,20 +2297,24 @@
                                                         "opening_date": {
                                                             "type": "string",
                                                             "format": "date",
-                                                            "example": "2019-12-31"
+                                                            "example": "2019-12-31",
+                                                            "required": "true"
                                                         },
                                                         "maturity_date": {
                                                             "type": "string",
                                                             "format": "date",
-                                                            "example": "2020-01-10"
+                                                            "example": "2020-01-10",
+                                                            "required": "true"
                                                         },
                                                         "maturity_amount": {
                                                             "type": "string",
-                                                            "example": "5508"
+                                                            "example": "5508",
+                                                            "required": "true"
                                                         },
                                                         "interest_rate": {
                                                             "type": "string",
-                                                            "example": "5"
+                                                            "example": "5",
+                                                            "required": "true"
                                                         }
                                                     }
                                                 }
@@ -2192,45 +2322,53 @@
                                         },
                                         "offerId": {
                                             "type": "string",
-                                            "example": "EQTS_REG_01"
+                                            "example": "EQTS_REG_01",
+                                            "required": "true"
                                         },
                                         "provider": {
                                             "type": "object",
                                             "properties": {
                                                 "id": {
                                                     "type": "string",
-                                                    "example": "EQTS"
+                                                    "example": "EQTS",
+                                                    "required": "true"
                                                 },
                                                 "name": {
                                                     "type": "string",
-                                                    "example": "Equitas Small Finance Bank"
+                                                    "example": "Equitas Small Finance Bank",
+                                                    "required": "true"
                                                 },
                                                 "logoUrl": {
                                                     "type": "string",
-                                                    "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png"
+                                                    "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png",
+                                                    "required": "true"
                                                 }
                                             }
                                         },
                                         "tenure": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "10"
+                                            "example": "10",
+                                            "required": "true"
                                         },
                                         "amount": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "5500"
+                                            "example": "5500",
+                                            "required": "true"
                                         },
                                         "interest": {
                                             "type": "object",
                                             "properties": {
                                                 "rate": {
                                                     "type": "number",
-                                                    "example": "3.6"
+                                                    "example": "3.6",
+                                                    "required": "true"
                                                 },
                                                 "payoutFrequency": {
                                                     "type": "string",
-                                                    "example": "NONE"
+                                                    "example": "NONE",
+                                                    "required": "true"
                                                 }
                                             }
                                         },
@@ -2239,53 +2377,65 @@
                                             "properties": {
                                                 "accountId": {
                                                     "type": "string",
-                                                    "example": "300000663913"
+                                                    "example": "300000663913",
+                                                    "required": "true"
                                                 },
                                                 "productCode": {
                                                     "type": "string",
-                                                    "example": "EQTS_REG_01"
+                                                    "example": "EQTS_REG_01",
+                                                    "required": "true"
                                                 },
                                                 "urn": {
                                                     "type": "string",
-                                                    "example": ""
+                                                    "example": "",
+                                                    "required": "true"
                                                 },
                                                 "customerId": {
                                                     "type": "string",
-                                                    "example": "7727386"
+                                                    "example": "7727386",
+                                                    "required": "true"
                                                 },
                                                 "name": {
                                                     "type": "string",
-                                                    "example": "Sunil Ghintala"
+                                                    "example": "Sunil Ghintala",
+                                                    "required": "true"
                                                 },
                                                 "dob": {
                                                     "type": "string",
                                                     "format": "date",
-                                                    "example": "1993-01-21"
+                                                    "example": "1993-01-21",
+                                                    "required": "true"
                                                 },
                                                 "pan": {
                                                     "type": "string",
-                                                    "example": "TGXPM3070D"
+                                                    "example": "TGXPM3070D",
+                                                    "required": "true"
                                                 },
                                                 "mobile": {
                                                     "type": "string",
-                                                    "example": "919483895729"
+                                                    "example": "919483895729",
+                                                    "required": "true"
                                                 },
                                                 "email": {
                                                     "type": "string",
-                                                    "example": "test@setu.co"
+                                                    "example": "test@setu.co",
+                                                    "required": "true"
                                                 },
                                                 "nomineeName": {
                                                     "type": "string",
-                                                    "example": "test"
+                                                    "example": "test",
+                                                    "required": "true"
                                                 },
                                                 "nomineeRelation": {
                                                     "type": "string",
-                                                    "example": "FATHER"
+                                                    "example": "FATHER",
+                                                    "required": "true"
                                                 },
                                                 "nomineeDob": {
                                                     "type": "string",
                                                     "format": "date",
-                                                    "example": "1991-12-01"
+                                                    "example": "1991-12-01",
+                                                    "required": "true"
                                                 }
                                             }
                                         }
@@ -2359,49 +2509,60 @@
                                         "properties": {
                                             "accountId": {
                                                 "type": "string",
-                                                "example": ""
+                                                "example": "",
+                                                "required": "true"
                                             },
                                             "productCode": {
                                                 "type": "string",
-                                                "example": "EQTS_REG_01"
+                                                "example": "EQTS_REG_01",
+                                                "required": "true"
                                             },
                                             "urn": {
                                                 "type": "string",
-                                                "example": "2tuA7F49Mkd4mqA7Qq3e82"
+                                                "example": "2tuA7F49Mkd4mqA7Qq3e82",
+                                                "required": "true"
                                             },
                                             "customerId": {
                                                 "type": "string",
-                                                "example": ""
+                                                "example": "",
+                                                "required": "true"
                                             },
                                             "name": {
                                                 "type": "string",
-                                                "example": "Vinod Kumar"
+                                                "example": "Vinod Kumar",
+                                                "required": "true"
                                             },
                                             "dob": {
                                                 "type": "string",
                                                 "format": "date",
-                                                "example": "1991-01-22"
+                                                "example": "1991-01-22",
+                                                "required": "true"
                                             },
                                             "pan": {
                                                 "type": "string",
-                                                "example": "QJUPG2244K"
+                                                "example": "QJUPG2244K",
+                                                "required": "true"
                                             },
                                             "mobile": {
                                                 "type": "string",
-                                                "example": "919415746751"
+                                                "example": "919415746751",
+                                                "required": "true"
                                             },
                                             "nomineeName": {
                                                 "type": "string",
-                                                "example": "Binod"
+                                                "example": "Binod",
+                                                "required": "true"
                                             },
                                             "nomineeRelation": {
                                                 "type": "string",
-                                                "example": "BROTHER"
+                                                "example": "BROTHER",
+                                                "required": "true"
                                             },
                                             "nomineeDob": {
                                                 "type": "string",
                                                 "format": "date",
-                                                "example": "1989-06-13"
+                                                "example": "1989-06-13",
+                                                "required": "true"
                                             }
                                         }
                                     }
@@ -2440,7 +2601,8 @@
                                     "properties": {
                                         "sessionId": {
                                             "type": "string",
-                                            "example": "0327f4c4-834a-47bd-a81e-31848be7118a"
+                                            "example": "0327f4c4-834a-47bd-a81e-31848be7118a",
+                                            "required": "true"
                                         }
                                     }
                                 },
@@ -2492,7 +2654,8 @@
                                         "balance": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "5000"
+                                            "example": "5000",
+                                            "required": "true"
                                         }
                                     }
                                 },
@@ -2527,7 +2690,6 @@
                     {
                         "name": "start-date",
                         "in": "query",
-                        "required": true,
                         "schema": {
                             "type": "string"
                         },
@@ -2536,7 +2698,6 @@
                     {
                         "name": "end-date",
                         "in": "query",
-                        "required": true,
                         "schema": {
                             "type": "string"
                         },
@@ -2561,7 +2722,8 @@
                                     "properties": {
                                         "accountId": {
                                             "type": "string",
-                                            "example": "300000661434"
+                                            "example": "300000661434",
+                                            "required": "true"
                                         },
                                         "transactions": {
                                             "type": "array",
@@ -2570,23 +2732,28 @@
                                                 "properties": {
                                                     "id": {
                                                         "type": "string",
-                                                        "example": ""
+                                                        "example": "",
+                                                        "required": "true"
                                                     },
                                                     "date": {
                                                         "type": "string",
-                                                        "example": ""
+                                                        "example": "",
+                                                        "required": "true"
                                                     },
                                                     "amount": {
                                                         "type": "string",
-                                                        "example": ""
+                                                        "example": "",
+                                                        "required": "true"
                                                     },
                                                     "narration": {
                                                         "type": "string",
-                                                        "example": ""
+                                                        "example": "",
+                                                        "required": "true"
                                                     },
                                                     "type": {
                                                         "type": "string",
-                                                        "example": "CREDIT"
+                                                        "example": "CREDIT",
+                                                        "required": "true"
                                                     }
                                                 }
                                             }
@@ -2633,7 +2800,6 @@
                     {
                         "name": "amount",
                         "in": "query",
-                        "required": true,
                         "schema": {
                             "type": "integer"
                         },
@@ -2659,27 +2825,32 @@
                                         "netRedemptionAmount": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "5500"
+                                            "example": "5500",
+                                            "required": "true"
                                         },
                                         "principalAmount": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "5500"
+                                            "example": "5500",
+                                            "required": "true"
                                         },
                                         "accruedInterest": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "0"
+                                            "example": "0",
+                                            "required": "true"
                                         },
                                         "penalty": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "0"
+                                            "example": "0",
+                                            "required": "true"
                                         },
                                         "taxDeducted": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "0"
+                                            "example": "0",
+                                            "required": "true"
                                         }
                                     }
                                 },
@@ -2734,48 +2905,57 @@
                                     "properties": {
                                         "accountId": {
                                             "type": "string",
-                                            "example": "300000665410"
+                                            "example": "300000665410",
+                                            "required": "true"
                                         },
                                         "currentBalance": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "5002"
+                                            "example": "5002",
+                                            "required": "true"
                                         },
                                         "accountOpeningDate": {
                                             "type": "string",
                                             "format": "date",
-                                            "example": "2020-01-01"
+                                            "example": "2020-01-01",
+                                            "required": "true"
                                         },
                                         "accountMaturityDate": {
                                             "type": "string",
                                             "format": "date",
-                                            "example": "2020-01-10"
+                                            "example": "2020-01-10",
+                                            "required": "true"
                                         },
                                         "tenure": {
                                             "type": "string",
-                                            "example": "9"
+                                            "example": "9",
+                                            "required": "true"
                                         },
                                         "principalAmount": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "5000"
+                                            "example": "5000",
+                                            "required": "true"
                                         },
                                         "maturityAmount": {
                                             "type": "integer",
                                             "format": "int32",
-                                            "example": "5007"
+                                            "example": "5007",
+                                            "required": "true"
                                         },
                                         "interest": {
                                             "type": "object",
                                             "properties": {
                                                 "payoutFrequency": {
                                                     "type": "string",
-                                                    "example": "MATURITY"
+                                                    "example": "MATURITY",
+                                                    "required": "true"
                                                 },
                                                 "rate": {
                                                     "type": "integer",
                                                     "format": "int32",
-                                                    "example": "5"
+                                                    "example": "5",
+                                                    "required": "true"
                                                 }
                                             }
                                         },
@@ -2784,19 +2964,23 @@
                                             "properties": {
                                                 "accountId": {
                                                     "type": "string",
-                                                    "example": ""
+                                                    "example": "",
+                                                    "required": "true"
                                                 },
                                                 "ifsc": {
                                                     "type": "string",
-                                                    "example": ""
+                                                    "example": "",
+                                                    "required": "true"
                                                 },
                                                 "bank": {
                                                     "type": "string",
-                                                    "example": ""
+                                                    "example": "",
+                                                    "required": "true"
                                                 },
                                                 "branch": {
                                                     "type": "string",
-                                                    "example": ""
+                                                    "example": "",
+                                                    "required": "true"
                                                 }
                                             }
                                         }
@@ -2865,14 +3049,16 @@
                                     "properties": {
                                         "authSessionId": {
                                             "type": "string",
-                                            "example": "954e8544-c5bb-4925-9d6b-e6b596c9f5b4"
+                                            "example": "954e8544-c5bb-4925-9d6b-e6b596c9f5b4",
+                                            "required": "true"
                                         },
                                         "OTP": {
                                             "type": "object",
                                             "properties": {
                                                 "status": {
                                                     "type": "string",
-                                                    "example": "OTP send to user mobile number linked to FD account"
+                                                    "example": "OTP send to user mobile number linked to FD account",
+                                                    "required": "true"
                                                 }
                                             }
                                         }
@@ -2912,15 +3098,18 @@
                                         "properties": {
                                             "id": {
                                                 "type": "string",
-                                                "example": ""
+                                                "example": "",
+                                                "required": "true"
                                             },
                                             "type": {
                                                 "type": "string",
-                                                "example": "OTP"
+                                                "example": "OTP",
+                                                "required": "true"
                                             },
                                             "input": {
                                                 "type": "string",
-                                                "example": "110110"
+                                                "example": "110110",
+                                                "required": "true"
                                             }
                                         }
                                     }
@@ -2959,21 +3148,25 @@
                                             "properties": {
                                                 "tokenType": {
                                                     "type": "string",
-                                                    "example": "OTP"
+                                                    "example": "OTP",
+                                                    "required": "true"
                                                 },
                                                 "accessTokenValue": {
                                                     "type": "string",
-                                                    "example": "0a1e85d8886b918168e165a94c5af0ab0170558b040fcc4f9cc0541754394933"
+                                                    "example": "0a1e85d8886b918168e165a94c5af0ab0170558b040fcc4f9cc0541754394933",
+                                                    "required": "true"
                                                 },
                                                 "expiresIn": {
                                                     "type": "string",
-                                                    "example": "2020-11-27 11:13:10"
+                                                    "example": "2020-11-27 11:13:10",
+                                                    "required": "true"
                                                 },
                                                 "scope": {
                                                     "type": "array",
                                                     "items": {
                                                         "type": "string",
-                                                        "example": "EDIT"
+                                                        "example": "EDIT",
+                                                        "required": "true"
                                                     }
                                                 }
                                             }
@@ -3019,7 +3212,8 @@
                                     "amount": {
                                         "type": "integer",
                                         "format": "int32",
-                                        "example": "5500"
+                                        "example": "5500",
+                                        "required": "true"
                                     }
                                 }
                             },
@@ -3033,7 +3227,6 @@
                     {
                         "name": "x-auth-token",
                         "in": "header",
-                        "required": true,
                         "schema": {
                             "type": "string"
                         },
@@ -3058,11 +3251,13 @@
                                     "properties": {
                                         "recordId": {
                                             "type": "string",
-                                            "example": "201127044128340"
+                                            "example": "201127044128340",
+                                            "required": "true"
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "Service request 201127044128340 is under process."
+                                            "example": "Service request 201127044128340 is under process.",
+                                            "required": "true"
                                         }
                                     }
                                 },
