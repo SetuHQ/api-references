@@ -92,7 +92,39 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object"
+                                    "type": "object",
+                                    "properties": {
+                                        "provider": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "logoUrl": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "principalAmount": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "maturityAmount": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "interestAccrued": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "interestRate": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        }
+                                    }
                                 },
                                 "example": {
                                     "provider": {
@@ -130,7 +162,23 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object"
+                                    "type": "object",
+                                    "properties": {
+                                        "0": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "logoUrl": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
                                 },
                                 "example": [
                                     {
@@ -175,7 +223,297 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object"
+                                    "type": "object",
+                                    "properties": {
+                                        "0": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "provider": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        },
+                                                        "logoUrl": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                },
+                                                "category": {
+                                                    "type": "string"
+                                                },
+                                                "amount": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "min": {
+                                                            "type": "integer",
+                                                            "format": "int32"
+                                                        },
+                                                        "max": {
+                                                            "type": "integer",
+                                                            "format": "int32"
+                                                        }
+                                                    }
+                                                },
+                                                "tenure": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "min": {
+                                                            "type": "integer",
+                                                            "format": "int32"
+                                                        },
+                                                        "max": {
+                                                            "type": "integer",
+                                                            "format": "int32"
+                                                        }
+                                                    }
+                                                },
+                                                "interest": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "payoutFrequency": {
+                                                            "type": "string"
+                                                        },
+                                                        "rate": {
+                                                            "type": "number"
+                                                        }
+                                                    }
+                                                },
+                                                "prematureWithdrawal": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "penalty": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "value": {
+                                                                    "type": "integer",
+                                                                    "format": "int32"
+                                                                },
+                                                                "unit": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "isAllowed": {
+                                                            "type": "integer",
+                                                            "format": "int32"
+                                                        }
+                                                    }
+                                                },
+                                                "expectedParams": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "kyc": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "required": {
+                                                                        "type": "boolean"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "personal": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "required": {
+                                                                        "type": "boolean"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "nominee": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "required": {
+                                                                        "type": "boolean"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "declarations": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "required": {
+                                                                        "type": "boolean"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "1": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "provider": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        },
+                                                        "logoUrl": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                },
+                                                "category": {
+                                                    "type": "string"
+                                                },
+                                                "amount": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "min": {
+                                                            "type": "integer",
+                                                            "format": "int32"
+                                                        },
+                                                        "max": {
+                                                            "type": "integer",
+                                                            "format": "int32"
+                                                        }
+                                                    }
+                                                },
+                                                "tenure": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "min": {
+                                                            "type": "integer",
+                                                            "format": "int32"
+                                                        },
+                                                        "max": {
+                                                            "type": "integer",
+                                                            "format": "int32"
+                                                        }
+                                                    }
+                                                },
+                                                "interest": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "payoutFrequency": {
+                                                            "type": "string"
+                                                        },
+                                                        "rate": {
+                                                            "type": "number"
+                                                        }
+                                                    }
+                                                },
+                                                "prematureWithdrawal": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "penalty": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "value": {
+                                                                    "type": "integer",
+                                                                    "format": "int32"
+                                                                },
+                                                                "unit": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "isAllowed": {
+                                                            "type": "integer",
+                                                            "format": "int32"
+                                                        }
+                                                    }
+                                                },
+                                                "expectedParams": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "kyc": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "required": {
+                                                                        "type": "boolean"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "personal": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "required": {
+                                                                        "type": "boolean"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "nominee": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "required": {
+                                                                        "type": "boolean"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "declarations": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "required": {
+                                                                        "type": "boolean"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 },
                                 "example": [
                                     {
@@ -536,7 +874,26 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object"
+                                    "type": "object",
+                                    "properties": {
+                                        "param": {
+                                            "type": "string"
+                                        },
+                                        "options": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "key": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 },
                                 "example": {
                                     "param": "occupation",
@@ -606,7 +963,45 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object"
+                                    "type": "object",
+                                    "properties": {
+                                        "FATCA": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "PEP": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "TNC": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "AADHAAR": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "MATURITY_AUTO_TRANSFER": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "FUND_FROM_OWN_ACCOUNT": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
                                 },
                                 "example": {
                                     "FATCA": [
@@ -699,7 +1094,81 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object"
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "offerId": {
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "type": "object",
+                                            "properties": {
+                                                "code": {
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "type": "object",
+                                                    "properties": {}
+                                                }
+                                            }
+                                        },
+                                        "provider": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "logoUrl": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "tenure": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "amount": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "interest": {
+                                            "type": "object",
+                                            "properties": {
+                                                "payoutFrequency": {
+                                                    "type": "string"
+                                                },
+                                                "rate": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        },
+                                        "params": {
+                                            "type": "object",
+                                            "properties": {
+                                                "kyc": {
+                                                    "type": "object",
+                                                    "properties": {}
+                                                },
+                                                "personal": {
+                                                    "type": "object",
+                                                    "properties": {}
+                                                },
+                                                "nominee": {
+                                                    "type": "object",
+                                                    "properties": {}
+                                                },
+                                                "declarations": {
+                                                    "type": "object",
+                                                    "properties": {}
+                                                }
+                                            }
+                                        }
+                                    }
                                 },
                                 "example": {
                                     "id": "ec164d44-b275-4b78-9a56-31fd2f6145d3",
@@ -761,7 +1230,92 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object"
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "offerId": {
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "type": "object",
+                                            "properties": {
+                                                "code": {
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "awaiting": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "provider": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "logoUrl": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "tenure": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "amount": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "interest": {
+                                            "type": "object",
+                                            "properties": {
+                                                "payoutFrequency": {
+                                                    "type": "string"
+                                                },
+                                                "rate": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        },
+                                        "params": {
+                                            "type": "object",
+                                            "properties": {
+                                                "kyc": {
+                                                    "type": "object",
+                                                    "properties": {}
+                                                },
+                                                "personal": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "mobile": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                },
+                                                "nominee": {
+                                                    "type": "object",
+                                                    "properties": {}
+                                                },
+                                                "declarations": {
+                                                    "type": "object",
+                                                    "properties": {}
+                                                }
+                                            }
+                                        }
+                                    }
                                 },
                                 "example": {
                                     "id": "ec164d44-b275-4b78-9a56-31fd2f6145d3",
@@ -935,7 +1489,12 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object"
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
                                 },
                                 "example": {
                                     "message": "OTP Send Successfully to 919483895719"
@@ -996,7 +1555,12 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object"
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
                                 },
                                 "example": {
                                     "message": "OTP verified"
@@ -1041,7 +1605,20 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object"
+                                    "type": "object",
+                                    "properties": {
+                                        "0": {
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
                                 },
                                 "example": [
                                     {
@@ -1105,7 +1682,36 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object"
+                                    "type": "object",
+                                    "properties": {
+                                        "paymentMethod": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "applicationId": {
+                                            "type": "string"
+                                        },
+                                        "txnRefId": {
+                                            "type": "string"
+                                        },
+                                        "upiDeeplink": {
+                                            "type": "string"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "paymentDetails": {
+                                            "type": "object",
+                                            "properties": {}
+                                        }
+                                    }
                                 },
                                 "example": {
                                     "paymentMethod": {
@@ -1228,7 +1834,118 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object"
+                                    "type": "object",
+                                    "properties": {
+                                        "applicationId": {
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "type": "object",
+                                            "properties": {
+                                                "code": {
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "opening_date": {
+                                                            "type": "string",
+                                                            "format": "date"
+                                                        },
+                                                        "maturity_date": {
+                                                            "type": "string",
+                                                            "format": "date"
+                                                        },
+                                                        "maturity_amount": {
+                                                            "type": "string"
+                                                        },
+                                                        "interest_rate": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "offerId": {
+                                            "type": "string"
+                                        },
+                                        "provider": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "logoUrl": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "tenure": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "amount": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "interest": {
+                                            "type": "object",
+                                            "properties": {
+                                                "rate": {
+                                                    "type": "number"
+                                                },
+                                                "payoutFrequency": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "customerObject": {
+                                            "type": "object",
+                                            "properties": {
+                                                "accountId": {
+                                                    "type": "string"
+                                                },
+                                                "productCode": {
+                                                    "type": "string"
+                                                },
+                                                "urn": {
+                                                    "type": "string"
+                                                },
+                                                "customerId": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "dob": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "pan": {
+                                                    "type": "string"
+                                                },
+                                                "mobile": {
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "nomineeName": {
+                                                    "type": "string"
+                                                },
+                                                "nomineeRelation": {
+                                                    "type": "string"
+                                                },
+                                                "nomineeDob": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                }
+                                            }
+                                        }
+                                    }
                                 },
                                 "example": {
                                     "applicationId": "09378f81-f196-4243-9dba-0ec1a148bfea",
@@ -1301,13 +2018,162 @@
                     }
                 ],
                 "responses": {
-                    "undefined": {
+                    "200": {
+                        "description": "OK",
                         "content": {
-                            "text/plain": {
+                            "application/json": {
                                 "schema": {
-                                    "type": "string"
+                                    "type": "object",
+                                    "properties": {
+                                        "applicationId": {
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "type": "object",
+                                            "properties": {
+                                                "code": {
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "opening_date": {
+                                                            "type": "string",
+                                                            "format": "date"
+                                                        },
+                                                        "maturity_date": {
+                                                            "type": "string",
+                                                            "format": "date"
+                                                        },
+                                                        "maturity_amount": {
+                                                            "type": "string"
+                                                        },
+                                                        "interest_rate": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "offerId": {
+                                            "type": "string"
+                                        },
+                                        "provider": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "logoUrl": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "tenure": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "amount": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "interest": {
+                                            "type": "object",
+                                            "properties": {
+                                                "rate": {
+                                                    "type": "number"
+                                                },
+                                                "payoutFrequency": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "customerObject": {
+                                            "type": "object",
+                                            "properties": {
+                                                "accountId": {
+                                                    "type": "string"
+                                                },
+                                                "productCode": {
+                                                    "type": "string"
+                                                },
+                                                "urn": {
+                                                    "type": "string"
+                                                },
+                                                "customerId": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "dob": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "pan": {
+                                                    "type": "string"
+                                                },
+                                                "mobile": {
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "nomineeName": {
+                                                    "type": "string"
+                                                },
+                                                "nomineeRelation": {
+                                                    "type": "string"
+                                                },
+                                                "nomineeDob": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                }
+                                            }
+                                        }
+                                    }
                                 },
-                                "example": "{\n    \"applicationId\": \"ec164d44-b275-4b78-9a56-31fd2f6145d3\",\n    \"state\": {\n        \"code\": \"FINISH\",\n        \"description\": {\n            \"opening_date\": \"2019-12-31\",\n            \"maturity_date\": \"2020-01-10\",\n            \"maturity_amount\": \"5508\",\n            \"interest_rate\": \"5\"\n        }\n    },\n    \"offerId\": \"EQTS_REG_01\",\n    \"provider\": {\n        \"id\": \"EQTS\",\n        \"name\": \"Equitas Small Finance Bank\",\n        \"logoUrl\": \"https://www.equitasbank.com/sites/default/files/equitas-logo.png\"\n    },\n    \"tenure\": 10,\n    \"amount\": 5500.0,\n    \"interest\": {\n        \"rate\": 3.6,\n        \"payoutFrequency\": \"NONE\"\n    },\n    \"customerObject\": {\n        \"accountId\": \"300000663913\",\n        \"productCode\": \"EQTS_REG_01\",\n        \"urn\": \"\",\n        \"customerId\": \"7727386\",\n        \"name\": \"Sunil Ghintala\",\n        \"dob\": \"1993-01-21\",\n        \"pan\": \"TGXPM3070D\",\n        \"mobile\": \"919483895729\",\n        \"email\": \"test@setu.co\",\n        \"nomineeName\": \"test\",\n        \"nomineeRelation\": \"FATHER\",\n        \"nomineeDob\": \"1991-12-01\"\n    }\n}"
+                                "example": {
+                                    "applicationId": "ec164d44-b275-4b78-9a56-31fd2f6145d3",
+                                    "state": {
+                                        "code": "FINISH",
+                                        "description": {
+                                            "opening_date": "2019-12-31",
+                                            "maturity_date": "2020-01-10",
+                                            "maturity_amount": "5508",
+                                            "interest_rate": "5"
+                                        }
+                                    },
+                                    "offerId": "EQTS_REG_01",
+                                    "provider": {
+                                        "id": "EQTS",
+                                        "name": "Equitas Small Finance Bank",
+                                        "logoUrl": "https://www.equitasbank.com/sites/default/files/equitas-logo.png"
+                                    },
+                                    "tenure": 10,
+                                    "amount": 5500,
+                                    "interest": {
+                                        "rate": 3.6,
+                                        "payoutFrequency": "NONE"
+                                    },
+                                    "customerObject": {
+                                        "accountId": "300000663913",
+                                        "productCode": "EQTS_REG_01",
+                                        "urn": "",
+                                        "customerId": "7727386",
+                                        "name": "Sunil Ghintala",
+                                        "dob": "1993-01-21",
+                                        "pan": "TGXPM3070D",
+                                        "mobile": "919483895729",
+                                        "email": "test@setu.co",
+                                        "nomineeName": "test",
+                                        "nomineeRelation": "FATHER",
+                                        "nomineeDob": "1991-12-01"
+                                    }
+                                }
                             }
                         }
                     }
@@ -1399,13 +2265,21 @@
                     }
                 ],
                 "responses": {
-                    "undefined": {
+                    "200": {
+                        "description": "OK",
                         "content": {
-                            "text/plain": {
+                            "application/json": {
                                 "schema": {
-                                    "type": "string"
+                                    "type": "object",
+                                    "properties": {
+                                        "sessionId": {
+                                            "type": "string"
+                                        }
+                                    }
                                 },
-                                "example": "{\n    \"sessionId\": \"0327f4c4-834a-47bd-a81e-31848be7118a\"\n}"
+                                "example": {
+                                    "sessionId": "0327f4c4-834a-47bd-a81e-31848be7118a"
+                                }
                             }
                         }
                     }
@@ -1441,13 +2315,22 @@
                     }
                 ],
                 "responses": {
-                    "undefined": {
+                    "200": {
+                        "description": "OK",
                         "content": {
-                            "text/plain": {
+                            "application/json": {
                                 "schema": {
-                                    "type": "string"
+                                    "type": "object",
+                                    "properties": {
+                                        "balance": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        }
+                                    }
                                 },
-                                "example": "{\n    \"balance\": 5000.0\n}"
+                                "example": {
+                                    "balance": 5000
+                                }
                             }
                         }
                     }
@@ -1501,13 +2384,53 @@
                     }
                 ],
                 "responses": {
-                    "undefined": {
+                    "200": {
+                        "description": "OK",
                         "content": {
-                            "text/plain": {
+                            "application/json": {
                                 "schema": {
-                                    "type": "string"
+                                    "type": "object",
+                                    "properties": {
+                                        "accountId": {
+                                            "type": "string"
+                                        },
+                                        "transactions": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "date": {
+                                                        "type": "string"
+                                                    },
+                                                    "amount": {
+                                                        "type": "string"
+                                                    },
+                                                    "narration": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 },
-                                "example": "{\n    \"accountId\": \"300000661434\",\n    \"transactions\": [\n          {\n             \"id\": \"\",\n              \"date\": \"\",\n              \"amount\": \"\",\n              \"narration\": \"\",\n              \"type\": \"CREDIT\"\n        }\n    ]\n}"
+                                "example": {
+                                    "accountId": "300000661434",
+                                    "transactions": [
+                                        {
+                                            "id": "",
+                                            "date": "",
+                                            "amount": "",
+                                            "narration": "",
+                                            "type": "CREDIT"
+                                        }
+                                    ]
+                                }
                             }
                         }
                     }
@@ -1552,13 +2475,42 @@
                     }
                 ],
                 "responses": {
-                    "undefined": {
+                    "200": {
+                        "description": "OK",
                         "content": {
-                            "text/plain": {
+                            "application/json": {
                                 "schema": {
-                                    "type": "string"
+                                    "type": "object",
+                                    "properties": {
+                                        "netRedemptionAmount": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "principalAmount": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "accruedInterest": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "penalty": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "taxDeducted": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        }
+                                    }
                                 },
-                                "example": "{\n    \"netRedemptionAmount\": 5500.0,\n    \"principalAmount\": 5500,\n    \"accruedInterest\": 0,\n    \"penalty\": 0.0,\n    \"taxDeducted\": 0\n}"
+                                "example": {
+                                    "netRedemptionAmount": 5500,
+                                    "principalAmount": 5500,
+                                    "accruedInterest": 0,
+                                    "penalty": 0,
+                                    "taxDeducted": 0
+                                }
                             }
                         }
                     }
@@ -1594,13 +2546,89 @@
                     }
                 ],
                 "responses": {
-                    "undefined": {
+                    "200": {
+                        "description": "OK",
                         "content": {
-                            "text/plain": {
+                            "application/json": {
                                 "schema": {
-                                    "type": "string"
+                                    "type": "object",
+                                    "properties": {
+                                        "accountId": {
+                                            "type": "string"
+                                        },
+                                        "currentBalance": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "accountOpeningDate": {
+                                            "type": "string",
+                                            "format": "date"
+                                        },
+                                        "accountMaturityDate": {
+                                            "type": "string",
+                                            "format": "date"
+                                        },
+                                        "tenure": {
+                                            "type": "string"
+                                        },
+                                        "principalAmount": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "maturityAmount": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "interest": {
+                                            "type": "object",
+                                            "properties": {
+                                                "payoutFrequency": {
+                                                    "type": "string"
+                                                },
+                                                "rate": {
+                                                    "type": "integer",
+                                                    "format": "int32"
+                                                }
+                                            }
+                                        },
+                                        "redemptionAccount": {
+                                            "type": "object",
+                                            "properties": {
+                                                "accountId": {
+                                                    "type": "string"
+                                                },
+                                                "ifsc": {
+                                                    "type": "string"
+                                                },
+                                                "bank": {
+                                                    "type": "string"
+                                                },
+                                                "branch": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
                                 },
-                                "example": "{\n    \"accountId\": \"300000665410\",\n    \"currentBalance\": 5002.0,\n    \"accountOpeningDate\": \"2020-01-01\",\n    \"accountMaturityDate\": \"2020-01-10\",\n    \"tenure\": \"9\",\n    \"principalAmount\": 5000.0,\n    \"maturityAmount\": 5007.0,\n    \"interest\": {\n        \"payoutFrequency\": \"MATURITY\",\n        \"rate\": 5.0\n    },\n    \"redemptionAccount\": {\n        \"accountId\": \"\",\n        \"ifsc\": \"\",\n        \"bank\": \"\",\n        \"branch\": \"\"\n    }\n}"
+                                "example": {
+                                    "accountId": "300000665410",
+                                    "currentBalance": 5002,
+                                    "accountOpeningDate": "2020-01-01",
+                                    "accountMaturityDate": "2020-01-10",
+                                    "tenure": "9",
+                                    "principalAmount": 5000,
+                                    "maturityAmount": 5007,
+                                    "interest": {
+                                        "payoutFrequency": "MATURITY",
+                                        "rate": 5
+                                    },
+                                    "redemptionAccount": {
+                                        "accountId": "",
+                                        "ifsc": "",
+                                        "bank": "",
+                                        "branch": ""
+                                    }
+                                }
                             }
                         }
                     }
@@ -1636,13 +2664,32 @@
                     }
                 ],
                 "responses": {
-                    "undefined": {
+                    "200": {
+                        "description": "OK",
                         "content": {
-                            "text/plain": {
+                            "application/json": {
                                 "schema": {
-                                    "type": "string"
+                                    "type": "object",
+                                    "properties": {
+                                        "authSessionId": {
+                                            "type": "string"
+                                        },
+                                        "OTP": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
                                 },
-                                "example": "{\n    \"authSessionId\": \"954e8544-c5bb-4925-9d6b-e6b596c9f5b4\",\n    \"OTP\": {\n        \"status\": \"OTP send to user mobile number linked to FD account\"\n    }\n}"
+                                "example": {
+                                    "authSessionId": "954e8544-c5bb-4925-9d6b-e6b596c9f5b4",
+                                    "OTP": {
+                                        "status": "OTP send to user mobile number linked to FD account"
+                                    }
+                                }
                             }
                         }
                     }
@@ -1703,13 +2750,46 @@
                     }
                 ],
                 "responses": {
-                    "undefined": {
+                    "200": {
+                        "description": "OK",
                         "content": {
-                            "text/plain": {
+                            "application/json": {
                                 "schema": {
-                                    "type": "string"
+                                    "type": "object",
+                                    "properties": {
+                                        "authenticationDetails": {
+                                            "type": "object",
+                                            "properties": {
+                                                "tokenType": {
+                                                    "type": "string"
+                                                },
+                                                "accessTokenValue": {
+                                                    "type": "string"
+                                                },
+                                                "expiresIn": {
+                                                    "type": "string"
+                                                },
+                                                "scope": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 },
-                                "example": "{\n    \"authenticationDetails\": {\n        \"tokenType\": \"OTP\",\n        \"accessTokenValue\": \"0a1e85d8886b918168e165a94c5af0ab0170558b040fcc4f9cc0541754394933\",\n        \"expiresIn\": \"2020-11-27 11:13:10\",\n        \"scope\": [\n            \"EDIT\",\n            \"REDEEM\"\n        ]\n    }\n}"
+                                "example": {
+                                    "authenticationDetails": {
+                                        "tokenType": "OTP",
+                                        "accessTokenValue": "0a1e85d8886b918168e165a94c5af0ab0170558b040fcc4f9cc0541754394933",
+                                        "expiresIn": "2020-11-27 11:13:10",
+                                        "scope": [
+                                            "EDIT",
+                                            "REDEEM"
+                                        ]
+                                    }
+                                }
                             }
                         }
                     }
@@ -1772,7 +2852,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object"
+                                    "type": "object",
+                                    "properties": {
+                                        "recordId": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
                                 },
                                 "example": {
                                     "recordId": "201127044128340",
