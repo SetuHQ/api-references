@@ -172,25 +172,28 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object",
+                                    "type": "array",
                                     "properties": {
-                                        "0": {
-                                            "type": "object",
-                                            "properties": {
-                                                "id": {
-                                                    "type": "string",
-                                                    "example": "EQTS",
-                                                    "required": "true"
-                                                },
-                                                "name": {
-                                                    "type": "string",
-                                                    "example": "Equitas Small Finance Bank",
-                                                    "required": "true"
-                                                },
-                                                "logoUrl": {
-                                                    "type": "string",
-                                                    "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png",
-                                                    "required": "true"
+                                        "undefined": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "example": "EQTS",
+                                                        "required": "true"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Equitas Small Finance Bank",
+                                                        "required": "true"
+                                                    },
+                                                    "logoUrl": {
+                                                        "type": "string",
+                                                        "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png",
+                                                        "required": "true"
+                                                    }
                                                 }
                                             }
                                         }
@@ -238,360 +241,183 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object",
+                                    "type": "array",
                                     "properties": {
-                                        "0": {
-                                            "type": "object",
-                                            "properties": {
-                                                "id": {
-                                                    "type": "string",
-                                                    "example": "EQTS_SNR_07",
-                                                    "required": "true"
-                                                },
-                                                "provider": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "id": {
-                                                            "type": "string",
-                                                            "example": "EQTS",
-                                                            "required": "true"
-                                                        },
-                                                        "name": {
-                                                            "type": "string",
-                                                            "example": "Equitas Small Finance Bank",
-                                                            "required": "true"
-                                                        },
-                                                        "logoUrl": {
-                                                            "type": "string",
-                                                            "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png",
-                                                            "required": "true"
-                                                        }
-                                                    }
-                                                },
-                                                "category": {
-                                                    "type": "string",
-                                                    "example": "SENIOR_CITIZEN",
-                                                    "required": "true"
-                                                },
-                                                "amount": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "min": {
-                                                            "type": "integer",
-                                                            "format": "int32",
-                                                            "example": "5000",
-                                                            "required": "true"
-                                                        },
-                                                        "max": {
-                                                            "type": "integer",
-                                                            "format": "int32",
-                                                            "example": "5000",
-                                                            "required": "true"
-                                                        }
-                                                    }
-                                                },
-                                                "tenure": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "min": {
-                                                            "type": "integer",
-                                                            "format": "int32",
-                                                            "example": "271",
-                                                            "required": "true"
-                                                        },
-                                                        "max": {
-                                                            "type": "integer",
-                                                            "format": "int32",
-                                                            "example": "364",
-                                                            "required": "true"
-                                                        }
-                                                    }
-                                                },
-                                                "interest": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "payoutFrequency": {
-                                                            "type": "string",
-                                                            "example": "NONE",
-                                                            "required": "true"
-                                                        },
-                                                        "rate": {
-                                                            "type": "number",
-                                                            "example": "7.2",
-                                                            "required": "true"
-                                                        }
-                                                    }
-                                                },
-                                                "prematureWithdrawal": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "penalty": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "value": {
-                                                                    "type": "integer",
-                                                                    "format": "int32",
-                                                                    "example": "1",
-                                                                    "required": "true"
-                                                                },
-                                                                "unit": {
-                                                                    "type": "string",
-                                                                    "example": "PERCENTAGE",
-                                                                    "required": "true"
-                                                                }
+                                        "undefined": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "example": "EQTS_SNR_07",
+                                                        "required": "true"
+                                                    },
+                                                    "provider": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "string",
+                                                                "example": "EQTS",
+                                                                "required": "true"
+                                                            },
+                                                            "name": {
+                                                                "type": "string",
+                                                                "example": "Equitas Small Finance Bank",
+                                                                "required": "true"
+                                                            },
+                                                            "logoUrl": {
+                                                                "type": "string",
+                                                                "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png",
+                                                                "required": "true"
                                                             }
-                                                        },
-                                                        "isAllowed": {
-                                                            "type": "integer",
-                                                            "format": "int32",
-                                                            "example": "1",
-                                                            "required": "true"
                                                         }
-                                                    }
-                                                },
-                                                "expectedParams": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "kyc": {
-                                                            "type": "array",
-                                                            "items": {
+                                                    },
+                                                    "category": {
+                                                        "type": "string",
+                                                        "example": "SENIOR_CITIZEN",
+                                                        "required": "true"
+                                                    },
+                                                    "amount": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "min": {
+                                                                "type": "integer",
+                                                                "format": "int32",
+                                                                "example": "5000",
+                                                                "required": "true"
+                                                            },
+                                                            "max": {
+                                                                "type": "integer",
+                                                                "format": "int32",
+                                                                "example": "5000",
+                                                                "required": "true"
+                                                            }
+                                                        }
+                                                    },
+                                                    "tenure": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "min": {
+                                                                "type": "integer",
+                                                                "format": "int32",
+                                                                "example": "271",
+                                                                "required": "true"
+                                                            },
+                                                            "max": {
+                                                                "type": "integer",
+                                                                "format": "int32",
+                                                                "example": "364",
+                                                                "required": "true"
+                                                            }
+                                                        }
+                                                    },
+                                                    "interest": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "payoutFrequency": {
+                                                                "type": "string",
+                                                                "example": "NONE",
+                                                                "required": "true"
+                                                            },
+                                                            "rate": {
+                                                                "type": "number",
+                                                                "example": "7.2",
+                                                                "required": "true"
+                                                            }
+                                                        }
+                                                    },
+                                                    "prematureWithdrawal": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "penalty": {
                                                                 "type": "object",
                                                                 "properties": {
-                                                                    "name": {
-                                                                        "type": "string",
-                                                                        "example": "aadhaar",
+                                                                    "value": {
+                                                                        "type": "integer",
+                                                                        "format": "int32",
+                                                                        "example": "1",
                                                                         "required": "true"
                                                                     },
-                                                                    "required": {
-                                                                        "type": "boolean"
+                                                                    "unit": {
+                                                                        "type": "string",
+                                                                        "example": "PERCENTAGE",
+                                                                        "required": "true"
                                                                     }
                                                                 }
-                                                            }
-                                                        },
-                                                        "personal": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "name": {
-                                                                        "type": "string",
-                                                                        "example": "mobile",
-                                                                        "required": "true"
-                                                                    },
-                                                                    "required": {
-                                                                        "type": "boolean"
-                                                                    }
-                                                                }
-                                                            }
-                                                        },
-                                                        "nominee": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "name": {
-                                                                        "type": "string",
-                                                                        "example": "skipNominee",
-                                                                        "required": "true"
-                                                                    },
-                                                                    "required": {
-                                                                        "type": "boolean"
-                                                                    }
-                                                                }
-                                                            }
-                                                        },
-                                                        "declarations": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "name": {
-                                                                        "type": "string",
-                                                                        "example": "aadhaar",
-                                                                        "required": "true"
-                                                                    },
-                                                                    "required": {
-                                                                        "type": "boolean"
-                                                                    }
-                                                                }
+                                                            },
+                                                            "isAllowed": {
+                                                                "type": "integer",
+                                                                "format": "int32",
+                                                                "example": "1",
+                                                                "required": "true"
                                                             }
                                                         }
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "1": {
-                                            "type": "object",
-                                            "properties": {
-                                                "id": {
-                                                    "type": "string",
-                                                    "example": "EQTS_SNR_08",
-                                                    "required": "true"
-                                                },
-                                                "provider": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "id": {
-                                                            "type": "string",
-                                                            "example": "EQTS",
-                                                            "required": "true"
-                                                        },
-                                                        "name": {
-                                                            "type": "string",
-                                                            "example": "Equitas Small Finance Bank",
-                                                            "required": "true"
-                                                        },
-                                                        "logoUrl": {
-                                                            "type": "string",
-                                                            "example": "https://www.equitasbank.com/sites/default/files/equitas-logo.png",
-                                                            "required": "true"
-                                                        }
-                                                    }
-                                                },
-                                                "category": {
-                                                    "type": "string",
-                                                    "example": "SENIOR_CITIZEN",
-                                                    "required": "true"
-                                                },
-                                                "amount": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "min": {
-                                                            "type": "integer",
-                                                            "format": "int32",
-                                                            "example": "5000",
-                                                            "required": "true"
-                                                        },
-                                                        "max": {
-                                                            "type": "integer",
-                                                            "format": "int32",
-                                                            "example": "5000",
-                                                            "required": "true"
-                                                        }
-                                                    }
-                                                },
-                                                "tenure": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "min": {
-                                                            "type": "integer",
-                                                            "format": "int32",
-                                                            "example": "365",
-                                                            "required": "true"
-                                                        },
-                                                        "max": {
-                                                            "type": "integer",
-                                                            "format": "int32",
-                                                            "example": "365",
-                                                            "required": "true"
-                                                        }
-                                                    }
-                                                },
-                                                "interest": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "payoutFrequency": {
-                                                            "type": "string",
-                                                            "example": "NONE",
-                                                            "required": "true"
-                                                        },
-                                                        "rate": {
-                                                            "type": "number",
-                                                            "example": "7.7",
-                                                            "required": "true"
-                                                        }
-                                                    }
-                                                },
-                                                "prematureWithdrawal": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "penalty": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "value": {
-                                                                    "type": "integer",
-                                                                    "format": "int32",
-                                                                    "example": "1",
-                                                                    "required": "true"
-                                                                },
-                                                                "unit": {
-                                                                    "type": "string",
-                                                                    "example": "PERCENTAGE",
-                                                                    "required": "true"
-                                                                }
-                                                            }
-                                                        },
-                                                        "isAllowed": {
-                                                            "type": "integer",
-                                                            "format": "int32",
-                                                            "example": "1",
-                                                            "required": "true"
-                                                        }
-                                                    }
-                                                },
-                                                "expectedParams": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "kyc": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "name": {
-                                                                        "type": "string",
-                                                                        "example": "aadhaar",
-                                                                        "required": "true"
-                                                                    },
-                                                                    "required": {
-                                                                        "type": "boolean"
+                                                    },
+                                                    "expectedParams": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "kyc": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "name": {
+                                                                            "type": "string",
+                                                                            "example": "aadhaar",
+                                                                            "required": "true"
+                                                                        },
+                                                                        "required": {
+                                                                            "type": "boolean"
+                                                                        }
                                                                     }
                                                                 }
-                                                            }
-                                                        },
-                                                        "personal": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "name": {
-                                                                        "type": "string",
-                                                                        "example": "mobile",
-                                                                        "required": "true"
-                                                                    },
-                                                                    "required": {
-                                                                        "type": "boolean"
+                                                            },
+                                                            "personal": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "name": {
+                                                                            "type": "string",
+                                                                            "example": "mobile",
+                                                                            "required": "true"
+                                                                        },
+                                                                        "required": {
+                                                                            "type": "boolean"
+                                                                        }
                                                                     }
                                                                 }
-                                                            }
-                                                        },
-                                                        "nominee": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "name": {
-                                                                        "type": "string",
-                                                                        "example": "skipNominee",
-                                                                        "required": "true"
-                                                                    },
-                                                                    "required": {
-                                                                        "type": "boolean"
+                                                            },
+                                                            "nominee": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "name": {
+                                                                            "type": "string",
+                                                                            "example": "skipNominee",
+                                                                            "required": "true"
+                                                                        },
+                                                                        "required": {
+                                                                            "type": "boolean"
+                                                                        }
                                                                     }
                                                                 }
-                                                            }
-                                                        },
-                                                        "declarations": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "name": {
-                                                                        "type": "string",
-                                                                        "example": "aadhaar",
-                                                                        "required": "true"
-                                                                    },
-                                                                    "required": {
-                                                                        "type": "boolean"
+                                                            },
+                                                            "declarations": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "name": {
+                                                                            "type": "string",
+                                                                            "example": "aadhaar",
+                                                                            "required": "true"
+                                                                        },
+                                                                        "required": {
+                                                                            "type": "boolean"
+                                                                        }
                                                                     }
                                                                 }
                                                             }
@@ -1782,20 +1608,23 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object",
+                                    "type": "array",
                                     "properties": {
-                                        "0": {
-                                            "type": "object",
-                                            "properties": {
-                                                "name": {
-                                                    "type": "string",
-                                                    "example": "UPI",
-                                                    "required": "true"
-                                                },
-                                                "id": {
-                                                    "type": "string",
-                                                    "example": "UPI",
-                                                    "required": "true"
+                                        "undefined": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "UPI",
+                                                        "required": "true"
+                                                    },
+                                                    "id": {
+                                                        "type": "string",
+                                                        "example": "UPI",
+                                                        "required": "true"
+                                                    }
                                                 }
                                             }
                                         }
