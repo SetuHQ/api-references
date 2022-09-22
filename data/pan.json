@@ -15,10 +15,6 @@
     ],
     "components": {
         "securitySchemes": {
-            "noauth": {
-                "type": "http",
-                "scheme": "noauth"
-            },
             "bearer": {
                 "type": "http",
                 "scheme": "bearer"
@@ -89,11 +85,6 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -332,11 +323,6 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -419,11 +405,6 @@
                 ],
                 "summary": "Get Template",
                 "operationId": "GetTemplate",
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -621,11 +602,6 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -779,11 +755,6 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -983,11 +954,6 @@
                 ],
                 "summary": "Get Signature Request by Request ID",
                 "operationId": "GetSignatureRequestbyRequestID",
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -1238,11 +1204,6 @@
                 "requestBody": {
                     "content": {}
                 },
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -1299,11 +1260,6 @@
                 ],
                 "summary": "Download a Signed Document",
                 "operationId": "DownloadaSignedDocument",
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -1461,11 +1417,6 @@
                 "summary": "Get Esign Audit Report",
                 "operationId": "GetEsignAuditReport",
                 "description": "Get esign sudit report in pdf/json format against a signature request Id.",
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -1685,11 +1636,6 @@
                 ],
                 "summary": "Download document",
                 "operationId": "Downloaddocument",
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -1791,11 +1737,6 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -1947,11 +1888,6 @@
                 ],
                 "summary": "[API only] Initiate OKYC Request",
                 "operationId": "[APIonly]InitiateOKYCRequest",
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -2194,11 +2130,6 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -2431,11 +2362,6 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -2570,11 +2496,6 @@
                 ],
                 "summary": "Get details of an OKYC Request",
                 "operationId": "GetdetailsofanOKYCRequest",
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -2968,11 +2889,6 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -3118,11 +3034,6 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -3312,11 +3223,6 @@
                 ],
                 "summary": "Get e-Aadhaar XML",
                 "operationId": "Gete-AadhaarXML",
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -3606,11 +3512,6 @@
                 ],
                 "summary": "Get List of all docs available",
                 "operationId": "GetListofalldocsavailable",
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -3747,11 +3648,6 @@
                 ],
                 "summary": "Revoke access token",
                 "operationId": "Revokeaccesstoken",
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -3815,11 +3711,6 @@
                 ],
                 "summary": "Get status API",
                 "operationId": "GetstatusAPI",
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -3935,11 +3826,6 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -4195,11 +4081,6 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -4338,11 +4219,6 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -4425,11 +4301,6 @@
                 ],
                 "summary": "Get BAV request details",
                 "operationId": "GetBAVrequestdetails",
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -4584,11 +4455,6 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -4703,11 +4569,6 @@
                 ],
                 "summary": "Get Aadhaar Verification details",
                 "operationId": "GetAadhaarVerificationdetails",
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -4791,11 +4652,6 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -4841,11 +4697,6 @@
                 "requestBody": {
                     "content": {}
                 },
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
@@ -4897,11 +4748,6 @@
                 ],
                 "summary": "Get Details",
                 "operationId": "GetDetails",
-                "security": [
-                    {
-                        "noauth": []
-                    }
-                ],
                 "parameters": [
                     {
                         "name": "x-client-id",
