@@ -53,6 +53,7 @@
                         "schema": {
                             "type": "string"
                         },
+                        "required": true,
                         "example": "UJVN"
                     },
                     {
@@ -61,6 +62,7 @@
                         "schema": {
                             "type": "integer"
                         },
+                        "required": true,
                         "description": "Amount to be deposited ( in Rupees)",
                         "example": "9000"
                     },
@@ -70,6 +72,7 @@
                         "schema": {
                             "type": "integer"
                         },
+                        "required": true,
                         "description": "Deposit tenure ( in days )",
                         "example": "10"
                     },
@@ -79,12 +82,14 @@
                         "schema": {
                             "type": "string"
                         },
+                        "required": true,
                         "description": "category code (eg: SENIOR_CITIZEN)",
                         "example": "REGULAR"
                     }
                 ],
                 "responses": {
-                    "undefined": {
+                    "200": {
+                        "description": "OK",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -112,26 +117,22 @@
                                         },
                                         "principalAmount": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "9000",
+                                            "example": 9000,
                                             "required": "true"
                                         },
                                         "maturityAmount": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "9012",
+                                            "example": 9012,
                                             "required": "true"
                                         },
                                         "interestAccrued": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "12",
+                                            "example": 12,
                                             "required": "true"
                                         },
                                         "interestRate": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "5",
+                                            "example": 5,
                                             "required": "true"
                                         }
                                     }
@@ -227,6 +228,7 @@
                         "schema": {
                             "type": "string"
                         },
+                        "required": true,
                         "example": "application/json"
                     }
                 ],
@@ -275,14 +277,12 @@
                                                 "properties": {
                                                     "min": {
                                                         "type": "integer",
-                                                        "format": "int32",
-                                                        "example": "5000",
+                                                        "example": 5000,
                                                         "required": "true"
                                                     },
                                                     "max": {
                                                         "type": "integer",
-                                                        "format": "int32",
-                                                        "example": "5000",
+                                                        "example": 5000,
                                                         "required": "true"
                                                     }
                                                 }
@@ -292,14 +292,12 @@
                                                 "properties": {
                                                     "min": {
                                                         "type": "integer",
-                                                        "format": "int32",
-                                                        "example": "271",
+                                                        "example": 271,
                                                         "required": "true"
                                                     },
                                                     "max": {
                                                         "type": "integer",
-                                                        "format": "int32",
-                                                        "example": "364",
+                                                        "example": 364,
                                                         "required": "true"
                                                     }
                                                 }
@@ -314,7 +312,7 @@
                                                     },
                                                     "rate": {
                                                         "type": "number",
-                                                        "example": "7.2",
+                                                        "example": 7.2,
                                                         "required": "true"
                                                     }
                                                 }
@@ -327,8 +325,7 @@
                                                         "properties": {
                                                             "value": {
                                                                 "type": "integer",
-                                                                "format": "int32",
-                                                                "example": "1",
+                                                                "example": 1,
                                                                 "required": "true"
                                                             },
                                                             "unit": {
@@ -340,8 +337,7 @@
                                                     },
                                                     "isAllowed": {
                                                         "type": "integer",
-                                                        "format": "int32",
-                                                        "example": "1",
+                                                        "example": 1,
                                                         "required": "true"
                                                     }
                                                 }
@@ -990,8 +986,7 @@
                                 "properties": {
                                     "amount": {
                                         "type": "integer",
-                                        "format": "int32",
-                                        "example": "9000",
+                                        "example": 9000,
                                         "required": "true"
                                     },
                                     "offerId": {
@@ -1001,8 +996,7 @@
                                     },
                                     "tenure": {
                                         "type": "integer",
-                                        "format": "int32",
-                                        "example": "365",
+                                        "example": 365,
                                         "required": "true"
                                     }
                                 }
@@ -1069,14 +1063,12 @@
                                         },
                                         "tenure": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "10",
+                                            "example": 10,
                                             "required": "true"
                                         },
                                         "amount": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "9000",
+                                            "example": 9000,
                                             "required": "true"
                                         },
                                         "interest": {
@@ -1089,7 +1081,7 @@
                                                 },
                                                 "rate": {
                                                     "type": "number",
-                                                    "example": "3.6",
+                                                    "example": 3.6,
                                                     "required": "true"
                                                 }
                                             }
@@ -1234,14 +1226,12 @@
                                         },
                                         "tenure": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "10",
+                                            "example": 10,
                                             "required": "true"
                                         },
                                         "amount": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "9000",
+                                            "example": 9000,
                                             "required": "true"
                                         },
                                         "interest": {
@@ -1254,7 +1244,7 @@
                                                 },
                                                 "rate": {
                                                     "type": "number",
-                                                    "example": "3.6",
+                                                    "example": 3.6,
                                                     "required": "true"
                                                 }
                                             }
@@ -1920,14 +1910,12 @@
                                         },
                                         "tenure": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "10",
+                                            "example": 10,
                                             "required": "true"
                                         },
                                         "amount": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "5500",
+                                            "example": 5500,
                                             "required": "true"
                                         },
                                         "interest": {
@@ -1935,7 +1923,7 @@
                                             "properties": {
                                                 "rate": {
                                                     "type": "number",
-                                                    "example": "3.6",
+                                                    "example": 3.6,
                                                     "required": "true"
                                                 },
                                                 "payoutFrequency": {
@@ -2161,14 +2149,12 @@
                                         },
                                         "tenure": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "10",
+                                            "example": 10,
                                             "required": "true"
                                         },
                                         "amount": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "5500",
+                                            "example": 5500,
                                             "required": "true"
                                         },
                                         "interest": {
@@ -2176,7 +2162,7 @@
                                             "properties": {
                                                 "rate": {
                                                     "type": "number",
-                                                    "example": "3.6",
+                                                    "example": 3.6,
                                                     "required": "true"
                                                 },
                                                 "payoutFrequency": {
@@ -2467,8 +2453,7 @@
                                     "properties": {
                                         "balance": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "5000",
+                                            "example": 5000,
                                             "required": "true"
                                         }
                                     }
@@ -2507,6 +2492,7 @@
                         "schema": {
                             "type": "string"
                         },
+                        "required": true,
                         "example": "2020-10-10"
                     },
                     {
@@ -2515,6 +2501,7 @@
                         "schema": {
                             "type": "string"
                         },
+                        "required": true,
                         "example": "2020-12-10"
                     },
                     {
@@ -2617,6 +2604,7 @@
                         "schema": {
                             "type": "integer"
                         },
+                        "required": true,
                         "example": "5500"
                     },
                     {
@@ -2638,32 +2626,27 @@
                                     "properties": {
                                         "netRedemptionAmount": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "5500",
+                                            "example": 5500,
                                             "required": "true"
                                         },
                                         "principalAmount": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "5500",
+                                            "example": 5500,
                                             "required": "true"
                                         },
                                         "accruedInterest": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "0",
+                                            "example": 0,
                                             "required": "true"
                                         },
                                         "penalty": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "0",
+                                            "example": 0,
                                             "required": "true"
                                         },
                                         "taxDeducted": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "0",
+                                            "example": 0,
                                             "required": "true"
                                         }
                                     }
@@ -2724,8 +2707,7 @@
                                         },
                                         "currentBalance": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "5002",
+                                            "example": 5002,
                                             "required": "true"
                                         },
                                         "accountOpeningDate": {
@@ -2747,14 +2729,12 @@
                                         },
                                         "principalAmount": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "5000",
+                                            "example": 5000,
                                             "required": "true"
                                         },
                                         "maturityAmount": {
                                             "type": "integer",
-                                            "format": "int32",
-                                            "example": "5007",
+                                            "example": 5007,
                                             "required": "true"
                                         },
                                         "interest": {
@@ -2767,8 +2747,7 @@
                                                 },
                                                 "rate": {
                                                     "type": "integer",
-                                                    "format": "int32",
-                                                    "example": "5",
+                                                    "example": 5,
                                                     "required": "true"
                                                 }
                                             }
@@ -3025,8 +3004,7 @@
                                 "properties": {
                                     "amount": {
                                         "type": "integer",
-                                        "format": "int32",
-                                        "example": "5500",
+                                        "example": 5500,
                                         "required": "true"
                                     }
                                 }
@@ -3044,6 +3022,7 @@
                         "schema": {
                             "type": "string"
                         },
+                        "required": true,
                         "example": ""
                     },
                     {
