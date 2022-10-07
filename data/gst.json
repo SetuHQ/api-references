@@ -76,52 +76,59 @@
                       "$ref": "#/components/schemas/ValidGST"
                     },
                     {
-                      "example": {
+                      "example": {  
                         "data": {
                           "address": {
                             "additional": null,
                             "principle": {
-                              "buildingName": "EMBASSY ICON ANNEXE",
-                              "buildingNumber": "NO. 2/1",
+                              "buildingName": "MESH COMPLEX",
+                              "buildingNumber": "WAREHOUSE H",
                               "city": "",
-                              "district": "Bengaluru Urban",
-                              "floorNo": "THIRD FLOOR",
+                              "district": "Thane",
+                              "floorNo": "SURVEY NO. 35/4, 36/2",
                               "latitude": "",
-                              "location": "BANGALORE",
+                              "location": "BHIWANDI",
                               "longitude": "",
-                              "naturePlaceOfBusiness": "Office / Sale Office",
-                              "pinCode": "560001",
-                              "stateCode": "Karnataka",
-                              "street": "INFANTRY ROAD"
+                              "naturePlaceOfBusiness": "",
+                              "pinCode": "421302",
+                              "stateCode": "Maharashtra",
+                              "street": "SARAVALI"
                             }
                           },
                           "company": {
                             "constitutionOfBusiness": "Private Limited Company",
-                            "name": "BROKENTUSK TECHNOLOGIES PRIVATE LIMITED",
-                            "natureOfBusinessActivity": "[\"Office / Sale Office\"]",
-                            "state": "LGSTO 020 - Bengaluru",
+                            "name": "XYZ SELLER SERVICES PRIVATE LIMITED",
+                            "natureOfBusinessActivity": "",
+                            "state": "State - Maharashtra,Zone - Thane,Division - THANE CITY,Charge - BHIWANDI_701",
                             "status": "Active",
-                            "taxPayerType": "Regular",
-                            "tradeName": "BROKENTUSK TECHNOLOGIES PRIVATE LIMITED",
+                            "taxPayerType": "Tax Collector (Electronic Commerce Operator)",
+                            "tradeName": "XYZ SELLER SERVICES PRIVATE LIMITED",
                             "type": "Private Limited Company"
                           },
                           "gst": {
                             "dateOfCancellation": "",
-                            "id": "29AAICB0122B1ZC",
-                            "lastUpdatedDate": "12/03/2019",
-                            "registrationDate": "17/12/2018"
+                            "id": "27AAICB3918J1CT",
+                            "lastUpdatedDate": "",
+                            "registrationDate": "12/10/2018"
                           },
                           "jurisdiction": {
-                            "centre": "RANGE-BND1",
-                            "centreCode": "YW0102",
-                            "state": "LGSTO 020 - Bengaluru",
-                            "stateCode": "KA005"
+                            "centre": "Commissionerate - BHIWANDI,Division - DIVISION IV,Range - RANGE-I (Jurisdictional Office)",
+                            "centreCode": "VQ0401",
+                            "state": "State - Maharashtra,Zone - Thane,Division - THANE CITY,Charge - BHIWANDI_701",
+                            "stateCode": "MHCG1425"
                           }
                         },
                         "message": "",
-                        "requestId": "082a2832-a1f2-4644-ab1f-418d827f1310",
+                        "requestId": "e347e79b-dddc-49c1-b266-afb2c44843e8",
                         "verification": "success",
-                        "traceId": "1-63359dd7-1c3b0c61419897c60e39317e"
+                        "traceId": "1-633f22e0-6eb8245d7043f93e1bf83604"
+                      },
+                      "example": {
+                        "data": {},
+                        "message": "Invalid GSTIN / UID",
+                        "requestId": "f8baadba-5f92-481c-9ce4-f5ba45af030b",
+                        "verification": "success",
+                        "traceId": "1-633c15e8-24825b38477426d4165bb6c2"
                       }
                     }
                   ]
@@ -141,12 +148,11 @@
                     },
                     {
                       "example": {
-                        "error": {
-                            "message": "Invalid GSTIN / UID",
-                            "requestId": "3e747d61-196b-4baf-8245-100e553d79b9",
-                            "verification": "failed",
-                            "traceId": "1-633a937e-6528e678313aa51453767d09"
-                        }
+                        "data": {},
+                        "message": "Invalid GSTIN / UID",
+                        "requestId": "f8baadba-5f92-481c-9ce4-f5ba45af030b",
+                        "verification": "success",
+                        "traceId": "1-633c15e8-24825b38477426d4165bb6c2"
                       }
                     }
                   ]
@@ -154,6 +160,7 @@
               }
             }
           }
+          
         },
         "deprecated": false,
         "security": []
@@ -3553,5 +3560,5 @@
     {
       "bearer": []
     }
-  ],
+  ]
 }
