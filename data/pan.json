@@ -119,7 +119,7 @@
                     "full_name": "John Doe"
                   },
                   "message": "PAN is valid",
-                  "verification": "success"
+                  "verification": "SUCCESS"
                 }
               }
             }
@@ -2576,7 +2576,7 @@
             "full_name": "John Doe"
           },
           "message": "PAN is valid",
-          "verification": "success"
+          "verification": "SUCCESS"
         }
       },
       "Data": {
@@ -2761,7 +2761,7 @@
             "transactionReference": "120716373986"
           },
           "message": "Account exists and is active.",
-          "verification": "success"
+          "verification": "SUCCESS"
         }
       },
       "Data1": {
