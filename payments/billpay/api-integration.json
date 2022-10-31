@@ -33,6 +33,50 @@
         "responses": {
           "200": {
             "description": "OK",
+            "headers": {
+              "X-Frame-Options": {
+                "description": "X Frame options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Strict-Transport-Security": {
+                "description": "Strict transport security",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "Cache control",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "X Content type options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Content-Security-Policy": {
+                "description": "Content security policy",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Pragma": {
+                "description": "Pragma",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-XSS-Protection": {
+                "description": "X Xss Protection",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -85,11 +129,55 @@
               }
             }
           },
-          "required": false
+          "required": true
         },
         "responses": {
           "200": {
             "description": "OK",
+            "headers": {
+              "X-Frame-Options": {
+                "description": "X Frame options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Strict-Transport-Security": {
+                "description": "Strict transport security",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "Cache control",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "X Content type options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Content-Security-Policy": {
+                "description": "Content security policy",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Pragma": {
+                "description": "Pragma",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-XSS-Protection": {
+                "description": "X Xss Protection",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -148,6 +236,50 @@
         "responses": {
           "200": {
             "description": "OK",
+            "headers": {
+              "X-Frame-Options": {
+                "description": "X Frame options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Strict-Transport-Security": {
+                "description": "Strict transport security",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "Cache control",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "X Content type options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Content-Security-Policy": {
+                "description": "Content security policy",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Pragma": {
+                "description": "Pragma",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-XSS-Protection": {
+                "description": "X Xss Protection",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -236,6 +368,50 @@
         "responses": {
           "200": {
             "description": "List of billers",
+            "headers": {
+              "X-Frame-Options": {
+                "description": "X Frame options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Strict-Transport-Security": {
+                "description": "Strict transport security",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "Cache control",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "X Content type options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Content-Security-Policy": {
+                "description": "Content security policy",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Pragma": {
+                "description": "Pragma",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-XSS-Protection": {
+                "description": "X Xss Protection",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -300,11 +476,55 @@
               }
             }
           },
-          "required": false
+          "required": true
         },
         "responses": {
           "200": {
             "description": "OK",
+            "headers": {
+              "X-Frame-Options": {
+                "description": "X Frame options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Strict-Transport-Security": {
+                "description": "Strict transport security",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "Cache control",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "X Content type options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Content-Security-Policy": {
+                "description": "Content security policy",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Pragma": {
+                "description": "Pragma",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-XSS-Protection": {
+                "description": "X Xss Protection",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -370,11 +590,55 @@
               }
             }
           },
-          "required": false
+          "required": true
         },
         "responses": {
           "200": {
             "description": "OK",
+            "headers": {
+              "X-Frame-Options": {
+                "description": "X Frame options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Strict-Transport-Security": {
+                "description": "Strict transport security",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "Cache control",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "X Content type options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Content-Security-Policy": {
+                "description": "Content security policy",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Pragma": {
+                "description": "Pragma",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-XSS-Protection": {
+                "description": "X Xss Protection",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -440,11 +704,55 @@
               }
             }
           },
-          "required": false
+          "required": true
         },
         "responses": {
           "200": {
             "description": "OK",
+            "headers": {
+              "X-Frame-Options": {
+                "description": "X Frame options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Strict-Transport-Security": {
+                "description": "Strict transport security",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "Cache control",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "X Content type options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Content-Security-Policy": {
+                "description": "Content security policy",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Pragma": {
+                "description": "Pragma",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-XSS-Protection": {
+                "description": "X Xss Protection",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -510,11 +818,55 @@
               }
             }
           },
-          "required": false
+          "required": true
         },
         "responses": {
           "200": {
             "description": "OK",
+            "headers": {
+              "X-Frame-Options": {
+                "description": "X Frame options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Strict-Transport-Security": {
+                "description": "Strict transport security",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "Cache control",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "X Content type options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Content-Security-Policy": {
+                "description": "Content security policy",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Pragma": {
+                "description": "Pragma",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-XSS-Protection": {
+                "description": "X Xss Protection",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -580,11 +932,55 @@
               }
             }
           },
-          "required": false
+          "required": true
         },
         "responses": {
           "200": {
             "description": "OK",
+            "headers": {
+              "X-Frame-Options": {
+                "description": "X Frame options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Strict-Transport-Security": {
+                "description": "Strict transport security",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "Cache control",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "X Content type options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Content-Security-Policy": {
+                "description": "Content security policy",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Pragma": {
+                "description": "Pragma",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-XSS-Protection": {
+                "description": "X Xss Protection",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -650,11 +1046,55 @@
               }
             }
           },
-          "required": false
+          "required": true
         },
         "responses": {
           "200": {
             "description": "OK",
+            "headers": {
+              "X-Frame-Options": {
+                "description": "X Frame options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Strict-Transport-Security": {
+                "description": "Strict transport security",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "Cache control",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "X Content type options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Content-Security-Policy": {
+                "description": "Content security policy",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Pragma": {
+                "description": "Pragma",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-XSS-Protection": {
+                "description": "X Xss Protection",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -715,6 +1155,50 @@
         "responses": {
           "200": {
             "description": "List of categories",
+            "headers": {
+              "X-Frame-Options": {
+                "description": "X Frame options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Strict-Transport-Security": {
+                "description": "Strict transport security",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "Cache control",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "X Content type options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Content-Security-Policy": {
+                "description": "Content security policy",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Pragma": {
+                "description": "Pragma",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-XSS-Protection": {
+                "description": "X Xss Protection",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -800,6 +1284,50 @@
         "responses": {
           "200": {
             "description": "List of disputes",
+            "headers": {
+              "X-Frame-Options": {
+                "description": "X Frame options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Strict-Transport-Security": {
+                "description": "Strict transport security",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "Cache control",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "X Content type options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Content-Security-Policy": {
+                "description": "Content security policy",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Pragma": {
+                "description": "Pragma",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-XSS-Protection": {
+                "description": "X Xss Protection",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -886,6 +1414,50 @@
         "responses": {
           "200": {
             "description": "List of fetched bills",
+            "headers": {
+              "X-Frame-Options": {
+                "description": "X Frame options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Strict-Transport-Security": {
+                "description": "Strict transport security",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "Cache control",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "X Content type options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Content-Security-Policy": {
+                "description": "Content security policy",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Pragma": {
+                "description": "Pragma",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-XSS-Protection": {
+                "description": "X Xss Protection",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -976,6 +1548,43 @@
           {
             "name": "billerId",
             "in": "query",
+            "description": "Transaction BillerId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Transaction Reference Ids",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Transaction Status",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Refunded",
+                "Processing",
+                "Submitted",
+                "Error",
+                "Success"
+              ]
+            }
+          },
+          {
+            "name": "mobile",
+            "in": "query",
+            "description": "Mobile No.",
             "schema": {
               "type": "string"
             }
@@ -984,6 +1593,50 @@
         "responses": {
           "200": {
             "description": "List of Txns",
+            "headers": {
+              "X-Frame-Options": {
+                "description": "X Frame options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Strict-Transport-Security": {
+                "description": "Strict transport security",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "description": "Cache control",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "X Content type options",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Content-Security-Policy": {
+                "description": "Content security policy",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Pragma": {
+                "description": "Pragma",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-XSS-Protection": {
+                "description": "X Xss Protection",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -1114,14 +1767,19 @@
           "ip": {
             "type": "string",
             "description": "Mandatory if channel is `INT`, `INTB`. Not required for others.",
+            "format": "ipv4",
             "example": "124.170.23.24"
           },
           "mac": {
+            "pattern": "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$",
             "type": "string",
             "description": "Mandatory if channel is `INT`, `INTB`. Not required for others.",
             "example": "48-4D-7E-CB-DB-6F"
           },
           "mobile": {
+            "maxLength": 20,
+            "minLength": 6,
+            "pattern": "^\\d{6}(\\d{4}(\\d{10})?)?$",
             "type": "string",
             "description": "Mandatory if channel is `AGT`, `BSC` and `BNKBRNCH`. Not required for others. This has to match the data submitted to NPCI for this agent ID\n",
             "example": "9481773011"
@@ -1136,6 +1794,7 @@
             ]
           },
           "postalCode": {
+            "pattern": "^[1-9][0-9]{5}$",
             "type": "string",
             "description": "Mandatory if channel is  `AGT`, `BSC` and `BNKBRNCH`. Not required for others. This has to match the data submitted to NPCI for this agent ID\n",
             "example": "600001"
@@ -1251,12 +1910,20 @@
           "code": {
             "type": "string",
             "description": "BBPS Error code",
-            "example": "ERR004"
+            "example": "BOU008"
           },
           "message": {
             "type": "string",
             "description": "BBPS Failure message",
-            "example": "customer not found"
+            "example": "Unable to Connect to BOU"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "BBPS",
+              "APP",
+              "FUND_TRANSFER"
+            ]
           }
         }
       },
@@ -1417,6 +2084,28 @@
           "refId": {
             "type": "string",
             "example": "HENSVVR4QOS7X1UGPY7JGUV444P10102202"
+          },
+          "refundDetails": {
+            "type": "object",
+            "properties": {
+              "error": {
+                "$ref": "#/components/schemas/errorMessage"
+              },
+              "status": {
+                "type": "string",
+                "example": "SUCCESS",
+                "enum": [
+                  "PROCESSING",
+                  "SUCCESS",
+                  "FAILURE"
+                ]
+              },
+              "transactionId": {
+                "type": "string",
+                "example": "AX30910192192192192"
+              }
+            },
+            "nullable": true
           },
           "status": {
             "type": "string",
@@ -1663,6 +2352,11 @@
         "x-omitempty": true
       },
       "couAgentBillFetchResponse": {
+        "required": [
+          "data",
+          "success",
+          "traceId"
+        ],
         "type": "object",
         "properties": {
           "data": {
@@ -1707,6 +2401,11 @@
         "x-omitempty": true
       },
       "couAgentBillPaymentResponse": {
+        "required": [
+          "data",
+          "success",
+          "traceId"
+        ],
         "type": "object",
         "properties": {
           "data": {
@@ -1757,6 +2456,10 @@
         "x-omitempty": true
       },
       "couAgentDisputeResponse": {
+        "required": [
+          "success",
+          "traceId"
+        ],
         "type": "object",
         "properties": {
           "data": {
@@ -2176,6 +2879,12 @@
         }
       },
       "paymentDetails": {
+        "required": [
+          "amount",
+          "mode",
+          "paymentRefId",
+          "timestamp"
+        ],
         "type": "object",
         "properties": {
           "amount": {
@@ -2201,10 +2910,8 @@
               "USSD"
             ]
           },
-          "paymentParams": {
-            "$ref": "#/components/schemas/paymentParameters"
-          },
           "paymentRefId": {
+            "minLength": 6,
             "type": "string",
             "example": "BD019181220291"
           },
@@ -2240,32 +2947,6 @@
             "type": "boolean",
             "example": false
           }
-        }
-      },
-      "paymentParameterItem": {
-        "required": [
-          "name",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "The display name of the parameter. This has to match what is sent in fields.",
-            "example": "Early Payment Amount"
-          },
-          "value": {
-            "type": "string",
-            "description": "The value of the payment parameter",
-            "example": "100"
-          }
-        }
-      },
-      "paymentParameters": {
-        "type": "array",
-        "description": "Additional Payment Parameters",
-        "items": {
-          "$ref": "#/components/schemas/paymentParameterItem"
         }
       },
       "planItem": {
@@ -2378,6 +3059,11 @@
         "x-omitempty": true
       },
       "transactionsResponse": {
+        "required": [
+          "data",
+          "success",
+          "traceId"
+        ],
         "type": "object",
         "properties": {
           "data": {
