@@ -15,7 +15,10 @@
   "paths": {
     "/api/verify/ban/reverse": {
       "post": {
-        "summary": "Create reverse penny drop request (no body)",
+        "tags": [
+          "Reverse Penny Drop"
+        ],
+        "summary": "Create RPD (without body)",
         "operationId": "CreateRPD(withoutbody)",
         "parameters": [
           {
@@ -42,9 +45,225 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
+          "201": {
+            "description": "CREATED",
+            "headers": {
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Fri, 14 Oct 2022 05:22:34 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "401"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "openresty"
+                  }
+                }
+              },
+              "Permissions-Policy": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "interest-cohort=()"
+                  }
+                }
+              },
+              "X-Frame-Options": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "DENY"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-Content-Type-Options": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "nosniff"
+                  }
+                }
+              },
+              "Content-Security-Policy": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
+                  }
+                }
+              },
+              "Referrer-Policy": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "strict-origin-when-cross-origin"
+                  }
+                }
+              },
+              "Strict-Transport-Security": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "max-age=31556926; includeSubDomains"
+                  }
+                }
+              },
+              "Cache-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "no-cache"
+                  }
+                }
+              },
+              "Pragma": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "no-cache"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Success10"
+                    },
+                    {
+                      "example": {
+                        "id": "81f4d2dd-6d32-48b0-8060-4976ea7acffc",
+                        "shortUrl": "https://sandbox.bills.pe/4qb3gymfvq2j",
+                        "status": "BAV_REVERSE_PENNY_DROP_CREATED",
+                        "traceId": "1-6348f219-48d54db111bd597b588d8ebb",
+                        "upiBillId": "1005098383142028542",
+                        "upiLink": "upi://pay?pa=bauvatest@kaypay&pn=BauvaTest&am=1.00&tr=1005098383142028542&tn=Account%20Verification&cu=INR&mode=04",
+                        "validUpto": "2022-10-14T05:25:34.087479"
+                      }
+                    }
+                  ]
+                },
+                "example": {
+                  "id": "81f4d2dd-6d32-48b0-8060-4976ea7acffc",
+                  "shortUrl": "https://sandbox.bills.pe/4qb3gymfvq2j",
+                  "status": "BAV_REVERSE_PENNY_DROP_CREATED",
+                  "traceId": "1-6348f219-48d54db111bd597b588d8ebb",
+                  "upiBillId": "1005098383142028542",
+                  "upiLink": "upi://pay?pa=bauvatest@kaypay&pn=BauvaTest&am=1.00&tr=1005098383142028542&tn=Account%20Verification&cu=INR&mode=04",
+                  "validUpto": "2022-10-14T05:25:34.087479"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "headers": {
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Fri, 14 Oct 2022 05:22:01 GMT"
+                  }
+                }
+              },
+              "Transfer-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "chunked"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "openresty"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "example": "response indicates failure, status=401, body={\"error\":\"unauthorized_client\",\"error_description\":\"Invalid client secret\"}\n"
+                },
+                "example": "response indicates failure, status=401, body={\"error\":\"unauthorized_client\",\"error_description\":\"Invalid client secret\"}\n"
+              }
+            }
           }
         },
         "deprecated": false,
@@ -53,7 +272,10 @@
     },
     "/api/verify/ban/reverse/mock_payment/{requestId}": {
       "post": {
-        "summary": "Mock customer payment (sandbox)",
+        "tags": [
+          "Reverse Penny Drop"
+        ],
+        "summary": "Mock Payment",
         "operationId": "MockPayment",
         "parameters": [
           {
@@ -92,8 +314,160 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "headers": {}
+            "description": "OK",
+            "headers": {
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Fri, 14 Oct 2022 05:27:29 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "67"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "openresty"
+                  }
+                }
+              },
+              "Permissions-Policy": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "interest-cohort=()"
+                  }
+                }
+              },
+              "X-Frame-Options": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "DENY"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-Content-Type-Options": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "nosniff"
+                  }
+                }
+              },
+              "Content-Security-Policy": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
+                  }
+                }
+              },
+              "Referrer-Policy": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "strict-origin-when-cross-origin"
+                  }
+                }
+              },
+              "Strict-Transport-Security": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "max-age=31556926; includeSubDomains"
+                  }
+                }
+              },
+              "Cache-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "no-cache"
+                  }
+                }
+              },
+              "Pragma": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "no-cache"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Success12"
+                    },
+                    {
+                      "example": {
+                        "success": true,
+                        "traceId": "1-6348f340-742786432dd0e7e13bdbc7a4"
+                      }
+                    }
+                  ]
+                },
+                "example": {
+                  "success": true,
+                  "traceId": "1-6348f340-742786432dd0e7e13bdbc7a4"
+                }
+              }
+            }
           }
         },
         "deprecated": false,
@@ -102,7 +476,10 @@
     },
     "/api/verify/ban/reverse/{requestId}": {
       "get": {
-        "summary": "Get request details",
+        "tags": [
+          "Reverse Penny Drop"
+        ],
+        "summary": "Get Details",
         "operationId": "GetDetails",
         "parameters": [
           {
@@ -141,8 +518,350 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "headers": {}
+            "description": "OK",
+            "headers": {
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Fri, 14 Oct 2022 05:28:07 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "626"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "openresty"
+                  }
+                }
+              },
+              "Permissions-Policy": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "interest-cohort=()"
+                  }
+                }
+              },
+              "X-Frame-Options": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "DENY"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-Content-Type-Options": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "nosniff"
+                  }
+                }
+              },
+              "Content-Security-Policy": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
+                  }
+                }
+              },
+              "Referrer-Policy": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "strict-origin-when-cross-origin"
+                  }
+                }
+              },
+              "Strict-Transport-Security": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "max-age=31556926; includeSubDomains"
+                  }
+                }
+              },
+              "Cache-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "no-cache"
+                  }
+                }
+              },
+              "Pragma": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "no-cache"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Success13"
+                    },
+                    {
+                      "example": {
+                        "additionalData": null,
+                        "data": {
+                          "accountType": "UNKNOWN",
+                          "bankAccountIfsc": "SETU0000012",
+                          "bankAccountName": "Noresh",
+                          "bankAccountNumber": "9009120939129",
+                          "ifscCrossCheck": false,
+                          "payerVpa": "customer@vpa"
+                        },
+                        "id": "1af36b4e-681e-48a2-a15c-3b92da00e4c4",
+                        "shortUrl": "https://sandbox.bills.pe/vnl056cniwrk",
+                        "status": "BAV_REVERSE_PENNY_DROP_PAYMENT_SUCCESSFUL",
+                        "traceId": "1-6348f366-55c47bbe132d78441bbe4623",
+                        "upiBillId": "1005100812449350916",
+                        "upiLink": "upi://pay?pa=bauvatest@kaypay&pn=BauvaTest&am=1.00&tr=1005100812449350916&tn=Account%20Verification&cu=INR&mode=04",
+                        "validUpto": "2022-10-14T05:30:23.683631"
+                      }
+                    }
+                  ]
+                },
+                "example": {
+                  "additionalData": null,
+                  "data": {
+                    "accountType": "UNKNOWN",
+                    "bankAccountIfsc": "SETU0000012",
+                    "bankAccountName": "Noresh",
+                    "bankAccountNumber": "9009120939129",
+                    "ifscCrossCheck": false,
+                    "payerVpa": "customer@vpa"
+                  },
+                  "id": "1af36b4e-681e-48a2-a15c-3b92da00e4c4",
+                  "shortUrl": "https://sandbox.bills.pe/vnl056cniwrk",
+                  "status": "BAV_REVERSE_PENNY_DROP_PAYMENT_SUCCESSFUL",
+                  "traceId": "1-6348f366-55c47bbe132d78441bbe4623",
+                  "upiBillId": "1005100812449350916",
+                  "upiLink": "upi://pay?pa=bauvatest@kaypay&pn=BauvaTest&am=1.00&tr=1005100812449350916&tn=Account%20Verification&cu=INR&mode=04",
+                  "validUpto": "2022-10-14T05:30:23.683631"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NOT FOUND",
+            "headers": {
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Fri, 14 Oct 2022 05:28:29 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "154"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "openresty"
+                  }
+                }
+              },
+              "Permissions-Policy": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "interest-cohort=()"
+                  }
+                }
+              },
+              "X-Frame-Options": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "DENY"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-Content-Type-Options": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "nosniff"
+                  }
+                }
+              },
+              "Content-Security-Policy": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "default-src 'self'; img-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com; script-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com 'unsafe-inline'; style-src 'self' data-gateway-resources.s3.ap-south-1.amazonaws.com fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com"
+                  }
+                }
+              },
+              "Referrer-Policy": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "strict-origin-when-cross-origin"
+                  }
+                }
+              },
+              "Strict-Transport-Security": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "max-age=31556926; includeSubDomains"
+                  }
+                }
+              },
+              "Cache-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "no-cache"
+                  }
+                }
+              },
+              "Pragma": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "no-cache"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Failure-NotFound1"
+                    },
+                    {
+                      "example": {
+                        "error": {
+                          "code": "request_not_found",
+                          "detail": "Unable to find the BAV reverse penny drop request.",
+                          "traceId": "1-6348f37d-0a98296b43325b78627a65a7"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "example": {
+                  "error": {
+                    "code": "request_not_found",
+                    "detail": "Unable to find the BAV reverse penny drop request.",
+                    "traceId": "1-6348f37d-0a98296b43325b78627a65a7"
+                  }
+                }
+              }
+            }
           }
         },
         "deprecated": false,
@@ -588,6 +1307,7 @@
             {
               "identifier": "898925663929",
               "displayName": "Ashok Saini",
+              "yearOfBirth": "1991",
               "signature": {
                 "height": 60,
                 "onPages": [
@@ -605,6 +1325,7 @@
         "required": [
           "identifier",
           "displayName",
+          "yearOfBirth",
           "signature"
         ],
         "type": "object",
@@ -615,6 +1336,9 @@
           "displayName": {
             "type": "string"
           },
+          "yearOfBirth": {
+            "type": "string"
+          },
           "signature": {
             "$ref": "#/components/schemas/Signature"
           }
@@ -622,6 +1346,7 @@
         "example": {
           "identifier": "898925663929",
           "displayName": "Ashok Saini",
+          "yearOfBirth": "1991",
           "signature": {
             "height": 60,
             "onPages": [
@@ -2931,6 +3656,51 @@
           "redirectUrl": "https://setu.co"
         }
       },
+      "Success10": {
+        "title": "Success10",
+        "required": [
+          "id",
+          "shortUrl",
+          "status",
+          "traceId",
+          "upiBillId",
+          "upiLink",
+          "validUpto"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "shortUrl": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "traceId": {
+            "type": "string"
+          },
+          "upiBillId": {
+            "type": "string"
+          },
+          "upiLink": {
+            "type": "string"
+          },
+          "validUpto": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": "81f4d2dd-6d32-48b0-8060-4976ea7acffc",
+          "shortUrl": "https://sandbox.bills.pe/4qb3gymfvq2j",
+          "status": "BAV_REVERSE_PENNY_DROP_CREATED",
+          "traceId": "1-6348f219-48d54db111bd597b588d8ebb",
+          "upiBillId": "1005098383142028542",
+          "upiLink": "upi://pay?pa=bauvatest@kaypay&pn=BauvaTest&am=1.00&tr=1005098383142028542&tn=Account%20Verification&cu=INR&mode=04",
+          "validUpto": "2022-10-14T05:25:34.087479"
+        }
+      },
       "CreateRPDwithbodyRequest": {
         "title": "CreateRPDwithbodyRequest",
         "required": [
@@ -2969,6 +3739,168 @@
           "key2": "value2"
         }
       },
+      "Success12": {
+        "title": "Success12",
+        "required": [
+          "success",
+          "traceId"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "traceId": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": true,
+          "traceId": "1-6348f340-742786432dd0e7e13bdbc7a4"
+        }
+      },
+      "Failure": {
+        "title": "Failure",
+        "required": [
+          "success",
+          "traceId"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "traceId": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": false,
+          "traceId": "1-6348f340-742786432dd0e7e13bdbc7a4"
+        }
+      },
+      "Success13": {
+        "title": "Success13",
+        "required": [
+          "additionalData",
+          "data",
+          "id",
+          "shortUrl",
+          "status",
+          "traceId",
+          "upiBillId",
+          "upiLink",
+          "validUpto"
+        ],
+        "type": "object",
+        "properties": {
+          "additionalData": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data3"
+          },
+          "id": {
+            "type": "string"
+          },
+          "shortUrl": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "traceId": {
+            "type": "string"
+          },
+          "upiBillId": {
+            "type": "string"
+          },
+          "upiLink": {
+            "type": "string"
+          },
+          "validUpto": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "additionalData": null,
+          "data": {
+            "accountType": "UNKNOWN",
+            "bankAccountIfsc": "SETU0000012",
+            "bankAccountName": "Noresh",
+            "bankAccountNumber": "9009120939129",
+            "ifscCrossCheck": false,
+            "payerVpa": "customer@vpa"
+          },
+          "id": "1af36b4e-681e-48a2-a15c-3b92da00e4c4",
+          "shortUrl": "https://sandbox.bills.pe/vnl056cniwrk",
+          "status": "BAV_REVERSE_PENNY_DROP_PAYMENT_SUCCESSFUL",
+          "traceId": "1-6348f366-55c47bbe132d78441bbe4623",
+          "upiBillId": "1005100812449350916",
+          "upiLink": "upi://pay?pa=bauvatest@kaypay&pn=BauvaTest&am=1.00&tr=1005100812449350916&tn=Account%20Verification&cu=INR&mode=04",
+          "validUpto": "2022-10-14T05:30:23.683631"
+        }
+      },
+      "Data3": {
+        "title": "Data3",
+        "required": [
+          "accountType",
+          "bankAccountIfsc",
+          "bankAccountName",
+          "bankAccountNumber",
+          "ifscCrossCheck",
+          "payerVpa"
+        ],
+        "type": "object",
+        "properties": {
+          "accountType": {
+            "type": "string"
+          },
+          "bankAccountIfsc": {
+            "type": "string"
+          },
+          "bankAccountName": {
+            "type": "string"
+          },
+          "bankAccountNumber": {
+            "type": "string"
+          },
+          "ifscCrossCheck": {
+            "type": "boolean"
+          },
+          "payerVpa": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "accountType": "UNKNOWN",
+          "bankAccountIfsc": "SETU0000012",
+          "bankAccountName": "Noresh",
+          "bankAccountNumber": "9009120939129",
+          "ifscCrossCheck": false,
+          "payerVpa": "customer@vpa"
+        }
+      },
+      "Failure-NotFound1": {
+        "title": "Failure-NotFound1",
+        "required": [
+          "error"
+        ],
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/Error"
+          }
+        },
+        "example": {
+          "error": {
+            "code": "request_not_found",
+            "detail": "Unable to find the BAV reverse penny drop request.",
+            "traceId": "1-6348f37d-0a98296b43325b78627a65a7"
+          }
+        }
+      },
       "NameMatchAPIRequest": {
         "title": "NameMatchAPIRequest",
         "required": [
@@ -2989,8 +3921,8 @@
           "matchKey": "rkd"
         }
       },
-      "Success10": {
-        "title": "Success10",
+      "Success14": {
+        "title": "Success14",
         "required": [
           "aadhaar_verification",
           "pan",
